@@ -72,8 +72,8 @@
           href="/{section.href}"
           class="relative px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
                  hover:text-black dark:hover:text-white
-                 hover:border-1 transition:all duration-300
-                 ease-in-out aria-[current=page]:border-1"
+                 hover:showdow-2xl transition:all duration-300
+                 ease-in-out aria-[current=page]:inset-shadow-2xl dark:aria-[current=page]:shadow-white-2xl"
         >
           <span class="relative z-10" >{section.name}</span>
         </a>

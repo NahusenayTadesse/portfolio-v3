@@ -104,32 +104,34 @@
 <h1 class="text-4xl font-head text-center font-bold mb-4">About Me</h1>
 
 <div class="flex flex-col justify-between align-center justify-self-center px-4 lg:px-24">
-<div class="flex flex-col justify-center align-center text-center w-full shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
-      
-    <h1 class="font-bold font-head text-3xl">Who Am I?</h1>
-        <p class="text-center">I am Nahusenay Tadesse, a fullstack web developer with a passion for creating dynamic and responsive websites. I specialize in both frontend and backend development, ensuring that every project I work on is not only visually appealing but also functional and user-friendly.</p>
-    <div class="flex flex-col justify-center align-center text-center w-full shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
-        <h1 class="font-bold font-head text-3xl
-">Developement Philosophy</h1>
-        <p class="text-center">I believe in keeping development simple, efficient, and maintainable. Instead of overcomplicating things, I focus on building clean, reliable solutions that are easy to work with and scale over time</p>
+<div class="flex flex-row flex-wrap justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-8">
+      <div class="flex flex-col w-full lg:w-1/2 justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
+    <h1 class="font-bold font-head text-3xl text-left">Who Am I?</h1>
+        
+    <p class="text-left">I am Nahusenay Tadesse, a fullstack web developer with a passion for creating dynamic and responsive websites. I specialize in both frontend and backend development, ensuring that every project I work on is not only visually appealing but also functional and user-friendly.</p>
     </div>
-    <div>
-        <div class="flex flex-col justify-center  -center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
+    <div class="flex flex-col w-full lg:w-1/3 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
+        <h1 class="font-bold font-head text-3xl text-left">Developement Philosophy</h1>
+        <p class="text-left">I believe in keeping development simple, efficient, and maintainable. Instead of overcomplicating things, I focus on building clean, reliable solutions that are easy to work with and scale over time</p>
+    </div>
+    <div class="flex flex-row flex-wrap w-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-8">
+        <div class="flex flex-col w-full lg:w-1/3 justify-start items-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-8">
             <h1 class="font-bold font-head text-3xl">What Do I Do?</h1>
-            <p class="text-center">I develop websites that are tailored to meet the specific needs of my clients. Whether it's a portfolio, a business site, a blog, or an e-commerce platform, I ensure that each website is built with the latest technologies and best practices in mind.</p>
-        <h1 class="font-head font-bold text-3xl">What Kind of Websites Do I Develop?</h1>  
-
-              <p class="text-left">I develop a variety of websites, each requiring unique resources and timelines based on their complexity and purpose.</p>
-              <Tabs />
+            <p class="text-left">I develop websites that are tailored to meet the specific needs of my clients. Whether it's a portfolio, a business site, a blog, or an e-commerce platform, I ensure that each website is built with the latest technologies and best practices in mind.</p>
+        
 
           </div> 
-    </div>
-</div>
+          <div class="w-full lg:w-1/2 flex flex-col gap-4 shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8">
+            <h1 class="font-head font-bold text-3xl">What Kind of Websites Do I Develop?</h1>  
 
- <div class="flex flex-row flex-wrap justify-center items-center w-full shadow-md gap-4 p-4">
+              <p class="text-left">I develop a variety of websites, each requiring unique resources and timelines based on their complexity and purpose.</p>
+            <Tabs />
+          </div>
+    </div>
+     <div class="flex flex-col justify-center items-center w-full shadow-md gap-4 p-4">
 
      <h1 class="font-bold font-head text-3xl"> My Tech Stack</h1>
-     <p class="">I mainly use Sveltekit with Firebase or Supabase for backend services, and WordPress for simple content management. Here are some of the technologies I can work with:</p>
+     <p class="w-1/2 text-center">I mainly use Sveltekit with Firebase or Supabase for backend services, and WordPress for simple content management. Here are some of the technologies I can work with:</p>
     <div class="shadow-md rounded-lg flex flex-row flex-wrap justify-start lg:justify-center items-center w-full h-full lg:h-24
     gap-1 p-4 bg-gradient-to-r from-background-1 to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600">
 
@@ -138,6 +140,9 @@
             <Popover title={tech.name} class={popClass}>{tech.description}</Popover>
     {/each}
  </div>
+</div>
+
+
 </div>
 
 </div>

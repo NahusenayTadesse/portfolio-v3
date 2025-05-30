@@ -29,6 +29,10 @@
 --color-secondary-800: #1d2828;
 --color-secondary-900: #121c1c; /* glossy black */
 
+--color-background-1: #ffddc9; 
+--color-background-2: #a8edea; /* light mint */
+
+
 
   --font-head: 'Space Grotesk', 'sans-serif';
   --font-body: 'Inter', 'sans-serif';

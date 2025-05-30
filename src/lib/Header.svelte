@@ -3,12 +3,8 @@
     import { DarkMode } from "flowbite-svelte";
     import { slide } from 'svelte/transition';
     import { page } from '$app/state';
-    import { onMount } from 'svelte';
-    import { writable } from 'svelte/store';
+    import { currentSection } from '$lib/global.js';
 
-      const currentSection = writable('');
-
-   
    let sections = [
       { name: 'Home', href: '#home' },
       { name: 'About Me', href: '#about' },
@@ -19,32 +15,11 @@
 
   let isOpen = false;
 
-  onMount(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        for (const entry of entries) {
-          if (entry.isIntersecting) {
-            currentSection.set(`#${entry.target.id}`);
-          }
-        }
-      },
-      {
-        threshold: 0.6, // Adjust depending on when you want to trigger
-      }
-    );
-
-    sections.forEach(({ href }) => {
-      const id = href.replace('#', '');
-      const el = document.getElementById(id);
-      if (el) observer.observe(el);
-    });
-
-    return () => observer.disconnect();
-  });
+   
 
 </script>
 
-<nav class="bg-white dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto mt-8 sticky top-[10px] z-50 transition-all duration-300">
+<nav class="bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-700 dark:to-secondary-900 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto mt-8 sticky top-[10px] z-50 transition-all duration-300">
   <div class="flex justify-between items-center">
     <button 
       class="lg:hidden text-black dark:text-white focus:outline-none" 
@@ -67,13 +42,20 @@
     <div class="hidden lg:flex gap-4 items-center ">
       {#each sections as section}
         <a 
-        aria-current={$currentSection === section.href ? 'page' : undefined}
+        aria-current={page.url.hash === section.href || $currentSection === section.href ? 'page' : undefined}
 
           href="/{section.href}"
           class="relative px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
                  hover:text-black dark:hover:text-white
-                 hover:showdow-2xl transition:all duration-300
-                 ease-in-out aria-[current=page]:inset-shadow-2xl dark:aria-[current=page]:shadow-white-2xl"
+                 hover:shadow-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
+                 dark:hover:from-primary-600 dark:hover:to-secondary-600
+                  transition:all duration-300
+                 ease-in-out aria-[current=page]:shadow-lg dark:aria-[current=page]:shadow-white-2xl
+                 aria-[current=page]:bg-gradient-to-r aria-[current=page]:from-background-1 aria-[current=page]:to-background-2
+                dark:aria-[current=page]:bg-gradient-to-r dark:aria-[current=page]:from-primary-600 dark:aria-[current=page]:to-secondary-600
+                dark:text-white
+                dark:aria-[current=page]:text-white
+                "
         >
           <span class="relative z-10" >{section.name}</span>
         </a>
@@ -88,14 +70,16 @@
     <div class="lg:hidden mt-4 flex flex-col gap-2 sticky top-0">
       {#each sections as section}
         <a 
-         aria-current={$currentSection === section.href ? 'page' : undefined}
+         aria-current={page.url.hash === section.href || $currentSection === section.href ? 'page' : undefined}
           href={section.href} 
-          class="px-4 py-2 rounded-lg  rounded-lg   dark:text-gray-200
+          class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
                  hover:text-black dark:hover:text-white
-                 hover:border-1 transition:all duration-300
-                 ease-in-out aria-[current=page]:border-1
-                 aria-[current=page]:bg-primary-900 aria-[current=page]:text-white
-                 dark:aria-[current-page]:bg-white dark:aria-[current-page]:text-primary-900"
+                 hover:shadow-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
+                 dark:hover:from-secondary-900 dark:hover:to-secondary-700
+                  transition:all duration-300
+                 ease-in-out aria-[current=page]:shadow-lg dark:aria-[current=page]:shadow-white-2xl
+                aria-[current=page]:bg-gradient-to-r aria-[current=page]:from-background-1 aria-[current=page]:to-background-2
+                dark:aria-[current=page]:from-secondary-900 dark:aria-[current=page]:to-secondary-700"
          transition:slide|global
           >
           {section.name}
@@ -106,4 +90,7 @@
     </div>
   {/if}
 </nav>
+
+
+
 

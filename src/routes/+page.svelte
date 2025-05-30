@@ -9,6 +9,6 @@ import Tabs from '$lib/Tabs.svelte';
 <div class="flex flex-col justify-center align-center gap-12">
  <div id="home" ><Home /></div>
  <div id="about"><About /></div>
- <Tabs />
+
 
 </div>

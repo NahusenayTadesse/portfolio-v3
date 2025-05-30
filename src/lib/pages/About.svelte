@@ -1,6 +1,6 @@
 <script>
-    import { Popover, TabItem, Tabs} from "flowbite-svelte";
-    import { SiJavascript } from "@icons-pack/svelte-simple-icons";
+    import { Popover} from "flowbite-svelte";
+    import Tabs from '$lib/Tabs.svelte';
     let activeClass = "font-head font-bold text-secondary-900 dark:text-white bg-gradient-to-r from-background-1 to-background-2 dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4";
     let inactiveClass = "text-secondary-900 font-head font-bold dark:text-white hover:bg-gradient-to-r hover:from-background-2 hover:to-background-1 dark:hover:from-primary-700 dark:hover:to-secondary-900 p-4";
     let contentClass = "text-secondary-900 dark:text-white font-body text-sm bg-transparent shadow-lg rounded-lg p-4 text-left";
@@ -114,38 +114,13 @@
         <p class="text-center">I believe in keeping development simple, efficient, and maintainable. Instead of overcomplicating things, I focus on building clean, reliable solutions that are easy to work with and scale over time</p>
     </div>
     <div>
-        <div class="flex flex-col justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
+        <div class="flex flex-col justify-center  -center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-8 gap-4">
             <h1 class="font-bold font-head text-3xl">What Do I Do?</h1>
             <p class="text-center">I develop websites that are tailored to meet the specific needs of my clients. Whether it's a portfolio, a business site, a blog, or an e-commerce platform, I ensure that each website is built with the latest technologies and best practices in mind.</p>
         <h1 class="font-head font-bold text-3xl">What Kind of Websites Do I Develop?</h1>  
 
               <p class="text-left">I develop a variety of websites, each requiring unique resources and timelines based on their complexity and purpose.</p>
-              <div class="">
-              <Tabs {contentClass}  >
-                <TabItem open title = "Portfolio / Business" {inactiveClass} {activeClass} >
-                    <div >
-                    <h1 class="text-lg font-bold font-head">Portfolio or Business Websites</h1>
-                    These websites are designed to showcase your work or business. They typically include sections like About, Services, Portfolio, and Contact. I focus on creating visually appealing designs that reflect your brand identity and engage your audience.
-                     These websites, depending on the number of pages and their complexity it will take me <strong>3</strong> to <strong>5</strong> days.
-                     </div>
-                </TabItem>
-                <TabItem title = "Blogging" {inactiveClass} {activeClass} >
-                    <div >
-                    <h1 class="text-lg font-bold font-head">Blogging Websites</h1>
-                    Blogging websites are designed for content creators to share their thoughts, ideas, and expertise. I ensure that these sites are user-friendly, with features like categories, tags, and comment sections to enhance user engagement.
-                    These websites, depending on the number of pages and their complexity it will take me <strong>5</strong> to <strong>10</strong> days.
-                    </div>
-                </TabItem>
-                <TabItem title = "E-commerce" {inactiveClass} {activeClass}>
-                    <div >
-                    <h1 class="text-lg font-bold font-head">E-commerce Websites</h1>
-                    E-commerce websites are built to facilitate online sales. I focus on creating secure, user-friendly shopping experiences that drive conversions. These sites often include product catalogs, shopping carts, and payment gateways.
-                    These websites, depending on the number of pages and their complexity it will take me <strong>10</strong> to <strong>25</strong> days.
-
-                </div>
-              </TabItem>
-              </Tabs>
-              </div>
+              <Tabs />
 
           </div> 
     </div>
@@ -168,5 +143,5 @@
 </div>
 
 <div>
-  
+
 </div>

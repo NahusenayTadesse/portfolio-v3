@@ -14,8 +14,8 @@
         }
         active[index] = !active[index];
     }
-    let activeClass = " font-head font-bold text-secondary-900 dark:text-white bg-gradient-to-r from-background-1 to-background-2 dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4";
-    let inactiveClass = "text-secondary-900 shadow-md font-head font-bold dark:text-white hover:bg-gradient-to-r hover:from-background-2 hover:to-background-1 dark:hover:from-primary-700 dark:hover:to-secondary-900 p-4";
+    let activeClass = "font-head font-bold text-secondary-900 dark:text-white bg-gradient-to-r from-background-1 to-background-2 dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-2 lg:p-4";
+    let inactiveClass = "text-secondary-900 shadow-md font-head dark:text-white hover:bg-gradient-to-r hover:from-background-2 hover:to-background-1 dark:hover:from-primary-700 dark:hover:to-secondary-900 p-4";
     let contentClass = "text-secondary-900 dark:text-white font-body text-sm bg-transparent shadow-lg rounded-lg p-4 text-left";
 
 </script>
@@ -23,7 +23,7 @@
 
 
 
-<div class="flex flex-row flex-wrap gap-4">
+<div class="flex flex-row flex-wrap gap-1 lg:gap-4">
 
  <button onclick={() => toggle(0)} class={active[0] ? activeClass : inactiveClass}>
     Portfolio

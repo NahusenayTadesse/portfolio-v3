@@ -23,7 +23,7 @@
 
 
 
-<div class="flex flex-row flex-wrap gap-1 lg:gap-4">
+<div class="flex flex-row flex-wrap gap-1 lg:gap-4 ">
 
  <button onclick={() => toggle(0)} class={active[0] ? activeClass : inactiveClass}>
     Portfolio

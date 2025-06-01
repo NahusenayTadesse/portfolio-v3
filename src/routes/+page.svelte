@@ -3,6 +3,7 @@
 import { fly } from "svelte/transition"
 import Home from '$lib/pages/Home.svelte';
 import About from '$lib/pages/About.svelte';
+import Contact from './Contact.svelte';
 import Carousel from '$lib/Carousel.svelte';
 let { data } = $props();
    
@@ -23,5 +24,7 @@ let { data } = $props();
 
 
  </div>
+
+ <div id="contact"><Contact /></div>
 
 </div>

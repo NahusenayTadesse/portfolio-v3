@@ -7,25 +7,7 @@
       let svgClass = "w-8 h-8 text-secondary-900 dark:text-white transform hover:scale-125 transition-transform ease-in-out duration-300";
       let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-700 dark:to-secondary-900 shadow-lg rounded-lg p-4 text-center";
 
-
-    	function typewriter(node, { speed = 1 }) {
-		const valid = node.childNodes.length === 1 && node.childNodes[0].nodeType === Node.TEXT_NODE;
-
-		if (!valid) {
-			throw new Error(`This transition only works on elements with a single text node child`);
-		}
-
-		const text = node.textContent;
-		const duration = text.length / (speed * 0.03);
-
-		return {
-			duration,
-			tick: (t) => {
-				const i = Math.trunc(text.length * t);
-				node.textContent = text.slice(0, i);
-			}
-		};
-	}
+    import { typewriter } from '$lib/global.js';
     let showHeading = false;
     onMount(() => {
     // Set showHeading to true after the component is mounted

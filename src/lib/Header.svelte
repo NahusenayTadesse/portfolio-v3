@@ -3,10 +3,9 @@
     import { DarkMode } from "flowbite-svelte";
     import { slide } from 'svelte/transition';
     import { page } from '$app/state';
-    import { currentSection } from '$lib/global.js';
 
    let sections = [
-      { name: 'Home', href: '#home' },
+      { name: 'Home', href: '' },
       { name: 'About Me', href: '#about' },
       { name: 'Projects', href: '#projects' },
       { name: 'Contact', href: '#contact' }
@@ -42,7 +41,7 @@
     <div class="hidden lg:flex gap-4 items-center ">
       {#each sections as section}
         <a 
-        aria-current={page.url.hash === section.href || $currentSection === section.href ? 'page' : undefined}
+        aria-current={page.url.hash === section.href ? 'page' : undefined}
 
           href="/{section.href}"
           class="relative px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
@@ -69,7 +68,7 @@
     <div class="lg:hidden mt-4 flex flex-col gap-2 sticky top-0">
       {#each sections as section}
         <a 
-         aria-current={page.url.hash === section.href || $currentSection === section.href ? 'page' : undefined}
+         aria-current={page.url.hash === section.href ? 'page' : undefined}
           href="/{section.href}" 
           class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
                  hover:text-black dark:hover:text-white

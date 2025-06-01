@@ -23,3 +23,41 @@ export const load: PageServerLoad = async () => {
     return { projects: [] };
   }
 };
+
+export const actions: Actions = {
+  default: async ({ request }) => {
+    const formData = await request.formData();
+    const email = formData.get('email')?.toString();
+    const message = formData.get('message')?.toString();
+
+    if (!email || !message) {
+      return {
+        status: 400,
+        body: {
+          error: 'Missing fields'
+        }
+      };
+    }
+
+    try {
+      // Writing to Firestore with Admin SDK
+      await db.collection('contacts').add({
+         email,
+         message
+      });
+
+      return {
+        success: true
+      };
+    } catch (err) {
+      console.error('Firestore write error:', err);
+      return {
+        status: 500,
+        body: {
+          error: 'Server error'
+        }
+      };
+    }
+  }
+};
+import type { Actions } from './$types';

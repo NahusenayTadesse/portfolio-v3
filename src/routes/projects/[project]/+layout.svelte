@@ -1,13 +1,14 @@
  
 
 <script>
-    import {slide} from 'svelte/transition'
+    import {slide, fly, fade} from 'svelte/transition'
     import { ArrowLeftOutline } from 'flowbite-svelte-icons';
     let { data, children } = $props();
 </script>
 
 
-<div class="hidden lg:flex flex-col gap-4 p-4 pt-0 fixed top-12 right-0 justify-self-end w-1/5 z-0 h-full bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg">
+<div class="hidden lg:flex flex-col gap-4 p-4 pt-0 fixed top-12 right-0 justify-self-end w-1/5 z-0 h-full 
+bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: -200, duration: 600}}>
     
     
     
@@ -20,7 +21,7 @@
     <h1 class="font-head font-bold text-2xl">More Posts</h1>
     <ul>
         {#each data.projects as project}
-            <li  transition:slide|global>
+            <li  transition:slide|global={{ duration:300}}>
                 <a href="/projects/{project.slug}" class="font-head font-bold text-lg hover:bg-gradient-to-r
                     hover:from-background-1 hover:to-background-2
                     dark:hover:from-primary-700 dark:hover:to-secondary-900 

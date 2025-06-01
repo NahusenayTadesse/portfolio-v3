@@ -45,8 +45,7 @@
         aria-current={page.url.hash === section.href || $currentSection === section.href ? 'page' : undefined}
 
           href="/{section.href}"
-          class="relative px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
-                 hover:text-black dark:hover:text-white
+          class="relative px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
                  hover:shadow-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
                  dark:hover:from-primary-600 dark:hover:to-secondary-600
                   transition:all duration-300
@@ -71,7 +70,7 @@
       {#each sections as section}
         <a 
          aria-current={page.url.hash === section.href || $currentSection === section.href ? 'page' : undefined}
-          href={section.href} 
+          href="/{section.href}" 
           class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
                  hover:text-black dark:hover:text-white
                  hover:shadow-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2

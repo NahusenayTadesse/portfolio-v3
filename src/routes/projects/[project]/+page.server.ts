@@ -21,8 +21,11 @@ export const load: PageServerLoad = async ({params}) => {
     if (!snapshot.empty) {
       const projects = snapshot.docs.map(doc => ({
       id: doc.id,
+      link: doc.data().link,
       ...doc.data(), 
-      technology: doc.data().technology ?? []
+      technology: doc.data().technology ?? [],
+      screenshots: doc.data().screenshots ?? [],
+      screenshotsMobile: doc.data().screenshotsMobile ?? []
     }));
     project = projects[0] || null; 
     return { project }; 

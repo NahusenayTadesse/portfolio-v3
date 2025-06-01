@@ -1,6 +1,6 @@
 <script>
     import { onMount } from "svelte";
-    import { A, Popover } from "flowbite-svelte";
+    import { fly, fade } from "svelte/transition";
     import { ArrowLeftOutline, ArrowRightOutline, LaptopCodeSolid } from "flowbite-svelte-icons";
 
   let current = $state(0);
@@ -72,11 +72,12 @@
     ontouchend={handleTouchEnd}
     onpointerdown={handleTouchStart}
     onpointerup={handleTouchEnd}
+    transition:fly={{ x: 200, duration: 300, easing: t => t * (2 - t) }}
        >
     {#each data as slide}
-      <div class="relative min-w-full h-full flex flex-col items-center justify-center rounded-lg shadow-2xl">
+      <div class="relative min-w-full h-full flex flex-col items-center justify-center rounded-lg shadow-5xl border-1 border-background-1 dark:border-0">
 
-        <a href="/">
+        <a href="/projects/{slide.slug}" >
             <img src={slide.featured} alt={slide.name} class="w-full h-4/5 object-cover rounded-lg transition-all" />
         </a>
          <div class="w-full flex flex-col justify-center items-center gap-1 bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-600
@@ -107,10 +108,10 @@
   {/each}
   </div>
 
-  <button onclick={prev}  class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
+  <button onclick={prev}  class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
     <ArrowLeftOutline class="w-6 h-6" />
   </button>
-  <button onclick={next} class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
+  <button onclick={next} class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
     <ArrowRightOutline class="w-6 h-6" />
   </button>
 

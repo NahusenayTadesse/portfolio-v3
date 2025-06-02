@@ -8,18 +8,10 @@
       let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-700 dark:to-secondary-900 shadow-lg rounded-lg p-4 text-center";
 
     import { typewriter } from '$lib/global.js';
-    let showHeading = false;
-    onMount(() => {
-    // Set showHeading to true after the component is mounted
-    // A small setTimeout can help ensure the DOM is ready for the transition
-    setTimeout(() => {
-      showHeading = true;
-    }, 50); // Adjust delay as needed
-  });
+    
 </script>
-{#if showHeading}
 <div class="flex flex-col items-center justify-center p-8 ">
-  <h1 transition:typewriter={{ speed: 0.5 }} class="text-[36px] lg:text-[72px] font-bold mb-4 font-head text-center text-primary-900 dark:text-white">
+  <h1 in:typewriter={{ speed: 0.5 } } class="text-[36px] lg:text-[72px] font-bold mb-4 font-head text-center text-primary-900 dark:text-white">
     Design. Develop. Deploy.</h1>
   <p class="text-lg font-body text-center text-wrap w-full lg:w-2/3">
      I am Nahusenay, I develop fullstack websites. I take care of the designing, developing, security, deployment and seo.</p>
@@ -68,5 +60,5 @@
   </div>    
 </div>
 
-{/if}
+
 

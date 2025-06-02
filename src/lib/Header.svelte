@@ -2,7 +2,7 @@
 <script>
     import { DarkMode } from "flowbite-svelte";
     import { slide } from 'svelte/transition';
-    import { page } from '$app/state';
+    import { page, navigating } from '$app/state';
 
    let sections = [
       { name: 'Home', href: '' },
@@ -59,7 +59,13 @@
         </a>
       {/each}
 
-     
+      {#if navigating.to}
+
+      <h2 class="text-secondary-700 dark:text-white text-lg"> Loading {navigating.to.url.pathname.slice(1).toUpperCase()}</h2>
+
+      {/if}
+
+      
     </div>
      <DarkMode />
   </div>

@@ -18,7 +18,7 @@
 
 </script>
 
-<nav class="bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-700 dark:to-secondary-900 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto mt-8 sticky top-[10px] z-50 transition-all duration-300">
+<nav class="bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-700 dark:to-secondary-900 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
   <div class="flex justify-between items-center">
     <button 
       class="lg:hidden text-black dark:text-white focus:outline-none" 

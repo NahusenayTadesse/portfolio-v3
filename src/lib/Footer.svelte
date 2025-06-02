@@ -34,6 +34,6 @@
 
         <p class="text-sm font-head">© {currentYear} Nahusenay . All rights reserved.</p>
         <p class="text-sm font-head">Built with <a href="https://svelte.dev/" class="text-blue-700 dark:text-blue-400">Sveltekit</a> and 
-            <a href="https://firebase.google.com/" class="text-blue-700 dark:text-blue-400 dark:text-blue-400">Firebase</a></p>
+            <a href="https://firebase.google.com/" class="text-blue-700 dark:text-blue-400">Firebase</a></p>
     </div>
 </footer>   

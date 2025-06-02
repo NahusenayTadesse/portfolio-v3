@@ -45,18 +45,13 @@ let { data, form} = $props();
 {#if form?.status === 400}
     <Toast class="bg-gradient-to-r from-background-1 to-background-2 absolute top-0 right-0 p-4 rounded-lg shadow-lg">
     <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
-    <h2 class="font-head text-2xl">There was an error sending your message, please fill all the fields.</h2>
+    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please fill all the fields.</h2>
 </Toast>
 {:else if form?.status === 500}
 
 <Toast class="bg-gradient-to-r from-background-1 to-background-2 absolute top-0 right-0 p-4 rounded-lg shadow-lg">
     <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
-    <h2 class="font-head text-2xl">There was an error sending your message, please try again.</h2>
+    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please try again.</h2>
 </Toast>
 
 {/if}
-<Toast class="bg-white dark:bg-secondary-900 fixed inset flex flex-col justify-center items-center p-4 rounded-lg shadow-lg">
-    <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
-    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please fill all the fields.</h2>
-</Toast>
-

@@ -121,7 +121,7 @@
     }
 
   import { fly, slide } from "svelte/transition";
-  import { typewriter } from "$lib/global.js";
+  import { typewriter } from "$lib/global.svelte";
  
 
 
@@ -133,7 +133,7 @@
 
 {#if data.project}
 
-<h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter>{data.project?.name}</h1>
+<h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
 <h3 class="text-lg font-head text-center">Category: {data.project?.category}</h3> 
 <br>
 <h3 class="text-lg font-head text-center"><a href={data.project?.link} target = "_blank" rel="noopener noreferrer"

@@ -24,11 +24,24 @@ export const load: PageServerLoad = async () => {
   }
 };
 
+const now = new Date();
+
+// Create a formatted string like "2025-06-03_12-30-45"
+const dateString = now.toISOString()
+  .replace(/T/, '_')    
+  .replace(/:/g, '-')  
+  .replace(/\..+/, ''); 
+
+  
+
 export const actions: Actions = {
   default: async ({ request }) => {
     const formData = await request.formData();
     const email = formData.get('email')?.toString();
     const message = formData.get('message')?.toString();
+    
+    
+   
 
     if (!email || !message) {
       return {
@@ -39,11 +52,15 @@ export const actions: Actions = {
       };
     }
 
+     const username = email.split('@')[0];
+
+const customId = `${username}_${dateString}`;
+
     try {
-      // Writing to Firestore with Admin SDK
-      await db.collection('contacts').add({
+      await db.collection('contacts').doc(customId).set({
          email,
-         message
+         message,
+         createdAt: dateString
       });
 
       return {

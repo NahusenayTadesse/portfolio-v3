@@ -7,7 +7,7 @@
       let svgClass = "w-8 h-8 text-secondary-900 dark:text-white transform hover:scale-125 transition-transform ease-in-out duration-300";
       let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-700 dark:to-secondary-900 shadow-lg rounded-lg p-4 text-center";
 
-    import { typewriter } from '$lib/global.js';
+    import { typewriter } from '$lib/global.svelte.js';
     
 </script>
 <div class="flex flex-col items-center justify-center p-8 ">
@@ -24,7 +24,7 @@
     dark:hover:border-0 dark:hover:shadow-lg dark:hover:bg-gradient-to-r dark:hover:from-primary-600 dark:hover:to-secondary-600
     transition-colors duration-300  dark:hover:text-white"
     transition:fly={{ x: 200, duration: 1000 }}>
-    Download CV <DownloadOutline class="inline-block ml-2"  /></a>
+    Download CV <DownloadOutline class="inline-block ml-2 animate-bounce"  /></a>
 
   </div>
 

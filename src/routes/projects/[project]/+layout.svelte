@@ -25,7 +25,7 @@ bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: 
                 <a href="/projects/{project.slug}" class="font-head font-bold text-lg hover:bg-gradient-to-r
                     hover:from-background-1 hover:to-background-2
                     dark:hover:from-primary-700 dark:hover:to-secondary-900 
-                    hover:shadow-2xl hover:mr-4 transition-all p-4 rounded-lg">
+                    hover:shadow-2xl hover:absolute hover:right:24 transition-all p-4 rounded-lg">
                     {project.name}
                 </a>
             </li>

@@ -8,6 +8,11 @@ import Carousel from '$lib/Carousel.svelte';
 import { Toast } from "flowbite-svelte";
 import { ThumbsUpSolid, ExclamationCircleSolid } from "flowbite-svelte-icons";
 let { data, form} = $props();
+
+function changer(message: string){
+
+    message = "Thank your Message, i will get back to you quickly";
+}
    
 </script>
 
@@ -29,29 +34,11 @@ let { data, form} = $props();
 
  </div>
 
- <div id="contact"><Contact /></div>
+ <div id="contact">
+    <Contact success={form?.success} status={form?.status} />
+</div>
+
 
 </div>
 
-{#if form?.success} 
-<div transition:fly={{ x: -200, duration: 600 }} >
-<Toast class="bg-gradient-to-r from-background-1 to-background-2 absolute top-0 right-0 p-4 rounded-lg shadow-lg">
-    <ThumbsUpSolid class="text-green-500 w-12 h-1/2" />
-    <h2 class="font-head text-2xl">Thank You for your Message, I will get back to you shortly!</h2>
-</Toast>
-</div>
-{/if}
 
-{#if form?.status === 400}
-    <Toast class="bg-gradient-to-r from-background-1 to-background-2 absolute top-0 right-0 p-4 rounded-lg shadow-lg">
-    <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
-    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please fill all the fields.</h2>
-</Toast>
-{:else if form?.status === 500}
-
-<Toast class="bg-gradient-to-r from-background-1 to-background-2 absolute top-0 right-0 p-4 rounded-lg shadow-lg">
-    <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
-    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please try again.</h2>
-</Toast>
-
-{/if}

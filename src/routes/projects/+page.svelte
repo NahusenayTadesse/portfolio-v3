@@ -5,7 +5,7 @@
   
 
     let { data } = $props();
-  import { typewriter } from "$lib/global.js";
+  import { typewriter } from "$lib/global.svelte";
   let searchQuery = $state('');
 
  
@@ -19,7 +19,7 @@
   focus:ring-background-2 dark:bg-secondary-900 dark:text-white dark:border-gray-600 bg-transparent border-1 border-background-1 shadow-lg" 
   bind:value={searchQuery} >
 
-<h1 class="text-6xl font-head font-bold mt-8 text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter>Projects </h1>
+<h1 class="text-6xl font-head font-bold mt-8 text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter={{ speed: 1 }}>Projects </h1>
 
 
 <div class="flex flex-row flex-wrap justify-center items-center gap-4 p-8">

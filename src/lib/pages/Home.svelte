@@ -5,7 +5,7 @@
       import { DownloadOutline, GithubSolid, LinkedinSolid, WhatsappSolid, EnvelopeSolid} from "flowbite-svelte-icons";
 
       let svgClass = "w-8 h-8 text-secondary-900 dark:text-white transform hover:scale-125 transition-transform ease-in-out duration-300";
-      let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-700 dark:to-secondary-900 shadow-lg rounded-lg p-4 text-center";
+      let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4 text-center";
 
     import { typewriter } from '$lib/global.svelte.js';
     
@@ -19,9 +19,9 @@
     
 
     <a href="/cv.pdf" download="Nahusenay_CV" 
-    class="border-1 border-secondary-900  dark:border-1 dark:border-white dark:text-white bg-transparent text-secondary-900 
+    class="border-1 border-secondary-900  dark:border-1 dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
     px-6 py-3 rounded-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 hover:text-black hover:shadow-lg hover:border-0 
-    dark:hover:border-0 dark:hover:shadow-lg dark:hover:bg-gradient-to-r dark:hover:from-primary-600 dark:hover:to-secondary-600
+    dark:hover:border-0 dark:hover:shadow-lg dark:hover:bg-gradient-to-r dark:hover:from-secondary-500 dark:hover:to-background-2
     transition-colors duration-300  dark:hover:text-white"
     transition:fly={{ x: 200, duration: 1000 }}>
     Download CV <DownloadOutline class="inline-block ml-2 animate-bounce"  /></a>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="flex flex-row flex-wrap justify-center shadow-lg items-center mt-8 gap-4 p-4 rounded-lg bg-gradient-to-r from-background-1 to-background-2 
-  dark:from-primary-600 dark:to-secondary-600" transition:fly={{ x: -200, duration: 1000 }}>
+  dark:from-secondary-500 dark:to-background-1" transition:fly={{ x: -200, duration: 1000 }}>
    <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" target="_blank" aria-label="LinkedIn">
       <LinkedinSolid class={svgClass} />
     </a>

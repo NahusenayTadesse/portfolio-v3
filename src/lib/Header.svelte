@@ -48,11 +48,11 @@
           href="/{section.href}"
           class="relative px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
                  hover:shadow-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-                 dark:hover:from-primary-600 dark:hover:to-secondary-600
+                 dark:hover:from-secondary-600 dark:hover:to-background-2
                   transition:all duration-300
                  ease-in-out aria-[current=page]:shadow-lg dark:aria-[current=page]:shadow-white-2xl
                  aria-[current=page]:bg-gradient-to-r aria-[current=page]:from-background-1 aria-[current=page]:to-background-2
-                dark:aria-[current=page]:bg-gradient-to-r dark:aria-[current=page]:from-primary-600 dark:aria-[current=page]:to-secondary-600
+                dark:aria-[current=page]:bg-gradient-to-r dark:aria-[current=page]:from-primary-600 dark:aria-[current=page]:to-background-1
                 dark:text-white
                 dark:aria-[current=page]:text-white
                 "

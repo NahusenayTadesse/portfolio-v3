@@ -41,7 +41,7 @@
     <h3 class="text-sm">Category: {project.category}</h3>
     <a href="/projects/{project.slug}" class="font-head font-bold text-secondary-900 shadow-2xl p-5 border-1 border-background-1
            dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-            dark:hover:from-primary-700 dark:hover:to-secondary-900 rounded-lg transition-colors">
+            dark:hover:from-secondary-900 dark:hover:to-background-1 rounded-lg dark:hover:border-background-1 transition-colors">
             See Project Detail</a>
 
   </div>

@@ -24,7 +24,7 @@
  
     <input type="email" name="email" placeholder="Your Email" 
     class="p-2 rounded-lg focus:outline-none focus:ring-2
-  focus:ring-background-1 dark:bg-secondary-900 dark:text-white dark:border-gray-600 bg-transparent border-1 border-background-1 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white" required>
+  focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white" required>
 
 
   <textarea name="message" placeholder="Your Message" class="h-[150px] p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-2 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-1 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white" required></textarea>

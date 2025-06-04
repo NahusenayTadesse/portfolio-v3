@@ -84,7 +84,9 @@
          dark:to-secondary-600 text-black dark:text-white p-2  shadow-lg text-center">
           <h2 class="text-lg font-bold font-head">{slide.name}</h2>
             <p class="text-sm"> Category: {slide.category}</p>
-          <a href='/projects/{slide.slug}' class="font-head font-bold text-secondary-900 shadow-2xl p-4 dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:hover:from-primary-700 dark:hover:to-secondary-900 rounded-lg transition-colors">
+          <a href='/projects/{slide.slug}' class="font-head font-bold text-secondary-900 shadow-2xl p-4
+           dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
+            dark:hover:from-secondary-700 dark:hover:to-background-2 rounded-lg transition-colors">
             Learn More</a>
         </div>
  
@@ -100,9 +102,9 @@
      {#each data as _, num}
        <button onclick={() => dots(num)} class="rounded-full transition-all duration-300">
         {#if current === num}
-        <LaptopCodeSolid class="w-8 h-8 text-black dark:text-white" />
+        <LaptopCodeSolid class="w-8 h-8 fill-black dark:text-white bg-[#0e0e0e31]shadow-indigo-200" />
         {:else}
-        <LaptopCodeSolid class="w-8 h-8 text-primary-600 hover:text-black dark:text-gray-400" />
+        <LaptopCodeSolid class="w-8 h-8 fill-primary-600 hover:fill-black dark:text-gray-400 bg-[#0e0e0e31]shadow-indigo-200" />
         {/if}
     </button>
   {/each}

@@ -1,7 +1,6 @@
 <script lang='ts'>
 	import { enhance } from '$app/forms';
     import { fly } from 'svelte/transition';
-    import { SchoolXmarkSolid } from 'flowbite-svelte-icons';
 
     let { data } = $props();
    

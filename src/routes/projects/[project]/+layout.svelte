@@ -14,7 +14,7 @@ bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: 
     
     <a href="/projects" class="font-head font-bold text-secondary-900 shadow-5xl p-4 w-[280px] shadow-2xl hover:border-0 justify-self-center dark:border-1
            dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-            dark:hover:from-primary-700 dark:hover:to-secondary-900 rounded-lg transition-colors text-center">
+            dark:hover:from-secondary-900 dark:hover:to-background-2 rounded-lg transition-colors text-center dark:hover:border-background-2 dark:hover:border-1">
             <ArrowLeftOutline class="inline-block ml-2" />
             Back to Projects </a>
 
@@ -24,8 +24,9 @@ bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: 
             <li  transition:slide|global={{ duration:300}}>
                 <a href="/projects/{project.slug}" class="font-head font-bold text-lg hover:bg-gradient-to-r
                     hover:from-background-1 hover:to-background-2
-                    dark:hover:from-primary-700 dark:hover:to-secondary-900 
-                    hover:shadow-2xl hover:absolute hover:right:24 transition-all p-4 rounded-lg">
+                   dark:hover:from-secondary-900 dark:hover:to-background-2
+                    hover:shadow-2xl  transition-all p-4 rounded-lg 
+                    dark:hover:border-background-2 dark:hover:border-1">
                     {project.name}
                 </a>
             </li>

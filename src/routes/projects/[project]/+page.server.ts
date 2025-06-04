@@ -8,7 +8,7 @@ export const load: PageServerLoad = async ({params}) => {
   if (!project)
     throw new Error("Project slug is required");
 
-  let slug = project;
+  const slug = project;
 
   try {
     const snapshot = await db.collection("projects")

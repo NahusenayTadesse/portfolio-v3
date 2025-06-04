@@ -1,8 +1,7 @@
 // place files you want to import through the `$lib` alias in this folder.
 // Import the functions you need from the SDKs you need
-import { initializeApp, getApps, getApp, deleteApp } from 'firebase/app';
+import { initializeApp, getApps, getApp } from 'firebase/app';
 import { Firestore, getFirestore } from 'firebase/firestore';
-import { FIREBASE_ADMIN_SDK_CONFIG } from '$env/static/private'; // Access server-side env vars
 
 import { PUBLIC_API_KEY, PUBLIC_APP_ID, PUBLIC_AUTH_DOMAIN, PUBLIC_MEASUREMENT_ID, PUBLIC_PROJECT_ID, PUBLIC_MESSAGING_SENDER_ID, PUBLIC_STORAGE_BUCKET } from '$env/static/public';
 import { browser } from '$app/environment'; // <-- Import 'browser' from SvelteKit

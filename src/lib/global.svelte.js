@@ -20,3 +20,8 @@ export function typewriter(node, { speed = 1 }) {
 			}
 		};
 	}
+
+
+	export const itsMe = $state({
+		isItMe: false
+	});

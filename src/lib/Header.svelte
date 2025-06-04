@@ -3,6 +3,7 @@
     import { DarkMode } from "flowbite-svelte";
     import { slide } from 'svelte/transition';
     import { page, navigating } from '$app/state';
+	import { UserCircleSolid } from 'flowbite-svelte-icons';
 
    let sections = [
       { name: 'Home', href: '' },
@@ -12,7 +13,8 @@
    ];
 
 
-  let isOpen = false;
+  let isOpen = $state(false);
+  let { user } = $props();
 
    
 
@@ -67,6 +69,12 @@
 </svg>
         Loading {navigating.to.url.pathname.slice(1).toUpperCase()}</h2>
 
+      {/if}
+
+      {#if user}
+      <a href="/dashboard">
+       <UserCircleSolid  class="w-6 h-6 hover:w-8 hover:h-8 transition-all fill-secondary-700 dark:fill-white"/>
+       </a>
       {/if}
       
     </div>

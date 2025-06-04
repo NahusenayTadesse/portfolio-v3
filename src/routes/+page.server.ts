@@ -1,6 +1,7 @@
 // src/routes/+page.server.ts
 import { db } from '$lib/firebase-admin';
 import type { PageServerLoad } from './$types';
+import type { Actions } from './$types';
 
 export const load: PageServerLoad = async () => {
   try {
@@ -76,5 +77,13 @@ const customId = `${username}_${dateString}`;
       };
     }
   }
+
+
 };
-import type { Actions } from './$types';
+
+
+
+
+
+
+

@@ -2,6 +2,7 @@
 // src/lib/server/firebase-admin.ts
 import { initializeApp, cert, getApps, getApp } from 'firebase-admin/app';
 import { getFirestore } from 'firebase-admin/firestore';
+import { getAuth } from 'firebase-admin/auth'; 
 import { FIREBASE_ADMIN_SDK_CONFIG } from '$env/static/private';
 
 let app;
@@ -18,5 +19,9 @@ if (!getApps().length) {
 }
 
 const db = getFirestore(app);
+const auth = getAuth(app);
 
-export { db };
+export { db, auth };
+
+
+

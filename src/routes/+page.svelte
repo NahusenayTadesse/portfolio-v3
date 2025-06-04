@@ -5,8 +5,7 @@ import Home from '$lib/pages/Home.svelte';
 import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
 import Carousel from '$lib/Carousel.svelte';
-import { Toast } from "flowbite-svelte";
-import { ThumbsUpSolid, ExclamationCircleSolid } from "flowbite-svelte-icons";
+
 let { data, form} = $props();
 
 function changer(message: string){
@@ -37,8 +36,10 @@ function changer(message: string){
  <div id="contact">
     <Contact success={form?.success} status={form?.status} />
 </div>
+    
+
+</div>  
 
 
-</div>
 
 

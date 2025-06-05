@@ -19,10 +19,10 @@ bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: 
             Back to Projects </a>
 
     <h1 class="font-head font-bold text-2xl">More Posts</h1>
-    <ul>
+    <ul class="flex flex-col gap-4">
         {#each data.projects as project}
-            <li  transition:slide|global={{ duration:300}}>
-                <a href="/projects/{project.slug}" class="font-head font-bold text-lg hover:bg-gradient-to-r
+            <li  transition:slide|global={{ duration:3000}}>
+                <a href="/projects/{project.slug}" class="font-head font-bold text-md hover:bg-gradient-to-r
                     hover:from-background-1 hover:to-background-2
                    dark:hover:from-secondary-900 dark:hover:to-background-2
                     hover:shadow-2xl  transition-all p-4 rounded-lg 

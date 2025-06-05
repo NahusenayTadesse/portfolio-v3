@@ -11,6 +11,9 @@
  
 
 </script>
+<svelte:head>
+  <title>Projects</title>
+</svelte:head>
 
 
 <input type="text" 

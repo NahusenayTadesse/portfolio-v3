@@ -112,9 +112,11 @@
 
   <button onclick={prev}  class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
     <ArrowLeftOutline class="w-6 h-6" />
+
   </button>
   <button onclick={next} class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
     <ArrowRightOutline class="w-6 h-6" />
+    
   </button>
 
  

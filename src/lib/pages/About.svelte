@@ -104,24 +104,16 @@
 <h1 class="text-4xl font-head text-center font-bold mb-4">About Me</h1>
 
 <div class="flex flex-col justify-center items-center justify-self-center px-0 lg:px-24">
-<div class="flex flex-row flex-wrap justify-center items-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-2 lg:p-8 gap-8">
-      <div class="flex flex-col w-full lg:w-1/2 justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
+<div class="flex flex-row flex-wrap justify-center items-start text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-2 lg:p-8 gap-8">
+      <div class="flex flex-col w-full lg:w-1/3 h-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
     <h1 class="font-bold font-head text-2xl text-center">Who Am I?</h1>
         
     <p class="text-left">I am Nahusenay Tadesse, a fullstack web developer with a passion for creating dynamic and responsive websites. I specialize in both frontend and backend development, ensuring that every project I work on is not only visually appealing but also functional and user-friendly.</p>
     </div>
-    <div class="flex flex-col w-full lg:w-1/3 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
+    <div class="flex flex-col w-full lg:w-1/2 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
         <h1 class="font-bold font-head text-2xl text-center">Developement Philosophy</h1>
         <p class="text-left">I believe in keeping development simple, efficient, and maintainable. Instead of overcomplicating things, I focus on building clean, reliable solutions that are easy to work with and scale over time</p>
-    </div>
-    <div class="flex flex-row flex-wrap w-full justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] gap-8">
-        <div class="flex flex-col w-full lg:w-1/3 justify-start items-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-8">
-            <h1 class="font-bold font-head text-2xl">What Do I Do?</h1>
-            <p class="text-left">I develop websites that are tailored to meet the specific needs of my clients. Whether it's a portfolio, a business site, a blog, or an e-commerce platform, I ensure that each website is built with the latest technologies and best practices in mind.</p>
-        
-
-          </div> 
-          <div class="w-full lg:w-1/2 text-center lg:text-center flex flex-col gap-4 shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8">
+         <div class="w-full text-center lg:text-center flex flex-col gap-4 rounded-lg">
             <h1 class="font-head font-bold text-2xl">What Kind of Websites Do I Develop?</h1>  
 
               <p class="text-left">I develop a variety of websites, each requiring unique resources and timelines based on their complexity and purpose.</p>

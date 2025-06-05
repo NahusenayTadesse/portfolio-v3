@@ -1,6 +1,6 @@
 
 <script lang="ts">
-    import { Popover } from "flowbite-svelte";
+    import { Popover, Gallery } from "flowbite-svelte";
 
     let { data } = $props();
     let classer = "w-6 h-6 lg:w-12 lg:h-12 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300";
@@ -124,6 +124,7 @@
 
   import { fly, slide } from "svelte/transition";
   import { typewriter } from "$lib/global.svelte";
+	import { tick } from "svelte";
  
 
 
@@ -131,6 +132,10 @@
 
 
 </script>
+
+<svelte:head> 
+  <title>{data.project?.name}</title>
+</svelte:head>
 
 
 {#if data.project}
@@ -184,26 +189,25 @@ Site Link
 
     </div>
 
-
 <div class="flex flex-col justify-center items-center">
     <h3 class="text-5xl font-head font-bold mt-8">Project Screenshots</h3>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
+      
+<Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
 
-        {#each data.project?.screenshots as screenshot}
-            
-                <img src={screenshot} alt="Project Screenshot" class="rounded-lg shadow-lg w-full transition-transform hover:scale-105" />
-         
-        {/each}
-       
+            {#each data.project?.screenshots as screenshot}
+            <img src={screenshot} alt="Desktop Screenshot for {data.project?.name}" class="w-full h-full">
+            {/each}
+          </Gallery>
+<Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
 
-        {#each data.project?.screenshotsMobile as screenshot}
-     
-                <img src={screenshot} alt="Project Mobile Screenshot" class="rounded-lg shadow-lg w-full transition-transform hover:scale-105" />
+            {#each data.project?.screenshotsMobile as screenshot}
+            <img src={screenshot} alt="Mobile Screenshot for {data.project?.name}" class="w-full h-192" >
+            {/each}
+          </Gallery>
           
-        {/each}
+      
 
-
-    </div>
+    
 </div>
 
 

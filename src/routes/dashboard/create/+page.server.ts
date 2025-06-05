@@ -50,8 +50,7 @@ export const actions: Actions = {
     },
 
     create: async ({ request }) => {
-
-        
+     
         
         const formData = await request.formData();
         const name = formData.get('name');
@@ -61,7 +60,12 @@ export const actions: Actions = {
         const link = formData.get('link');
         const screenshots = formData.getAll('screenshots');
         const screenshotsMobile = formData.getAll('screenshotsMobile');
-        const featured = formData.getAll('featured'); 
+        const featured = formData.getAll('featured');
+        
+        const technologyArray = typeof technology === 'string'
+            ? technology.split(',').map(item => item.trim())
+            : [];
+
         
         const featuredUrls = [];
         const screenshotsUrls= [];
@@ -69,10 +73,7 @@ export const actions: Actions = {
         
         
         
-  
-
-
-         for (const file of featured) {
+    for (const file of featured) {
       const imageUrl = await uploadToCloudinary(file);
       featuredUrls.push(imageUrl);
     }
@@ -109,7 +110,7 @@ export const actions: Actions = {
                 link,
                 screenshots: screenshotsUrls,
                 screenshotsMobile: screenshotsMobileUrls,
-                technology,
+                technology: technologyArray,
                 featured: featuredUrls
             });
             return { success: true,

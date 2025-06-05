@@ -113,7 +113,7 @@
     
 
     function getLink(tech: string) {
-       let match =  techStack.find(item => item.name === tech);
+      let match = techStack.find(item => item.name.toLowerCase() === tech.toLowerCase());
       return match ? match.link : '';
     }
 

@@ -33,7 +33,8 @@
       ) 
     : data.projects 
   as project, index}
-  <div class="max-w-full w-full lg:w-1/3 gap-4 flex flex-col items-center justify-center rounded-2xl shadow-2xl p-2" transition:fly={{ y: (index + 1) * 100, duration: 600, easing: t => t * (2 - t) }}>
+  <div class="max-w-full w-full lg:w-1/3 gap-4 flex flex-col items-center justify-center rounded-2xl shadow-2xl p-2" 
+  transition:fly={{ y: (index + 1) * 100, duration: 600, easing: t => t * (2 - t) }}>
     <a href="/projects/{project.slug}">
     <img src={project.featured} alt={project.name} class="rounded-lg w-full" >
     </a>

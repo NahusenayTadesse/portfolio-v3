@@ -108,11 +108,16 @@
       <div class="flex flex-col w-full lg:w-1/3 h-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
     <h1 class="font-bold font-head text-2xl text-center">Who Am I?</h1>
         
-    <p class="text-left">I am Nahusenay Tadesse, a fullstack web developer with a passion for creating dynamic and responsive websites. I specialize in both frontend and backend development, ensuring that every project I work on is not only visually appealing but also functional and user-friendly.</p>
-    </div>
+    <p class="text-left">
+      I'm Nahusenay Tadesse, a fullstack web developer passionate about building dynamic, 
+      responsive, and user-friendly websites with strong frontend and backend functionality.</p>
+    
+    <h1 class="font-bold font-head text-2xl text-center">Developement Philosophy</h1>
+        <p class="text-left">I focus on building clean, efficient, and maintainable solutions that are easy to scale, avoiding unnecessary complexity.</p>
+  
+  </div>
     <div class="flex flex-col w-full lg:w-1/2 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
-        <h1 class="font-bold font-head text-2xl text-center">Developement Philosophy</h1>
-        <p class="text-left">I believe in keeping development simple, efficient, and maintainable. Instead of overcomplicating things, I focus on building clean, reliable solutions that are easy to work with and scale over time</p>
+        
          <div class="w-full text-center lg:text-center flex flex-col gap-4 rounded-lg">
             <h1 class="font-head font-bold text-2xl">What Kind of Websites Do I Develop?</h1>  
 

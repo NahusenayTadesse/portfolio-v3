@@ -42,7 +42,6 @@
     }
   }
 
-  // --- Autoplay ---
   function startAutoplay() {
     autoplayInterval = setInterval(() => {
       next();

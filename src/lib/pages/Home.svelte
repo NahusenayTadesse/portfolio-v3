@@ -1,5 +1,4 @@
 <script >
-    import { onMount } from 'svelte';
     import { fly }  from  'svelte/transition'; 
     import { Popover } from 'flowbite-svelte';
       import { DownloadOutline, GithubSolid, LinkedinSolid, WhatsappSolid, EnvelopeSolid} from "flowbite-svelte-icons";
@@ -8,8 +7,11 @@
       let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4 text-center";
 
     import { typewriter } from '$lib/global.svelte.js';
+	import { goto } from '$app/navigation';
     
 </script>
+
+
 <div class="flex flex-col items-center justify-center p-8 ">
   <h1 in:typewriter={{ speed: 0.5 } } class="text-[36px] lg:text-[72px] font-bold mb-4 font-head text-center text-primary-900 dark:text-white">
     Design. Develop. Deploy.</h1>

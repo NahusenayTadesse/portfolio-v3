@@ -3,6 +3,7 @@ import { db } from "$lib/firebase-admin";
 import type { PageServerLoad, Actions } from "./$types";
 import { fail } from "@sveltejs/kit";
 
+
 export const load: PageServerLoad = async () => {
 
     const snapshot =  await db.collection("contacts").select("email", "message","createdAt").orderBy('createdAt').get();

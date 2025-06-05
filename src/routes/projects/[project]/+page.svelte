@@ -110,6 +110,8 @@
     }
     ];
 
+    
+
     function getLink(tech: string) {
        let match =  techStack.find(item => item.name === tech);
       return match ? match.link : '';
@@ -142,6 +144,7 @@
   shadow-2xl rounded-lg">
   
 Site Link
+
 
 
 

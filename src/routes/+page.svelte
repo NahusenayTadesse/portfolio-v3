@@ -5,6 +5,7 @@ import Home from '$lib/pages/Home.svelte';
 import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
 import Carousel from '$lib/Carousel.svelte';
+import { goto } from '$app/navigation';
 
 let { data, form} = $props();
 
@@ -15,12 +16,11 @@ function changer(message: string){
    
 </script>
 
+<div>
 
-
-<div class="flex flex-col justify-center align-center gap-12">
- <div id="home" ><Home /></div>
- <div id="about"><About /></div>
-    <div id="projects" class="flex flex-col items-center justify-center gap-4 p-8"> 
+ <div id="home" role="region" aria-label="Home Section"> <Home /></div>
+ <div id="about" role="region" aria-label="About Section" > <About /></div>
+ <div role="region" aria-label="Projects Section" id="projects" class="flex flex-col items-center justify-center gap-4 p-8"> 
 <Carousel data = {data.projects} />
 <a href="/projects" 
     class="border-1 border-secondary-900  dark:border-1 dark:border-white dark:text-white bg-transparent text-secondary-900 
@@ -33,7 +33,7 @@ function changer(message: string){
 
  </div>
 
- <div id="contact">
+ <div id="contact" role="region" aria-label="Projects Section" >
     <Contact success={form?.success} status={form?.status} />
 </div>
     

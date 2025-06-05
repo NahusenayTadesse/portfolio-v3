@@ -1,6 +1,7 @@
 <script>
     import { Popover} from "flowbite-svelte";
     import Tabs from '$lib/Tabs.svelte';
+	import { goto } from "$app/navigation";
 
     
     let classer = "w-12 h-12 lg:w-20 lg:h-20 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300";

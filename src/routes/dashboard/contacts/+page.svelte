@@ -58,7 +58,7 @@ let searchQuery = $state('');
 
 
 <form method="POST" action="?/delete" use:enhance class="flex flex-col justify-center items-center">
-  <div class="flex min-h-[50vh] flex-row flex-wrap justify-center items-center gap-4 w-4/5 justify-self-center">
+  <div class="flex min-h-[50vh] flex-row flex-wrap justify-center items-center gap-4 w-4/5 justify-self-center"  >
   
     {#each 
     

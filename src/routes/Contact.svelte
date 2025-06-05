@@ -5,12 +5,15 @@
     import { fly } from 'svelte/transition';
 	import { Toast } from 'flowbite-svelte';
 	import { ThumbsUpSolid, ExclamationCircleSolid } from 'flowbite-svelte-icons';
+	import { goto } from '$app/navigation';
     let {success, status } = $props();
  </script> 
  
 
+ 
+
  <form method="POST" use:enhance class="flex flex-col gap-4 p-8 max-w-md mx-auto rounded-lg shadow-lg"
-    transition:fly={{ y: -200, duration: 600 }}>
+    transition:fly={{ y: -200, duration: 600 }} >
 
      {#if success}
      <h2>Thank you for your message</h2>

@@ -8,7 +8,7 @@
 
 
 <div class="hidden lg:flex flex-col gap-4 p-4 pt-0 fixed top-12 right-0 justify-self-end w-1/5 z-0 h-full 
-bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: -200, duration: 600}}>
+bg-transparent shadow-lg dark:shadow-white rounded-lg" in:fly={{ y: -200, duration: 600}} out:fade>
     
     
     
@@ -19,9 +19,9 @@ bg-transparent dark:bg-secondary-900 shadow-lg rounded-lg" transition:fly={{ y: 
             Back to Projects </a>
 
     <h1 class="font-head font-bold text-2xl">More Posts</h1>
-    <ul class="flex flex-col gap-4">
+    <ul class="flex flex-col gap-6">
         {#each data.projects as project}
-            <li  transition:slide|global={{ duration:3000}}>
+            <li  in:slide|global={{ duration:1000}} out:slide|global>
                 <a href="/projects/{project.slug}" class="font-head font-bold text-md hover:bg-gradient-to-r
                     hover:from-background-1 hover:to-background-2
                    dark:hover:from-secondary-900 dark:hover:to-background-2

@@ -4,10 +4,6 @@
 	import Footer from '$lib/Footer.svelte';
 	let {data, children } = $props();
 	import { page } from '$app/state';
-	import Animation from '$lib/Animation.svelte';
-	import DarkAnimation from '$lib/DarkAnimation.svelte';
-
-
 </script> 
 
 {#if page.url.pathname.startsWith('/dashboard') === false}
@@ -15,7 +11,5 @@
 {/if}
 
 {@render children()}
-<Animation />
-<DarkAnimation />
 
 <Footer />

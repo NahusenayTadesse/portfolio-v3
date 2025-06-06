@@ -143,9 +143,10 @@
 <h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
 <h3 class="text-lg font-head text-center">Category: {data.project?.category}</h3> 
 <br>
-<h3 class="text-lg font-head text-center"><a href={data.project?.link} target = "_blank" rel="noopener noreferrer"
-  class="text-blue-600 text-lg hover:text-xl transition-ease-in-out duration-300 p-4 mt-8 hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-   dark:hover:bg-gradient-to-r dark:hover:text-background-2 dark:hover:from-primary-300 dark:hover:to-secondary-700
+<h3 class="text-lg font-head text-center">
+  <a href={data.project?.link} target = "_blank" rel="noopener noreferrer"
+  class="text-blue-600 dark:text-background-2 text-lg hover:text-xl transition-ease-in-out duration-300 p-4 mt-8 hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
+   dark:hover:bg-gradient-to-r dark:hover:text-white dark:shadow-white dark:hover:from-primary-900 dark:hover:to-background-1
   shadow-2xl rounded-lg">
   
 Site Link
@@ -213,7 +214,7 @@ Site Link
 
       <a href="/projects" class="font-head font-bold text-secondary-900 shadow-5xl p-4 border-1 hover:border-0 justify-self-center
            dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-            dark:hover:from-primary-700 dark:hover:to-secondary-900 rounded-lg transition-colors">
+            dark:hover:from-primary-900 dark:hover:to-background-1 rounded-lg transition-colors">
             Back to Projects</a>
 
 </div>

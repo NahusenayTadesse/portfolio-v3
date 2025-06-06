@@ -5,7 +5,7 @@ import Home from '$lib/pages/Home.svelte';
 import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
 import Carousel from '$lib/Carousel.svelte';
-import { goto } from '$app/navigation';
+
 
 let { data, form} = $props();
 
@@ -39,6 +39,7 @@ function changer(message: string){
     
 
 </div>  
+
 
 
 

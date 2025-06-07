@@ -8,7 +8,6 @@
    let sections = [
       { name: 'Home', href: '/' },
       { name: 'Create', href: '/dashboard/create' },
-      { name: 'Update', href: '/dashboard/update' },
       { name: 'Contacts', href: '/dashboard/contacts' }
    ];
 

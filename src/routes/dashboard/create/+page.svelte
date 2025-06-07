@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
-	import { page } from '$app/state';
 	import { fly } from 'svelte/transition';
+  import { TrashBinOutline } from 'flowbite-svelte-icons';
 
     let {data, form} = $props();
 let searchQuery = $state('');
@@ -11,12 +11,6 @@ let searchQuery = $state('');
   }
 let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
 let fileInput = " w-full px-3 py-2 shadow-lg rounded-lg text-sm bg-background-1 dark:bg-background-2 dark:text-white file:mr-4 file:py-2 file:px-4 file:border-0 file:rounded-md file:bg-gray-200 file:text-gray-700 dark:file:bg-gray-700 dark:file:text-white hover:file:bg-gray-300 dark:hover:file:bg-gray-600";
-
-
-
-
-
-  
 
 
 </script>
@@ -53,15 +47,15 @@ let fileInput = " w-full px-3 py-2 shadow-lg rounded-lg text-sm bg-background-1 
     ? data.projects.filter(project =>  
         String(project?.name ?? '').toLowerCase().includes(searchQuery.toLowerCase())) 
     : data.projects  as project}
-    <div class="border-2 rounded-lg border-background-1 shadow-2xl p-4 w-1/4" transition:fly={{y:-200, duration: 500}}>
+    <div class="border-2 rounded-lg gap-4 flex flex-col border-background-1 shadow-2xl p-4 w-1/3" transition:fly={{y:-200, duration: 500}}>
 
         <img src={project?.featured} alt={project?.name}>
       
-      <h2 > Name: <a href="/create/{project?.slug}" target="_blank" class="text-blue-700"> {project?.name}</a></h2>
+      <h2 class="text-center"> Update: <a href="/dashboard/create/{project?.slug}"  class="text-blue-700 dark:text-blue-200 p-4 hover:border-1 rounded-lg hover:border-background-2 hover:shadow-lg tracking-all">{project?.name}</a></h2>
      <form method="POST" action="?/delete" use:enhance class="flex flex-col justify-center items-center">
 
      <input type="hidden" name="id" value={project?.id} >
-       <button type="submit" class="w-48 justify-self-center p-4 bg-red-500 hover:bg-red-600 text-white  border-1 rounded-lg" name="delete"> Delete Selected</button>
+       <button type="submit" class="w-48 flex flex-row justify-self-center p-4 bg-red-500 hover:bg-red-600 text-white  border-1 rounded-lg" name="delete"> <TrashBinOutline class="hover:scale-120 transition-all" /> Delete Selected</button>
        </form>
     </div>
   {/each}

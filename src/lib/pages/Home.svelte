@@ -24,9 +24,9 @@
     class="border-1 border-secondary-900  dark:border-1 dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
     px-6 py-3 rounded-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 hover:text-black hover:shadow-lg hover:border-0 
     dark:hover:border-0 dark:hover:shadow-lg dark:hover:bg-gradient-to-r dark:hover:from-secondary-500 dark:hover:to-background-2
-    transition-colors duration-300  dark:hover:text-white"
+    transition-colors duration-300  dark:hover:text-white text-xl"
     transition:fly={{ x: 200, duration: 1000 }}>
-    Download CV <DownloadOutline class="inline-block ml-2 animate-bounce"  /></a>
+    Download CV <DownloadOutline class="inline-block ml-2 w-8 h-8 animate-bounce"  /></a>
 
   </div>
 

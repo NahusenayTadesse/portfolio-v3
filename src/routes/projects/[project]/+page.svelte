@@ -135,6 +135,9 @@
 
 <svelte:head> 
   <title>{data.project?.name}</title>
+   <meta property="og:title" content={data.project?.name}>
+  <meta property="og:description" content={data.project?.description}>
+  <meta property="og:image" content={data.project?.featured}>
 </svelte:head>
 
 

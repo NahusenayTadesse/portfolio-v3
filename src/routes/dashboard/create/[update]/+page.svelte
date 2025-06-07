@@ -1,9 +1,8 @@
-<script>
+<script lang="ts">
 	import { enhance } from '$app/forms';
 
     let {data} = $props(); 
     let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
-
 
 </script>
 
@@ -20,21 +19,15 @@
      <input type="text" name="featured" value={data.project?.featured} id="" class={inputField}>
      <input type="file" name="newFeatured" id="" placeholder="New Featured" class={inputField}>
 
-      <input type="text" name="technology" value={data.project?.technology.join(', ')} id="" class={inputField}>
+      <input type="text" name="technology" value={data.project?.technology.join(',  ')} id="" class={inputField}>
+      <input type="text" name="screenshots" value={data.project?.screenshots.join(',  ')} id="" class={inputField}>
+      <input type="text" name="screenshotsMobile" value={data.project?.screenshotsMobile.join(',  ')} id="" class={inputField}>
 
-      {#each data.project?.screenshots as screenshot}
+      <input type="file" name="newScreenshots" id="" placeholder="New Screenshots" multiple class={inputField}>
 
-     
-     <input type="text" name="screenshot" value={screenshot} id="" class={inputField}>
-     {/each}
-          <input type="file" name="newScreenshots" id="" placeholder="New Screenshots" multiple class={inputField}>
 
       
-       {#each data.project?.screenshotsMobile as screenshotsMobile}
-
-     
-     <input type="text" name="screenshotsMobile" value={screenshotsMobile} id="" class={inputField}>
-     {/each}
+  
            <input type="file" name="newscreenshotsMobile" id="" placeholder="New Mobile Screenshots" multiple class={inputField}>
 
       

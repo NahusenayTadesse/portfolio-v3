@@ -39,7 +39,7 @@ export const actions = {
                         case 'EMAIL_NOT_FOUND':
                         case 'INVALID_PASSWORD':
                         case 'INVALID_LOGIN_CREDENTIALS':
-                            errorMessage = "🖕 Fuck You! You're Not Me! Get out of here!";
+                            errorMessage = "You're Not Me! Get out of here!";
                             break;
                         default:
                             errorMessage = authData.error.message;

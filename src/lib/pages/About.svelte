@@ -101,7 +101,7 @@
 </script>
 
 
-<h1 class="text-4xl font-head text-center font-bold mb-4">About Me</h1>
+<h1 class="text-4xl font-head text-center font-bold mb-4">About Mered</h1>
 
 <div class="flex flex-col justify-center items-center justify-self-center px-0 lg:px-24">
 <div class="flex flex-row flex-wrap justify-center items-start text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-2 lg:p-8 gap-8">

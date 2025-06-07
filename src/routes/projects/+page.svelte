@@ -13,6 +13,8 @@
 </script>
 <svelte:head>
   <title>Projects</title>
+   <meta property="og:title" content="Projects">
+   <meta property="og:description" content="List and Details of all the projects I did">
 </svelte:head>
 
 

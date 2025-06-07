@@ -1,6 +1,6 @@
 <script lang="ts">
     import { enhance } from '$app/forms'; // For submitting form with SvelteKit actions
-
+    
    
     let {form} = $props();
     let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";

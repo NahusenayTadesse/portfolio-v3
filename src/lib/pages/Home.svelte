@@ -13,7 +13,7 @@
 
 
 <div class="flex flex-col items-center justify-center p-8 ">
-  <h1 in:typewriter={{ speed: 0.5 } } class="text-[36px] lg:text-[72px] font-bold mb-4 font-head text-center text-primary-900 dark:text-white">
+  <h1 in:typewriter={{ speed: 1 }} class="text-[36px] lg:text-[72px] font-bold mb-4 font-head text-center text-primary-900 dark:text-white">
     Design. Develop. Deploy.</h1>
   <p class="text-lg font-body text-center text-wrap w-full lg:w-2/3">
      I am Nahusenay, I develop fullstack websites. I take care of the designing, developing, security, deployment and seo.</p>
@@ -21,17 +21,17 @@
     
 
     <a href="/cv.pdf" download="Nahusenay_CV" 
-    class="border-1 border-secondary-900  dark:border-1 dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
-    px-6 py-3 rounded-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 hover:text-black hover:shadow-lg hover:border-0 
-    dark:hover:border-0 dark:hover:shadow-lg dark:hover:bg-gradient-to-r dark:hover:from-secondary-500 dark:hover:to-background-2
-    transition-colors duration-300  dark:hover:text-white text-xl"
-    transition:fly={{ x: 200, duration: 1000 }}>
+    class="border-1 border-white dark:border-1 dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
+    px-6 py-3 rounded-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 hover:text-black hover:shadow-sm shadow-sm
+     shadow-black dark:hover:border-0 dark:hover:shadow-sm dark:hover:bg-gradient-to-r dark:hover:from-secondary-500 dark:hover:to-background-1
+    transition-colors duration-300  dark:hover:text-white text-xl dark:shadow-white dark:shadow-sm"
+    transition:fly={{ x: 200, duration: 200 }}>
     Download CV <DownloadOutline class="inline-block ml-2 w-8 h-8 animate-bounce"  /></a>
 
   </div>
 
   <div class="flex flex-row flex-wrap justify-center shadow-lg items-center mt-8 gap-4 p-4 rounded-lg bg-gradient-to-r from-background-1 to-background-2 
-  dark:from-secondary-500 dark:to-background-1" transition:fly={{ x: -200, duration: 1000 }}>
+  dark:from-secondary-500 dark:to-background-1" transition:fly={{ x: -200, duration: 200 }}>
    <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" target="_blank" aria-label="LinkedIn">
       <LinkedinSolid class={svgClass} />
     </a>
@@ -61,6 +61,8 @@
       
   </div>    
 </div>
+
+
 
 
 

@@ -3,25 +3,23 @@
 
    
     let {form} = $props();
-   
+    let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
+
+    
 
 
 </script>
 
-<div class="login-container">
-    <h1>Login</h1>
+<div class="p-8 gap-4 flex flex-col">
+    <h1 class="font-head font-bold text-5xl text-center">Login</h1>
 
     <!-- The `action` attribute targets the 'login' action in +page.server.js -->
-    <form method="POST" action="?/login" use:enhance>
-        <div class="form-group">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required />
-        </div>
+    <form method="POST" action="?/login" class="max-w-2xl w-full lg:w-1/2 mx-auto p-8 shadow-lg rounded-lg flex flex-col gap-4 
+         bg-transparent backdrop-blur-md transition 
+         text-gray-800 dark:text-gray-100" use:enhance>
+            <input type="email" id="email" name="email" required class={inputField} placeholder="Email" />
 
-        <div class="form-group">
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required />
-        </div>
+            <input type="password" id="password" name="password" required class={inputField} placeholder="Password"/>
 
         {#if form?.success === false}
             <p class="error-message">{form?.message}</p>
@@ -31,7 +29,10 @@
         {/if}
          
 
-        <button type="submit" >
+        <button type="submit"  class="w-full text-black font-semibold p-4 rounded-lg transition duration-300 
+           hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 
+           dark:hover:from-secondary-600 dark:hover:to-background-1 
+           border-secondary-700 dark:border-background-2 dark:text-white border-1 shadow-2xl" >
           Login
         </button>
     </form>
@@ -41,64 +42,6 @@
 
 <style>
     /* Re-using the same styles as before for consistency */
-    .login-container {
-        max-width: 400px;
-        margin: 50px auto;
-        padding: 30px;
-        border: 1px solid #ddd;
-        border-radius: 8px;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        background-color: #fff;
-    }
-
-    h1 {
-        text-align: center;
-        color: #333;
-        margin-bottom: 30px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    label {
-        display: block;
-        margin-bottom: 8px;
-        font-weight: bold;
-        color: #555;
-    }
-
-    input[type="email"],
-    input[type="password"] {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        font-size: 16px;
-        box-sizing: border-box;
-    }
-
-    button {
-        width: 100%;
-        padding: 12px;
-        background-color: #007bff;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        font-size: 18px;
-        cursor: pointer;
-        transition: background-color 0.3s ease;
-    }
-
-    button:hover:not(:disabled) {
-        background-color: #0056b3;
-    }
-
-    button:disabled {
-        background-color: #cccccc;
-        cursor: not-allowed;
-    }
-
     .error-message {
         color: #dc3545;
         background-color: #f8d7da;

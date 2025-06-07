@@ -33,13 +33,13 @@ export const actions = {
             const authData = await authResponse.json();
 
             if (!authResponse.ok) {
-                // Handle Firebase Auth REST API errors
                 let errorMessage = 'Login failed. Please check your credentials.';
                 if (authData && authData.error && authData.error.message) {
                     switch (authData.error.message) {
                         case 'EMAIL_NOT_FOUND':
                         case 'INVALID_PASSWORD':
-                            errorMessage = 'Invalid email or password.';
+                        case 'INVALID_LOGIN_CREDENTIALS':
+                            errorMessage = "🖕 Fuck You! You're Not Me! Get out of here!";
                             break;
                         default:
                             errorMessage = authData.error.message;

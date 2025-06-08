@@ -14,8 +14,8 @@
         }
         active[index] = !active[index];
     }
-    let activeClass = "font-head font-bold text-secondary-900 dark:text-white bg-gradient-to-r from-background-1 to-background-2 dark:from-secondary-600 dark:to-background-1 shadow-lg rounded-lg p-2 lg:p-4";
-    let inactiveClass = "text-secondary-900 shadow-md font-head dark:text-white hover:bg-gradient-to-r hover:from-background-2 hover:to-background-1 rounded-lg dark:hover:from-secondary-600 dark:hover:to-background-1 p-4";
+    let activeClass = "font-head font-bold text-secondary-900 dark:text-white bg-gradient-to-r from-background-1 to-background-2 dark:from-secondary-600 dark:to-background-1 shadow-lg rounded-lg p-2 lg:p-4 dark:shadow-white dark:shadow-sm";
+    let inactiveClass = "text-secondary-900 shadow-md font-head dark:text-white hover:bg-gradient-to-r hover:from-background-2 hover:to-background-1 rounded-lg dark:hover:from-secondary-600 dark:hover:to-background-1 p-4 dark:shadow-white";
     let contentClass = "text-secondary-900 dark:text-white font-body text-sm bg-transparent shadow-lg rounded-lg p-4 text-left";
 
 </script>

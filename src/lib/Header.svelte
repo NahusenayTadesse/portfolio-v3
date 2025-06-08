@@ -54,7 +54,7 @@
                  aria-[current=page]:bg-gradient-to-r aria-[current=page]:from-background-1 aria-[current=page]:to-background-2
                 dark:aria-[current=page]:bg-gradient-to-r dark:aria-[current=page]:from-primary-600 dark:aria-[current=page]:to-background-1
                 dark:text-white
-                dark:aria-[current=page]:text-white
+                dark:aria-[current=page]:text-white dark:aria-[current=page]:shadow-sm dark:aria-[current=page]:shadow-white
                 "
         >
           <span class="relative z-10" >{section.name}</span>

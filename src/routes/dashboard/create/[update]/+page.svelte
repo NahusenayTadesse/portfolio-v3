@@ -17,11 +17,16 @@
      <input type="url" name="link" value={data.project?.link} id=""class={inputField}>
      <textarea name="description" value={data.project?.description} id="" class={inputField} style="height: 350px;"></textarea>
      <input type="text" name="featured" value={data.project?.featured} id="" class={inputField}>
+     <label for="newFeatured">New Featured</label>
      <input type="file" name="newFeatured" id="" placeholder="New Featured" class={inputField}>
+
+     <label for="technology">Technology</label>
 
       <input type="text" name="technology" value={data.project?.technology.join(',  ')} id="" class={inputField}>
       <input type="text" name="screenshots" value={data.project?.screenshots.join(',  ')} id="" class={inputField}>
       <input type="text" name="screenshotsMobile" value={data.project?.screenshotsMobile.join(',  ')} id="" class={inputField}>
+
+      <label for="newScreenshots">New Screenshots for Desktop</label>
 
       <input type="file" name="newScreenshots" id="" placeholder="New Screenshots" multiple class={inputField}>
 

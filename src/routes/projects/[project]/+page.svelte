@@ -118,13 +118,13 @@
     }
 
     function getDescription(tech: string) {
-        let match = techStack.find(item => item.name === tech);
+        let match = techStack.find(item => item.name.toLowerCase() === tech.toLowerCase());
         return match ? match.description : '';
     }
 
   import { fly, slide } from "svelte/transition";
   import { typewriter } from "$lib/global.svelte";
-	import { tick } from "svelte";
+
  
 
 
@@ -139,6 +139,7 @@
   <meta property="og:description" content={data.project?.description}>
   <meta property="og:image" content={data.project?.featured}>
 </svelte:head>
+
 
 
 {#if data.project}

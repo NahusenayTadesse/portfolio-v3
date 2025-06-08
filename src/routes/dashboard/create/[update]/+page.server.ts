@@ -3,6 +3,7 @@
 import type { Actions, PageServerLoad } from "../$types";
 import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_CLOUD_NAME } from "$env/static/private";
 import { v2 as cloudinary } from 'cloudinary';
+import { fail } from "@sveltejs/kit";
 
 export const load: PageServerLoad = async ({params}) => {
 
@@ -23,10 +24,16 @@ export const load: PageServerLoad = async ({params}) => {
         let project = null;
 
          if(!snapshot.empty) {
-            const projects = snapshot.docs.map(docs => ({
-
-                id: docs.id,
-                ...docs.data()
+            const projects = snapshot.docs.map(doc => ({
+              id: doc.id,
+              name: doc.data().name,
+              category: doc.data().category,
+              description: doc.data().description,
+              link: doc.data().link,
+              screenshots: doc.data().screenshots,
+              screenshotsMobile: doc.data().screenshotsMobile,
+              technology: doc.data().technology,
+              featured: doc.data().featured
             }));
 
             project = projects[0] || null;
@@ -46,7 +53,7 @@ export const load: PageServerLoad = async ({params}) => {
 
  export const actions: Actions = {
 
-  update: async ({ request }) => {
+  update: async ({ request, params }) => {
      
         
         const formData = await request.formData();
@@ -56,29 +63,36 @@ export const load: PageServerLoad = async ({params}) => {
         const technology = formData.get('technology');
         const link = formData.get('link');
         const screenshots = formData.getAll('screenshots');
+        const newScreenshots = formData.getAll('newScreenshots');
         const screenshotsMobile = formData.getAll('screenshotsMobile');
-        const featured = formData.getAll('featured');
+        const newScreenshotsMobile = formData.getAll('newScreenshotsMobile');
+        let featured = formData.get('featured');
+        const newFeatured = formData.getAll('newFeatured');
         
         const technologyArray = typeof technology === 'string'
             ? technology.split(',').map(item => item.trim())
             : [];
-
+       const screenshotsArray = screenshots.map(item => String(item).trim()).filter(Boolean);
+      const screenshotsMobileArray = screenshotsMobile.map(item => String(item).trim()).filter(Boolean);
         
-        const featuredUrls = [];
+        let featuredUrl = '';
         const screenshotsUrls= [];
         const screenshotsMobileUrls = [];
         
         
         
-    for (const file of featured) {
+    for (const file of newFeatured) {
+      if (!file || (file instanceof File && file.size === 0)) continue;
       const imageUrl = await uploadToCloudinary(file);
-      featuredUrls.push(imageUrl);
+      featuredUrl = imageUrl;
     }
-    for (const file of screenshots) {
+    for (const file of newScreenshots) {  
+      if (!file || (file instanceof File && file.size === 0)) continue;
       const imageUrl = await uploadToCloudinary(file);
       screenshotsUrls.push(imageUrl);
     }
-    for (const file of screenshotsMobile) {
+    for (const file of newScreenshotsMobile) {
+      if (!file || (file instanceof File && file.size === 0)) continue;
       const imageUrl = await uploadToCloudinary(file);
       screenshotsMobileUrls.push(imageUrl);
     }
@@ -87,20 +101,14 @@ export const load: PageServerLoad = async ({params}) => {
         if (typeof name !== 'string' || !name.trim()) {
             return fail(400, { error: "Project name is required." });
         }
-        // Sluggify the name
-        const slug = name
-            .toLowerCase()
-            .trim()
-            .replace(/[\s\W-]+/g, '-') // Replace spaces and non-word chars with -
-            .replace(/^-+|-+$/g, ''); // Remove leading/trailing -
 
 
         
 
         try {
-            const { update } = request.params || {};
+            const { update } = params || {};
             if (!update) {
-              return fail(400, { error: "Project ID (slug) is required for update." });
+              return fail(400, { error: "No Project with this name is required for update." });
             }
 
             const snapshot = await db.collection("projects")
@@ -112,24 +120,32 @@ export const load: PageServerLoad = async ({params}) => {
               return fail(404, { error: "Project not found." });
             }
 
+
+
+            if(featuredUrl !== ''){
+              featured = featuredUrl;
+            }
+
             const docRef = snapshot.docs[0].ref;
+            screenshotsArray.push(...screenshotsUrls);
+            screenshotsMobileArray.push(...screenshotsMobileUrls);
 
             await docRef.update({
               name,
-              slug,
               category,
               description,
               link,
-              screenshots: screenshotsUrls,
-              screenshotsMobile: screenshotsMobileUrls,
+              screenshots: screenshotsArray,
+              screenshotsMobile: screenshotsMobileArray, 
               technology: technologyArray,
-              featured: featuredUrls
-            });   return { success: true,
-                 loading: true
-             };
-        } catch (error) {
+              featured
+            });   return { success: true
+             }; 
+        } catch (error: unknown) {
             console.error("Create failed:", error);
-            return fail(500, {error: true,
+            return fail(500, {
+              
+                 error: true,
                 message: "Error: " + error.message
             });
         }

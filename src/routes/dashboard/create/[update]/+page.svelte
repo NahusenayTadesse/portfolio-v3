@@ -1,16 +1,27 @@
 <script lang="ts">
 	import { enhance } from '$app/forms';
+  
 
-    let {data} = $props(); 
+    let {data, form} = $props(); 
     let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
-
+    let screenshots = $state(data.project?.screenshots || []);
+    let screenshotsMobile = $state(data.project?.screenshotsMobile || []);
 </script>
+<svelte:head>
+  <title>Update Projects</title>
+</svelte:head>
 
-    <h1 class="mt-8 mb-4 text-center font-head font-bold text-5xl">{data.project?.name}</h1>
+    <h1 class="text-center text-lg font-head"> {form?.success ? 'Form submitted' : 'form Failed'} </h1>
+    <h1 class="text-center text-lg font-head"> {form?.error ? form?.message : ''} </h1>
+    
+   
+
+
+
 
   <form   class="max-w-2xl w-full mx-auto p-8 shadow-lg rounded-lg flex flex-col gap-6 
          bg-transparent backdrop-blur-md transition 
-         text-gray-800 dark:text-gray-100" enctype="multipart/form-data" use:enhance>
+         text-gray-800 dark:text-gray-100" action="?/update" method="post" enctype="multipart/form-data" use:enhance>
 
      <input type="text" name="name" value={data.project?.name} id="" class={inputField}>
      <input type="text" name="category" value={data.project?.category} id="" class={inputField}>
@@ -23,19 +34,39 @@
      <label for="technology">Technology</label>
 
       <input type="text" name="technology" value={data.project?.technology.join(',  ')} id="" class={inputField}>
-      <input type="text" name="screenshots" value={data.project?.screenshots.join(',  ')} id="" class={inputField}>
-      <input type="text" name="screenshotsMobile" value={data.project?.screenshotsMobile.join(',  ')} id="" class={inputField}>
+      <label for="screenshots">Desktop Screenshots</label>
+      <div class="flex flex-row flex-wrap">
+     {#each screenshots as screenshot, index}
+     <div>
+       <button class="text-red-700 text-2xl text-left" onclick={() => screenshots = screenshots.filter((_, i) => i !== index)}>X</button>
+       <img src={screenshot} alt="Desktop Screenshots">
+       </div>
+      {/each}
+      </div>
+       <label for="newScreenshots">New Screenshots for Desktop</label>
 
-      <label for="newScreenshots">New Screenshots for Desktop</label>
+      <input type="file" name="newScreenshots[]" id="" placeholder="New Screenshots" multiple class={inputField}>
 
-      <input type="file" name="newScreenshots" id="" placeholder="New Screenshots" multiple class={inputField}>
+      <label for="technology">Mobile Screenshots</label>
+       <div class="flex flex-row flex-wrap">
+        {#each screenshotsMobile as screenshot, index}
+        <div>
+       <button class="text-red-700 text-2xl text-left" onclick={() => screenshotsMobile = screenshotsMobile.filter((_, i) => i !== index)}>X</button>
+       <img src={screenshot} class="" alt="Mobile Screenshots">
+       </div>
+      {/each}
+</div>
 
+     
+      <label for="newScreenshotsMobile">New Screenshots for Mobile</label>
+      <input type="file" name="newScreenshotsMobile[]" id="" placeholder="New Mobile Screenshots" multiple class={inputField}>
+      {#each screenshots as screenshot}
+  <input type="hidden" name="screenshots" value={screenshot}>
+{/each}
 
-      
-  
-           <input type="file" name="newscreenshotsMobile" id="" placeholder="New Mobile Screenshots" multiple class={inputField}>
-
-      
+{#each screenshotsMobile as screenshot}
+  <input type="hidden" name="screenshotsMobile" value={screenshot}>
+{/each}
 
       <button 
       type="submit" 
@@ -45,9 +76,8 @@
            border-secondary-700 dark:border-background-2 dark:text-white border-1 shadow-2xl 
            "
   >
- 
     Update
   </button>
-    
+      
 
   </form>

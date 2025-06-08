@@ -33,7 +33,12 @@
         </div>
 
         <p class="text-sm font-head">© {currentYear} Nahusenay . All rights reserved.</p>
-        <p class="text-sm font-head">Built with <a href="https://svelte.dev/" class="text-blue-700 dark:text-blue-400">Sveltekit</a> and 
-            <a href="https://firebase.google.com/" class="text-blue-700 dark:text-blue-400">Firebase</a></p>
+        <p class="text-sm font-head">Built with 
+            <a href="https://svelte.dev/" class="text-blue-700 dark:text-blue-400" target="_blank">Sveltekit</a> and 
+            <a href="https://firebase.google.com/" class="text-blue-700 dark:text-blue-400" target="_blank">Firebase</a></p>
+            <p class="text-sm from-head">
+            Source Code for this site
+            <a href="https://github.com/NahusenayTadesse/portfolio-v3" class="text-blue-700 dark:text-blue-400" target="_blank">Code</a>
+        </p>
     </div>
 </footer>   

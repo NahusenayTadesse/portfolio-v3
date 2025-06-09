@@ -125,8 +125,6 @@ export const actions: Actions = {
     },
 
 
-    // Assuming streamToBuffer is defined correctly above
-// Assuming Firebase Admin SDK and Cloudinary config are initialized correctly above
 
 test: async ({ request }) => {
   try {

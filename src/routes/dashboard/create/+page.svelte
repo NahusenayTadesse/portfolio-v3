@@ -15,6 +15,10 @@ let fileInput = " w-full px-3 py-2 shadow-lg rounded-lg text-sm bg-background-1 
 
 </script>
 
+<svelte:head>
+  <title>Create Projects</title>
+</svelte:head>
+
 <!-- <form method="post" action="?/test" enctype="multipart/form-data" >
   <input type="file" class={fileInput} name="image" multiple>
   <button type="submit" {onsubmit}>Submit</button>

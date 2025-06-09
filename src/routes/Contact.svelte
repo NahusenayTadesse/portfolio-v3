@@ -1,11 +1,10 @@
 
  <script>
 	import { enhance } from '$app/forms';
-    import {typewriter} from '$lib/global.svelte';
+    import {link, typewriter} from '$lib/global.svelte';
     import { fly } from 'svelte/transition';
 	import { Toast } from 'flowbite-svelte';
 	import { ThumbsUpSolid, ExclamationCircleSolid } from 'flowbite-svelte-icons';
-	import { goto } from '$app/navigation';
     let {success, status } = $props();
  </script> 
  
@@ -35,10 +34,7 @@
 
 
   <button   type="submit"
-    class="dark:text-white bg-transparent text-secondary-900 shadow-lg
-    px-6 py-3 rounded-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 hover:text-black hover:shadow-lg hover:border-0 
-    dark:hover:border-0 dark:hover:bg-gradient-to-r dark:hover:from-secondary-600 dark:hover:to-background-1
-    transition-colors duration-300  dark:hover:text-white justify-self-center font-head text-lg dark:shadow-white dark:shadow-sm dark:hover:shadow-sm"
+    class={link}
     transition:fly={{ x: -200, duration: 1000 }}>
     Submit </button>
    

@@ -1,12 +1,10 @@
 <script>
     import { Popover} from "flowbite-svelte";
     import Tabs from '$lib/Tabs.svelte';
-	import { goto } from "$app/navigation";
+    import {classer, popClass} from "$lib/global.svelte"
 
     
-    let classer = "w-12 h-12 lg:w-20 lg:h-20 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300";
     
-    let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-700 dark:to-secondary-900 shadow-lg rounded-lg p-4 text-center";
     let viewBox = "0 0 40 40";
     const techStack = [
     {

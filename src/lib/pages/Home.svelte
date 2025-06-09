@@ -3,11 +3,8 @@
     import { Popover } from 'flowbite-svelte';
       import { DownloadOutline, GithubSolid, LinkedinSolid, WhatsappSolid, EnvelopeSolid} from "flowbite-svelte-icons";
 
-      let svgClass = "w-8 h-8 text-secondary-900 dark:text-white transform hover:scale-125 transition-transform ease-in-out duration-300";
-      let popClass = "w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4 text-center";
-
-    import { typewriter } from '$lib/global.svelte.js';
-	import { goto } from '$app/navigation';
+      
+    import { typewriter, link, svgClass, popClass } from '$lib/global.svelte.js';
     
 </script>
 
@@ -21,10 +18,7 @@
     
 
     <a href="/cv.pdf" download="Nahusenay_CV" 
-    class="border-1 border-white dark:border-1 dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
-    px-6 py-3 rounded-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 hover:text-black hover:shadow-sm shadow-sm
-     shadow-black dark:hover:border-0 dark:hover:shadow-sm dark:hover:bg-gradient-to-r dark:hover:from-secondary-500 dark:hover:to-background-1
-    transition-colors duration-300  dark:hover:text-white text-xl dark:shadow-white dark:shadow-sm"
+    class={link}
     transition:fly={{ x: 200, duration: 200 }}>
     Download CV <DownloadOutline class="inline-block ml-2 w-8 h-8 animate-bounce"  /></a>
 

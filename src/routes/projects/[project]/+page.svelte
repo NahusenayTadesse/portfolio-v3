@@ -123,7 +123,7 @@
     }
 
   import { fly, slide } from "svelte/transition";
-  import { typewriter } from "$lib/global.svelte";
+  import { link, typewriter } from "$lib/global.svelte";
 
  
 
@@ -143,6 +143,7 @@
 
 
 {#if data.project}
+<div class="flex flex-col gap-4 lg:gap-8">
 
 <h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
 <h3 class="text-lg font-head text-center">Category: {data.project?.category}</h3> 
@@ -167,19 +168,19 @@ Site Link
 
 <br>
 
-    <h3 class="text-4xl lg:text-5xl font-head font-bold text-left">Project Details</h3>
+    <h3 class="text-4xl lg:text-5xl font-head font-bold text-left m-4 lg:m-8">Project Details</h3>
 
    <p class="text-lg w-full lg:w-1/2 font-body">{data.project?.description}</p>
 
     
-<br><br><br>
 
 
-         <h3 class="text-2xl font-head font-bold">Technologies Used</h3>
+
+         <h3 class="text-3xl lg:text-5xl font-head font-bold text-left m-4 lg:m-8">Technologies Used</h3>
 
   
 
-    <div class="flex flex-row flex-wrap justify-center items-center gap-4 mt-8">
+    <div class="flex flex-row flex-wrap justify-center items-center gap-4 mt-4">
 
         {#each data.project?.technology as tech}
             <div class="flex flex-col justify-center items-center p-2 bg-secondary-100
@@ -194,8 +195,8 @@ Site Link
 
     </div>
 
-<div class="flex flex-col justify-center items-center">
-    <h3 class="text-5xl font-head font-bold mt-8">Project Screenshots</h3>
+<div class="flex flex-col justify-center items-center m-4 lg:m-8">
+    <h3 class="text-3xl lg:text-5xl font-head font-bold text-left">Project Screenshots</h3>
       
 <Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
 
@@ -216,11 +217,10 @@ Site Link
 </div>
 
 
-      <a href="/projects" class="font-head font-bold text-secondary-900 shadow-5xl p-4 border-1 hover:border-0 justify-self-center
-           dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-            dark:hover:from-primary-900 dark:hover:to-background-1 rounded-lg transition-colors">
+      <a href="/projects" class={link}>
             Back to Projects</a>
 
+</div>
 </div>
 
 {:else}

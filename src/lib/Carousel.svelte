@@ -77,7 +77,7 @@
       <div class="relative min-w-full h-full flex flex-col items-center justify-center rounded-lg shadow-5xl border-1 border-background-1 dark:border-0">
 
         <a href="/projects/{slide.slug}" >
-            <img src={slide.featured} alt={slide.name} class="w-full h-4/5 object-cover rounded-lg transition-all" />
+            <img src={slide.featured} alt={slide.name} class="w-full h-4/5 object-cover rounded-lg transition-all" loading="lazy"/>
         </a>
          <div class="w-full flex flex-col justify-center items-center gap-1 bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-600
          dark:to-secondary-600 text-black dark:text-white p-2  shadow-lg text-center">

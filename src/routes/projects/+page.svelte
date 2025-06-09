@@ -42,7 +42,7 @@
   <div class="max-w-full w-full gap-4 flex flex-col items-center justify-center rounded-2xl shadow-2xl dark:shadow-white dark:shadow-md p-2" 
   transition:fly={{ y: (index + 1) * 100, duration: 600, easing: t => t * (2 - t) }}>
     <a href="/projects/{project.slug}">
-    <img src={project.featured} alt={project.name} class="rounded-lg w-full" >
+    <img src={project.featured} alt={project.name} class="rounded-lg w-full" loading="lazy"/>
     </a>
     <h1 class="font-head font-bold text-2xl">{project.name}</h1>
     <h3 class="text-sm">Category: {project.category}</h3>

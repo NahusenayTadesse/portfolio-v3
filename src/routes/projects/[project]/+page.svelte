@@ -164,7 +164,7 @@ Site Link
 
 <div class="flex flex-col justify-center items-center gap-4 pt-8 p-4">
 
-<img src={data.project?.featured} alt={data.project?.name} class="rounded-lg w-full lg:w-1/2 justify-self-center shadow-2xl" transition:fly={{ y: 100, duration: 600, easing: t => t * (2 - t) }}>
+<img src={data.project?.featured} alt={data.project?.name} class="rounded-lg w-full lg:w-1/2 justify-self-center shadow-2xl" transition:fly={{ y: 100, duration: 600, easing: t => t * (2 - t) }} loading="lazy" />
 
 <br>
 
@@ -201,13 +201,13 @@ Site Link
 <Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
 
             {#each data.project?.screenshots as screenshot}
-            <img src={screenshot} alt="Desktop Screenshot for {data.project?.name}" class="w-full h-full">
+            <img src={screenshot} alt="Desktop Screenshot for {data.project?.name}" class="w-full h-full" loading="lazy">
             {/each}
           </Gallery>
 <Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
 
             {#each data.project?.screenshotsMobile as screenshot}
-            <img src={screenshot} alt="Mobile Screenshot for {data.project?.name}" class="w-full h-192" >
+            <img src={screenshot} alt="Mobile Screenshot for {data.project?.name}" class="w-full h-192" loading="lazy">
             {/each}
           </Gallery>
           

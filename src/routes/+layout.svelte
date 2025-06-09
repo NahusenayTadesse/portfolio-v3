@@ -8,6 +8,9 @@
 	import Animation from "$lib/Animation.svelte"
 	
 </script> 
+<svelte:head>
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</svelte:head>
 
 {#if page.url.pathname.startsWith('/dashboard') === false}
 <Header user={data.user} />

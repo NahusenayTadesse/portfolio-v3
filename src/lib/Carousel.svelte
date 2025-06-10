@@ -64,7 +64,9 @@
   }
 </script>
 
-<div class="relative w-full lg:w-[750px] justify-self-center overflow-hidden">
+<div class="relative w-full lg:w-2/3 rounded-xl justify-self-center overflow-hidden">
+
+    <h1 class="font-head font-bold text-6xl text-center mb-12">My  Projects</h1>
   <div class="flex transition-transform duration-500 ease-in-out"
        style="transform: translateX(-{current * 100}%)"
         ontouchstart={handleTouchStart}
@@ -79,13 +81,12 @@
         <a href="/projects/{slide.slug}" >
             <img src={slide.featured} alt={slide.name} class="w-full h-4/5 object-cover rounded-lg transition-all" loading="lazy"/>
         </a>
-         <div class="w-full flex flex-col justify-center items-center gap-1 bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-600
-         dark:to-secondary-600 text-black dark:text-white p-2  shadow-lg text-center">
+         <div class="w-full flex flex-col justify-center items-center gap-1 bg-gradient-to-br from-gray-50 to-background-2 dark:from-primary-600
+         dark:to-secondary-600 text-black dark:text-white p-2 pb-8 shadow-lg text-center">
           <h2 class="text-lg font-bold font-head">{slide.name}</h2>
             <p class="text-sm"> Category: {slide.category}</p>
-          <a href='/projects/{slide.slug}' class="font-head font-bold text-secondary-900 shadow-2xl p-4
-           dark:text-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
-            dark:hover:from-secondary-700 dark:hover:to-background-2 rounded-lg transition-colors">
+          <a href='/projects/{slide.slug}' class="font-head font-bold text-secondary-900 p-4
+           dark:text-white hover:text-blue-500 hover:text-shadow-2xs ">
             Learn More</a>
         </div>
  
@@ -97,13 +98,13 @@
 
   </div>
 
-  <div class="absolute bottom-48 left-1/2 transform -translate-x-1/2 flex gap-2">
+  <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex gap-2">
      {#each data as _, num}
        <button onclick={() => dots(num)} class="rounded-full transition-all duration-300">
         {#if current === num}
-        <LaptopCodeSolid class="w-8 h-8 fill-black dark:text-white bg-[#0e0e0e31]shadow-indigo-200" />
+        <LaptopCodeSolid class="w-8 h-8 fill-black dark:fill-white shadow-2xl" />
         {:else}
-        <LaptopCodeSolid class="w-8 h-8 fill-primary-600 hover:fill-black dark:text-gray-400 bg-[#0e0e0e31]shadow-indigo-200" />
+        <LaptopCodeSolid class="w-8 h-8 fill-primary-600 dark:fill-gray-500 dark:hover:fill-white hover:fill-black shadow-2xl" />
         {/if}
     </button>
   {/each}

@@ -25,10 +25,10 @@
    border-1 border-background-1 dark:shadow-white dark:shadow-sm shadow-lg" 
   bind:value={searchQuery} >
 
-<h1 class="text-6xl font-head font-bold mt-8 text-center pt-8 text-secondary-700 dark:text-white m-4" transition:typewriter={{ speed: 1 }}>Projects </h1>
+<h1 class="text-6xl font-head font-bold mt-8 text-center pt-8 text-secondary-700 dark:text-white m-4" transition:typewriter={{ speed: 1 }}>Projects</h1>
 
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-2 lg:p-16">
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 lg:p-16">
 {#each 
   searchQuery 
     ? data.projects.filter(project => 

@@ -1,62 +1,100 @@
-<script>
-  import { onMount } from 'svelte';
+<script lang="ts">
+	import { onMount, onDestroy } from 'svelte';
 
-  let smokes = [];
+	let canvas: HTMLCanvasElement;
+	let ctx: CanvasRenderingContext2D;
+	let width = 0;
+	let height = 0;
+	let particles: { x: number; y: number; vx: number; vy: number }[] = [];
 
-  function createSmoke() {
-    const id = Date.now();
-    smokes = [...smokes, { id, left: Math.random() * 100 }];
-    setTimeout(() => {
-      smokes = smokes.filter(smoke => smoke.id !== id);
-    }, 4000); // remove after animation
-  }
+	let PARTICLE_COUNT = 100;
+	const MAX_DISTANCE = 100;
 
-  onMount(() => {
-    const interval = setInterval(createSmoke, 300);
-    return () => clearInterval(interval);
-  });
+	// Choose count based on screen size
+	function getResponsiveParticleCount(width: number) {
+		if (width <= 480) return 40;
+		if (width <= 768) return 70;
+		return 200;
+	}
+
+	// Initialize particles
+	function initParticles() {
+		particles = Array.from({ length: PARTICLE_COUNT }, () => ({
+			x: Math.random() * width,
+			y: Math.random() * height,
+			vx: (Math.random() - 0.5) * 1.5,
+			vy: (Math.random() - 0.5) * 1.5
+		}));
+	}
+
+	function animate() {
+		ctx.clearRect(0, 0, width, height);
+
+		for (let p of particles) {
+			p.x += p.vx;
+			p.y += p.vy;
+			if (p.x < 0 || p.x > width) p.vx *= -1;
+			if (p.y < 0 || p.y > height) p.vy *= -1;
+
+			ctx.beginPath();
+			ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
+			ctx.fillStyle = '#40E0D0';
+			ctx.fill();
+		}
+
+		for (let i = 0; i < particles.length; i++) {
+			for (let j = i + 1; j < particles.length; j++) {
+				const a = particles[i];
+				const b = particles[j];
+				const dx = a.x - b.x;
+				const dy = a.y - b.y;
+				const dist = Math.sqrt(dx * dx + dy * dy);
+
+				if (dist < MAX_DISTANCE) {
+					ctx.beginPath();
+					ctx.moveTo(a.x, a.y);
+					ctx.lineTo(b.x, b.y);
+					ctx.strokeStyle = `rgba(64, 224, 208 ,${1 - dist / MAX_DISTANCE})`;
+					ctx.stroke();
+				}
+			}
+		}
+
+		requestAnimationFrame(animate);
+	}
+
+	onMount(() => {
+		width = window.innerWidth;
+		height = window.innerHeight;
+
+		PARTICLE_COUNT = getResponsiveParticleCount(width);
+
+		canvas.width = width;
+		canvas.height = height;
+
+		ctx = canvas.getContext('2d')!;
+		initParticles();
+		animate();
+
+		const handleResize = () => {
+			width = window.innerWidth;
+			height = window.innerHeight;
+
+			PARTICLE_COUNT = getResponsiveParticleCount(width);
+			canvas.width = width;
+			canvas.height = height;
+			initParticles();
+		};
+
+		window.addEventListener('resize', handleResize);
+		onDestroy(() => {
+			window.removeEventListener('resize', handleResize);
+		});
+	});
 </script>
 
+<canvas bind:this={canvas} class="w-full h-full fixed top-0 left-0 z-[-1] dark:hidden block"></canvas>
+
 <style>
-  .smoke-container {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
-    pointer-events: none;
-  }
 
-  .smoke {
-    position: absolute;
-    bottom: 0;
-    width: 30px;
-    height: 30px;
-    background: radial-gradient(circle, var(--color-blue-300), transparent);
-    opacity: 0.7;
-    border-radius: 50%;
-    animation: rise 4s ease-out forwards;
-  }
-
-  @keyframes rise {
-    0% {
-      transform: translateY(0) scale(1);
-      opacity: 0.7;
-    }
-    50% {
-      transform: translateY(-50vh) scale(1.5);
-      opacity: 0.4;
-    }
-    100% {
-      transform: translateY(-100vh) scale(2);
-      opacity: 0;
-    }
-  }
 </style>
-
-<div class="smoke-container dark:hidden block">
-  {#each smokes as smoke (smoke.id)}
-    <div class="smoke" style="left: {smoke.left}vw;"></div>
-  {/each}
-</div>

@@ -16,7 +16,7 @@
  
 
  <form method="POST" {onsubmit} use:enhance class="flex flex-col gap-4 p-8 max-w-md mx-auto rounded-lg shadow-lg
-   bg-gradient-to-r from-background-2 to-background-1 dark:bg-gradient-to-r dark:from-[rgba(255,255,255,0)] dark:to-[rgba(255,255,255,0)]"
+   bg-gradient-to-br from-gray-50 to-background-2 dark:bg-gradient-to-r dark:from-[rgba(255,255,255,0)] dark:to-[rgba(255,255,255,0)]"
     transition:fly={{ y: -200, duration: 600 }} >
 
      {#if success}

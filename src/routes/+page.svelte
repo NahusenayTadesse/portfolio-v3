@@ -45,7 +45,7 @@ function changer(message: string){
 
 </svelte:head>
 
-<div>
+<div class="flex flex-col gap-6 lg:gap-8">
 
  <div id="home" role="region" aria-label="Home Section"> <Home /></div>
  <div id="about" role="region" aria-label="About Section" > <About /></div>

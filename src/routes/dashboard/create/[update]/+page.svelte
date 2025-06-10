@@ -8,13 +8,13 @@
     let screenshotsMobile = $state(data.project?.screenshotsMobile || []);
 </script>
 <svelte:head>
-  <title>Update Projects</title>
+   <title>Update Projects</title>
+  <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
     <h1 class="text-center text-lg font-head fixed top-4 right-0"> {form?.success ? 'Form submitted' : 'form Failed'} </h1>
     <h1 class="text-center text-lg font-head"> {form?.error ? form?.message : ''} </h1>
-    <h1 class="text-center text-lg font-head"> {form?.screenshots?.length === 0 ? 'No List' : ''} </h1>
-    <h1 class="text-center text-lg font-head"> {form?.screenshotsMobile?.length === 0 ? 'No List' : ''} </h1>
+
 
   
 
@@ -34,7 +34,6 @@
 
       <h1 class="text-center text-lg font-head"> {form?.success ? 'Form submitted' : ''} </h1>
     <h1 class="text-center text-lg font-head"> {form?.error ? form?.message : ''} </h1>
-    <h1 class="text-center text-lg font-head"> {form?.screenshots?.length === 0 ? 'No List' : ''} </h1>
 </button>
 
 

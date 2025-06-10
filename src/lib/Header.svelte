@@ -20,7 +20,7 @@
 
 </script>
 
-<nav class="bg-gradient-to-r from-background-2 to-background-1 dark:from-primary-700 dark:to-secondary-900 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
+<nav class="bg-gradient-to-br from-gray-50 to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
   <div class="flex justify-between items-center">
     <button 
       class="lg:hidden text-black dark:text-white focus:outline-none" 
@@ -46,13 +46,13 @@
         aria-current={page.url.hash === section.href ? 'page' : undefined}
 
           href="/{section.href}"
-          class="relative px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
-                 hover:shadow-lg hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2
+          class="relative text-lg px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
+                 hover:shadow-lg hover:bg-gradient-to-r hover:from-gray-50 hover:to-background-2
                  dark:hover:from-secondary-600 dark:hover:to-background-2
                   transition:all duration-300
                  ease-in-out aria-[current=page]:shadow-lg dark:aria-[current=page]:shadow-white-2xl
-                 aria-[current=page]:bg-gradient-to-r aria-[current=page]:from-background-1 aria-[current=page]:to-background-2
-                dark:aria-[current=page]:bg-gradient-to-r dark:aria-[current=page]:from-primary-600 dark:aria-[current=page]:to-background-1
+                 aria-[current=page]:bg-gradient-to-r aria-[current=page]:from-gray-50 aria-[current=page]:to-background-2
+                dark:aria-[current=page]:bg-gradient-to-r dark:aria-[current=page]:from-primary-600 dark:aria-[current=page]:to-background-2
                 dark:text-white
                 dark:aria-[current=page]:text-white dark:aria-[current=page]:shadow-sm dark:aria-[current=page]:shadow-white
                 "

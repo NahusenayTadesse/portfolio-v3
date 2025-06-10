@@ -17,6 +17,7 @@ let fileInput = " w-full px-3 py-2 shadow-lg rounded-lg text-sm bg-background-1 
 
 <svelte:head>
   <title>Create Projects</title>
+  <meta name="robots" content="noindex, nofollow" />
 </svelte:head>
 
 <!-- <form method="post" action="?/test" enctype="multipart/form-data" >

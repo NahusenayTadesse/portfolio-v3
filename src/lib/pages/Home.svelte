@@ -9,11 +9,11 @@
 </script>
 
 
-<div class="flex flex-col items-center justify-center p-8 ">
-  <h1 in:typewriter={{ speed: 1 }} class="text-[36px] lg:text-[72px] font-bold mb-4 font-head text-center text-primary-900 dark:text-white">
+<div class="flex flex-col items-center justify-center p-4 pt-16 h-auto lg:h-[100vh] lg:p-0 lg:pt-0  ">
+  <h1 in:typewriter={{ speed: 1 }} class="text-5xl lg:text-8xl font-bold mb-4 font-head text-center text-primary-900 dark:text-white leading-16 lg:leading-none">
     Design. Develop. Deploy.</h1>
-  <p class="text-lg font-body text-center text-wrap w-full lg:w-2/3">
-     I am Nahusenay, I develop fullstack websites. I take care of the designing, developing, security, deployment and seo.</p>
+  <p class="text-2xl font-body text-center text-wrap w-full lg:w-2/3">
+    I am Nahusenay, a fullstack website developer. I handle everything from design and development to security, deployment, and SEO.</p>
   <div class="text-center flex flex-row gap-6 align-center justify-center center flex-wrap pt-4 font-head">
     
 
@@ -24,8 +24,8 @@
 
   </div>
 
-  <div class="flex flex-row flex-wrap justify-center shadow-lg items-center mt-8 gap-4 p-4 rounded-lg bg-gradient-to-r from-background-1 to-background-2 
-  dark:from-secondary-500 dark:to-background-1" transition:fly={{ x: -200, duration: 200 }}>
+  <div class="flex flex-row flex-wrap justify-center shadow-lg items-center mt-8 gap-4 p-4 rounded-lg bg-gradient-to-br from-bg-gray-300 to-background-2 
+  " transition:fly={{ x: -200, duration: 200 }}>
    <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" target="_blank" aria-label="LinkedIn">
       <LinkedinSolid class={svgClass} />
     </a>

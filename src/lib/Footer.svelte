@@ -1,9 +1,31 @@
 
 <script>
+	import { BottomNav, BottomNavItem } from "flowbite-svelte";
     let currentYear = new Date().getFullYear();
-    import { EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid } from "flowbite-svelte-icons";
+    import { MessageCaptionSolid, EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid, HomeSolid, WalletSolid, UserCircleSolid } from "flowbite-svelte-icons";
 
 </script>
+
+<div class="block lg:hidden"> 
+
+
+<BottomNav  position="fixed" innerClass="grid-cols-4 bg-gradient-to-br from-gray-50 to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600">
+
+  <BottomNavItem btnName="Home" href="">
+    <HomeSolid />
+  </BottomNavItem>
+  <BottomNavItem btnName="About Me" href="/#about">
+    <UserCircleSolid  />
+  </BottomNavItem>
+  <BottomNavItem btnName="Projects" href="/projects">
+    <WalletSolid   />
+  </BottomNavItem>
+  <BottomNavItem btnName="Contact" href="#contact">
+    <MessageCaptionSolid  />
+  </BottomNavItem>
+
+</BottomNav>
+</div>
 
 <footer class="bg-transparent p-6">
     <div class="container mx-auto text-center">
@@ -37,8 +59,9 @@
             <a href="https://svelte.dev/" class="text-blue-700 dark:text-blue-400" target="_blank">Sveltekit</a> and 
             <a href="https://firebase.google.com/" class="text-blue-700 dark:text-blue-400" target="_blank">Firebase</a></p>
             <p class="text-sm from-head">
-            Source Code for this site
+            Source
             <a href="https://github.com/NahusenayTadesse/portfolio-v3" class="text-blue-700 dark:text-blue-400" target="_blank">Code</a>
+            for this site.
         </p>
     </div>
 </footer>   

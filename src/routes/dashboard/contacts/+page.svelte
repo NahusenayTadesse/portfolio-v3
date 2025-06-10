@@ -45,6 +45,10 @@ let searchQuery = $state('');
 
   
 </script>
+<svelte:head>
+  <title>Contacts</title>
+  <meta name="robots" content="noindex, nofollow" />
+</svelte:head>
 
 
 <input type="text" 

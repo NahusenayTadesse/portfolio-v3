@@ -11,7 +11,7 @@
 
 <BottomNav  position="fixed" innerClass="grid-cols-4 bg-gradient-to-br from-gray-50 to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600">
 
-  <BottomNavItem btnName="Home" href="">
+  <BottomNavItem btnName="Home" href="/">
     <HomeSolid />
   </BottomNavItem>
   <BottomNavItem btnName="About" href="/#about">

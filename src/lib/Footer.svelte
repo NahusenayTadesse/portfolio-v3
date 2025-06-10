@@ -20,7 +20,7 @@
   <BottomNavItem btnName="Projects" href="/projects">
     <WalletSolid   />
   </BottomNavItem>
-  <BottomNavItem btnName="Contact" href="#contact">
+  <BottomNavItem btnName="Contact" href="/#contact">
     <MessageCaptionSolid  />
   </BottomNavItem>
 

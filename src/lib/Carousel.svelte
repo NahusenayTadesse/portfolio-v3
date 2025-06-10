@@ -66,7 +66,7 @@
 
 <div class="relative w-full lg:w-2/3 rounded-xl justify-self-center overflow-hidden">
 
-    <h1 class="font-head font-bold text-6xl text-center mb-12">My  Projects</h1>
+    <h1 class="font-head font-bold text-xl lg:text-5xl text-center mb-12">My  Projects</h1>
   <div class="flex transition-transform duration-500 ease-in-out"
        style="transform: translateX(-{current * 100}%)"
         ontouchstart={handleTouchStart}

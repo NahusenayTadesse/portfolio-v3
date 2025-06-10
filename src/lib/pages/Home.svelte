@@ -9,10 +9,10 @@
 </script>
 
 
-<div class="flex flex-col items-center justify-center p-4 pt-16 h-auto lg:h-[100vh] lg:p-0 lg:pt-0  ">
+<div class="flex flex-col items-center justify-center p-2 pt-16 h-auto lg:h-[100vh] lg:p-0 lg:pt-0  ">
   <h1 in:typewriter={{ speed: 1 }} class="text-5xl lg:text-8xl font-bold mb-4 font-head text-center text-primary-900 dark:text-white leading-16 lg:leading-none">
     Design. Develop. Deploy.</h1>
-  <p class="text-2xl font-body text-center text-wrap w-full lg:w-2/3">
+  <p class="text-xl lg:text-2xl font-body text-center text-wrap w-full lg:w-2/3">
     I am Nahusenay, a fullstack website developer. I handle everything from design and development to security, deployment, and SEO.</p>
   <div class="text-center flex flex-row gap-6 align-center justify-center center flex-wrap pt-4 font-head">
     

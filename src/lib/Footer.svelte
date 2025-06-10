@@ -14,7 +14,7 @@
   <BottomNavItem btnName="Home" href="">
     <HomeSolid />
   </BottomNavItem>
-  <BottomNavItem btnName="About Me" href="/#about">
+  <BottomNavItem btnName="About" href="/#about">
     <UserCircleSolid  />
   </BottomNavItem>
   <BottomNavItem btnName="Projects" href="/projects">
@@ -27,7 +27,7 @@
 </BottomNav>
 </div>
 
-<footer class="bg-transparent p-6">
+<footer class="bg-transparent p-6 pb-12">
     <div class="container mx-auto text-center">
          <div class="flex flex-row flex-wrap justify-center">
             <a href="mailto:nahusenaytadesse75@gmail.com" class="mx-2 hover:scale-125 transition-transform duration-300">

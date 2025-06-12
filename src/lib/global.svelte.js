@@ -24,7 +24,7 @@ export function typewriter(node, { speed = 1 }) {
 export let link = `border-1 border-white dark:border-1 hover:border-0 hover:text-white dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
     px-6 py-3 rounded-lg hover:bg-gradient-to-br hover:from-primary-600 hover:to-background-2 hover:text-black hover:shadow-2xl shadow-sm
      shadow-black dark:hover:border-0 dark:hover:shadow-2xl dark:hover:bg-gradient-to-r dark:hover:from-primary-600 dark:hover:to-background-2
-    transition-colors duration-300 dark:hover:text-white text-lg dark:shadow-white dark:shadow-sm`;
+    transition-colors duration-300 dark:hover:text-white text-lg dark:shadow-white dark:shadow-sm flex flex-row gap-4`;
 
 export let button = ``
 

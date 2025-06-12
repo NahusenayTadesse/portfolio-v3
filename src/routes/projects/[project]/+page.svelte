@@ -123,10 +123,9 @@
 
   import { fly, slide } from "svelte/transition";
   import { link, typewriter, popClass } from "$lib/global.svelte";
-	import { page } from "$app/state";
 
  
-
+import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 
 
 
@@ -148,18 +147,17 @@
 <h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
 <h3 class="text-lg font-head text-center">Category: {data.project?.category}</h3> 
 <br>
-<h3 class="text-lg font-head text-center">
+<button class="flex flex-row justify-center items-center justify-self-center w-auto">
   <a href={data.project?.link} target = "_blank" rel="noopener noreferrer"
-  class="text-blue-600 dark:text-background-2 text-lg hover:text-xl transition-ease-in-out duration-300 p-4 mt-8 hover:bg-gradient-to-br hover:from-gray-300 hover:to-background-2
-   dark:hover:bg-gradient-to-r dark:hover:text-white dark:shadow-white dark:hover:from-primary-600 dark:hover:to-background-2
-  shadow-2xl rounded-lg">
-  
+  class={link}>
+ 
 Site Link
 
+    <ArrowUpRightFromSquareOutline />
 
 
 
-</a></h3> 
+</a></button>  
 
 
 <div class="flex flex-col justify-center items-center gap-4 pt-8 p-4">
@@ -230,3 +228,4 @@ Site Link
         <a href="/projects" class="mt-4 text-blue-600 hover:underline">Go back to projects</a>
     </div>
 {/if}
+ 

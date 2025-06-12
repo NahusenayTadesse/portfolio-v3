@@ -153,7 +153,7 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
  
 Site Link
 
-    <ArrowUpRightFromSquareOutline />
+    <ArrowUpRightFromSquareOutline class="animate-bounce"/>
 
 
 

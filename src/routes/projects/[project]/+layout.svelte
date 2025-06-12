@@ -23,7 +23,7 @@
 {#if visible}
 
 <div class="hidden lg:flex flex-col gap-4 p-4 pt-16 fixed top-12 right-0 justify-self-end w-1/5 z-1 h-full 
-bg-background-2 dark:bg-secondary-900 shadow-lg dark:shadow-white rounded-lg" in:fly={{ y: -200, duration: 600}} out:fade>
+bg-background-2 dark:bg-secondary-900 shadow-lg dark:shadow-white rounded-lg overflow-auto" in:fly={{ y: -200, duration: 600}} out:fade>
     
     
     

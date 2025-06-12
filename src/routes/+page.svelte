@@ -62,7 +62,7 @@ function changer(message: string){
  <div id="contact" role="region" aria-label="Projects Section" >
     <Contact success={form?.success} status={form?.status} loading={form?.loading}/>
 </div>
-    
+
 
 </div>  
 

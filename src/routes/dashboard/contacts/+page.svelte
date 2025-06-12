@@ -61,25 +61,22 @@ let searchQuery = $state('');
 
 
 
-<form method="POST" action="?/delete" use:enhance class="flex flex-col justify-center items-center">
-  <div class="flex min-h-[50vh] flex-row flex-wrap justify-center items-center gap-4 w-4/5 justify-self-center"  >
-  
+<form method="POST" action="?/delete" use:enhance class="flex flex-col justify-center items-center mt-16">
+  <div class="grid gap-4 w-4/5 justify-self-center min-h-[100px] grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
     {#each 
-    
-    
-    searchQuery 
-    ? data.contacts.filter(project => 
-        String(project?.email ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        String(project?.message ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        String(formatDateTime(project?.createdAt) ?? '').toLowerCase().includes(searchQuery.toLowerCase()) 
-      ) 
-    : data.contacts  as contact}
-    <div class="border-2 rounded-lg border-background-1 shadow-2xl p-4 w-1/4" transition:fly={{y:-200, duration: 500}}>
-      <input
-        type="checkbox"
-        onchange={() => pushId(contact.id)}
-      />
-      <h2 > Email: <a href="mailto:{contact?.email}" target="_blank" class="text-blue-700"> {contact?.email}</a></h2>
+      searchQuery 
+        ? data.contacts.filter(project => 
+            String(project?.email ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            String(project?.message ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
+            String(formatDateTime(project?.createdAt) ?? '').toLowerCase().includes(searchQuery.toLowerCase()) 
+          ) 
+        : data.contacts  as contact}
+      <div class="border-2 rounded-lg border-background-1 shadow-2xl p-4" transition:fly={{y:-200, duration: 500}}>
+        <input
+          type="checkbox"
+          onchange={() => pushId(contact.id)}
+        />
+        <h2 > Email: <a href="mailto:{contact?.email}" target="_blank" class="text-blue-700"> {contact?.email}</a></h2>
   <h3>Created At:  {formatDateTime(contact.createdAt)} </h3>
   <p> Message:  {contact?.message}</p>
     </div>
@@ -91,7 +88,7 @@ let searchQuery = $state('');
    </div>
 
   <button type="submit" name="delete" onclick={onsubmit}
-  class="w-48 justify-self-center p-4 bg-red-500 hover:bg-red-600 text-white  border-1 rounded-lg">
+  class="w-48 justify-self-center p-4 bg-red-500 hover:bg-red-600 text-white  border-1 rounded-lg mt-8">
  
   
   Delete Selected</button>

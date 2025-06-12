@@ -1,100 +1,96 @@
-<script lang="ts">
-	import { onMount, onDestroy } from 'svelte';
+<script>
+  const snippets = [
+    `const visitor = "Const Visitor";`,
+    `function greet() {\n  return "Hi Visitor";\n}`,
+	`function should(){ return "You should hire me"}`,
+    `if (visitor) {\n  console.log("Welcome to my site");\n}`,
+    `for(let i=0; i<10; i++) {\n  console.log("Do you need a website?");\n}`,
+    `export default function() {}`,
+    `console.log("Hello Potential Employer");`,
+    `const sum = (a,b) => a + b;`,
+  ];
 
-	let canvas: HTMLCanvasElement;
-	let ctx: CanvasRenderingContext2D;
-	let width = 0;
-	let height = 0;
-	let particles: { x: number; y: number; vx: number; vy: number }[] = [];
+  /**
+	 * @type {any[]}
+	 */
+  let boxes = [];
 
-	let PARTICLE_COUNT = 100;
-	const MAX_DISTANCE = 100;
+  const createBox = (/** @type {number} */ id) => ({
+    id,
+    left: `${Math.random() * 100}%`,
+    width: `${150 + Math.random() * 100}px`,
+    opacity: Math.random() * 0.7 + 0.3,
+    duration: `${Math.random() * 10}s`,
+    snippet: snippets[Math.floor(Math.random() * snippets.length)],
+    key: Math.random() // helps force re-render
+  });
 
-	// Choose count based on screen size
-	function getResponsiveParticleCount(width: number) {
-		if (width <= 480) return 40;
-		if (width <= 768) return 70;
-		return 200;
-	}
+  // Initialize boxes
+  const boxCount = 5;
+  for (let i = 0; i < boxCount; i++) {
+    boxes.push(createBox(i));
+  }
 
-	// Initialize particles
-	function initParticles() {
-		particles = Array.from({ length: PARTICLE_COUNT }, () => ({
-			x: Math.random() * width,
-			y: Math.random() * height,
-			vx: (Math.random() - 0.5) * 1.5,
-			vy: (Math.random() - 0.5) * 1.5
-		}));
-	}
-
-	function animate() {
-		ctx.clearRect(0, 0, width, height);
-
-		for (let p of particles) {
-			p.x += p.vx;
-			p.y += p.vy;
-			if (p.x < 0 || p.x > width) p.vx *= -1;
-			if (p.y < 0 || p.y > height) p.vy *= -1;
-
-			ctx.beginPath();
-			ctx.arc(p.x, p.y, 2, 0, Math.PI * 2);
-			ctx.fillStyle = '#40E0D0';
-			ctx.fill();
-		}
-
-		for (let i = 0; i < particles.length; i++) {
-			for (let j = i + 1; j < particles.length; j++) {
-				const a = particles[i];
-				const b = particles[j];
-				const dx = a.x - b.x;
-				const dy = a.y - b.y;
-				const dist = Math.sqrt(dx * dx + dy * dy);
-
-				if (dist < MAX_DISTANCE) {
-					ctx.beginPath();
-					ctx.moveTo(a.x, a.y);
-					ctx.lineTo(b.x, b.y);
-					ctx.strokeStyle = `rgba(64, 224, 208 ,${1 - dist / MAX_DISTANCE})`;
-					ctx.stroke();
-				}
-			}
-		}
-
-		requestAnimationFrame(animate);
-	}
-
-	onMount(() => {
-		width = window.innerWidth;
-		height = window.innerHeight;
-
-		PARTICLE_COUNT = getResponsiveParticleCount(width);
-
-		canvas.width = width;
-		canvas.height = height;
-
-		ctx = canvas.getContext('2d')!;
-		initParticles();
-		animate();
-
-		const handleResize = () => {
-			width = window.innerWidth;
-			height = window.innerHeight;
-
-			PARTICLE_COUNT = getResponsiveParticleCount(width);
-			canvas.width = width;
-			canvas.height = height;
-			initParticles();
-		};
-
-		window.addEventListener('resize', handleResize);
-		onDestroy(() => {
-			window.removeEventListener('resize', handleResize);
-		});
-	});
+  /**
+	 * @param {number} index
+	 */
+  function handleAnimationEnd(index) {
+    boxes[index] = createBox(boxes[index].id);
+    boxes = [...boxes]; // trigger reactivity
+  }
 </script>
 
-<canvas bind:this={canvas} class="w-full h-full fixed top-0 left-0 z-[-1] dark:hidden block"></canvas>
-
 <style>
+  .background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1;
+    font-family: 'Fira Mono', monospace;
+  }
 
+  .box {
+    position: absolute;
+    bottom: -120px;
+    padding: 10px;
+    background-color: rgba(168, 237, 234, 0.8);
+    color: var(--color-secondary-700);
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: pre-wrap;
+    box-shadow: 0 0 5px rgba(168, 237, 234, 0.7);
+    animation-name: floatUp;
+    animation-timing-function: linear;
+  }
+
+  @keyframes floatUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
+    }
+    to {
+      transform: translateY(-120vh);
+      opacity: 0;
+    }
+  }
 </style>
+
+<div class="background">
+  {#each boxes as box, i (box.key)}
+    <div
+      class="box dark:hidden block"
+      style="
+        left: {box.left};
+        width: {box.width};
+        opacity: {box.opacity};
+        animation-duration: {box.duration};
+      "
+      on:animationend={() => handleAnimationEnd(i)}
+    >
+      {box.snippet}
+    </div>
+  {/each}
+</div>

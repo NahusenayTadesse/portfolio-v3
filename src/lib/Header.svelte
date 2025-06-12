@@ -20,7 +20,7 @@
 
 </script>
 
-<nav class="bg-gradient-to-br from-gray-50 to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
+<nav class="bg-gradient-to-r from-background-2 to-gray-200 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
   <div class="flex justify-between items-center">
     <button 
       class="lg:hidden text-black dark:text-white focus:outline-none" 

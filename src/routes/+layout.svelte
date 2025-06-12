@@ -6,11 +6,9 @@
 	import { page } from '$app/state';
 	import DarkAnimation from '$lib/DarkAnimation.svelte';
 	import Animation from "$lib/Animation.svelte"
+	console.log("Welcome to my site")
 	
 </script> 
-<svelte:head>
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-</svelte:head>
 
 {#if page.url.pathname.startsWith('/dashboard') === false}
 <Header user={data.user} />

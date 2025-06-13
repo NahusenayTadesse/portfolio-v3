@@ -1,6 +1,6 @@
  <script>
 	import { enhance } from '$app/forms';
-    import {link, typewriter} from '$lib/global.svelte';
+    import {link, typewriter, toast} from '$lib/global.svelte';
     import { fly } from 'svelte/transition';
 	import { Toast } from 'flowbite-svelte';
 	import { ThumbsUpSolid, ExclamationCircleSolid } from 'flowbite-svelte-icons';
@@ -52,9 +52,10 @@
     
 </form> 
 
+
 {#if success} 
 <div >
-<Toast class="bg-gradient-to-r from-background-1 to-background-2 fixed bottom-0 right-0 p-4 rounded-lg shadow-lg">
+<Toast class={toast}>
     <ThumbsUpSolid class="text-green-500 w-12 h-1/2" />
     <h2 class="font-head text-2xl">Thank You for your Message, I will get back to you shortly!</h2>
 </Toast>
@@ -62,13 +63,13 @@
 {/if}
 
 {#if status === 400}
-    <Toast class="bg-gradient-to-r from-background-1 to-background-2 fixed bottom-0 right-0 p-4 rounded-lg shadow-lg">
+    <Toast class={toast}>
     <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
     <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please fill all the fields.</h2>
 </Toast>
 {:else if status === 500}
 
-<Toast class="bg-gradient-to-r from-background-1 to-background-2 fixed bottom-0 right-0 p-4 rounded-lg shadow-lg">
+<Toast class={toast}>
     <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
     <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please try again.</h2>
 </Toast>

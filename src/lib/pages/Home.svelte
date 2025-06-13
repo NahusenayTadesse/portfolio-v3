@@ -17,7 +17,7 @@
   <div class="text-center flex flex-row gap-6 align-center justify-center center flex-wrap pt-4 font-head">
     
 
-    <a href="/CV.pdf" download="Nahusenay_CV" 
+    <a href="/Nahusenay%20Tadesse%20CV.pdf" download="Nahusenay_Tadesse_CV" 
     class={link}
     transition:fly={{ x: 200, duration: 200 }}>
     Download CV <DownloadOutline class="inline-block ml-2 w-8 h-8 animate-bounce"  /></a>

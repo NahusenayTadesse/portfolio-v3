@@ -32,3 +32,4 @@ export let svgClass = `w-8 h-8 text-secondary-900 dark:text-white transform hove
 export let popClass = `w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-br from-gray-300 to-background-2 dark:bg-gradient-to-r
  dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4 text-center`;
 export let classer = `w-12 h-12 lg:w-20 lg:h-20 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300`;
+export let toast = `bg-gradient-to-r from-gray-50 to-background-2 fixed bottom-20 lg:bottom-0 right-0 p-4 rounded-lg shadow-lg`

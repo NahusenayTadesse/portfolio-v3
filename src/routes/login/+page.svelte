@@ -1,5 +1,6 @@
 <script lang="ts">
     import { enhance } from '$app/forms'; // For submitting form with SvelteKit actions
+    import Seo from '$lib/Seo.svelte';
     
    
     let {form} = $props();
@@ -9,6 +10,8 @@
 
 
 </script>
+
+<Seo title="Login" description="Admin sign in." noindex />
 
 <div class="p-8 gap-4 flex flex-col">
     <h1 class="font-head font-bold text-5xl text-center">Login</h1>

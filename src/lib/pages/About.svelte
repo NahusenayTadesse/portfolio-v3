@@ -119,25 +119,25 @@
 </script>
 
 
-<h1 class="text-3xl lg:text-6xl font-head text-center font-bold mb-4">About Me</h1>
+<h2 class="text-3xl lg:text-6xl font-head text-center font-bold mb-4">About Me</h2>
 
 <div class="flex flex-col justify-center items-center justify-self-center px-0 lg:px-24">
 <div class="flex flex-row flex-wrap justify-center items-start text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-2 lg:p-8 gap-8">
       <div class="flex flex-col w-full lg:w-1/3 h-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
-    <h1 class="font-bold font-head text-2xl text-center">Who Am I?</h1>
+    <h3 class="font-bold font-head text-2xl text-center">Who Am I?</h3>
         
     <p class="text-left">
       I'm Nahusenay Tadesse, a fullstack web developer passionate about building dynamic, 
       responsive, and user-friendly websites with strong frontend and backend functionality.</p>
     
-    <h1 class="font-bold font-head text-2xl text-center">Developement Philosophy</h1>
+    <h3 class="font-bold font-head text-2xl text-center">Development Philosophy</h3>
         <p class="text-left">I focus on building clean, efficient, and maintainable solutions that are easy to scale, avoiding unnecessary complexity.</p>
   
   </div>
     <div class="flex flex-col w-full lg:w-1/2 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
         
          <div class="w-full text-center lg:text-center flex flex-col gap-4 rounded-lg">
-            <h1 class="font-head font-bold text-2xl">What Kind of Websites Do I Develop?</h1>  
+            <h3 class="font-head font-bold text-2xl">What Kind of Websites Do I Develop?</h3>  
 
               <p class="text-left">I develop a variety of websites, each requiring unique resources and timelines based on their complexity and purpose.</p>
             <Tabs />
@@ -145,7 +145,7 @@
     </div>
      <div class="flex flex-col justify-center lg:justify-start items-center w-full shadow-md gap-4 p-4">
 
-     <h1 class="font-bold font-head text-2xl"> My Tech Stack</h1>
+     <h3 class="font-bold font-head text-2xl"> My Tech Stack</h3>
      <p class="w-full lg:w-1/2 text-left lg:text-left">I mainly use Sveltekit with Firebase or Supabase for backend services, and WordPress for simple content management. Here are some of the technologies I can work with:</p>
     <div class="grid grid-cols-4 md:grid-cols-8 w-full h-full bg-gradient-to-brfrom-gray-300 to-background-2 p-4 rounded-lg shadow-lg dark:bg-gradient-to-br dark:from-primary-600 dark:to-secondary-600 justify-center place-items-center items-center">
 

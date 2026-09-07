@@ -6,37 +6,78 @@ import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
 import Carousel from '$lib/Carousel.svelte';
 import {link} from '$lib/global.svelte';
+import Seo from '$lib/Seo.svelte';
+import { jsonLd, SITE_URL, SITE_NAME, AUTHOR, SAME_AS, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE } from '$lib/seo';
 
 
 let { data, form} = $props();
+
+// A Person entity is what lets Google answer "who is a Svelte developer" with
+// a named human rather than just a page of text.
+const personSchema = jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': `${SITE_URL}/#person`,
+    name: AUTHOR,
+    url: SITE_URL,
+    image: DEFAULT_IMAGE,
+    jobTitle: 'Svelte & SvelteKit Developer',
+    description: DEFAULT_DESCRIPTION,
+    email: 'mailto:nahusenaytadesse75@gmail.com',
+    telephone: '+251947340602',
+    sameAs: SAME_AS,
+    address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Addis Ababa',
+        addressCountry: 'ET'
+    },
+    knowsAbout: [
+        'Svelte',
+        'SvelteKit',
+        'TypeScript',
+        'JavaScript',
+        'Web Development',
+        'Firebase',
+        'Supabase',
+        'PostgreSQL',
+        'Tailwind CSS',
+        'WordPress'
+    ],
+    knowsLanguage: ['en', 'am'],
+    // Says "hire me, from anywhere" in a form search engines can parse.
+    seeks: {
+        '@type': 'Demand',
+        name: 'Freelance and contract Svelte / SvelteKit development'
+    },
+    worksFor: {
+        '@type': 'Organization',
+        name: 'Freelance'
+    }
+});
+
+const websiteSchema = jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE_URL}/#website`,
+    url: SITE_URL,
+    name: SITE_NAME,
+    description: DEFAULT_DESCRIPTION,
+    inLanguage: 'en',
+    publisher: { '@id': `${SITE_URL}/#person` }
+});
 </script>
+<Seo
+    title={DEFAULT_TITLE}
+    description={DEFAULT_DESCRIPTION}
+    schema={personSchema + websiteSchema}
+/>
+
 <svelte:head>
-    
-<title>Nahusenay Tadesse | Fullstack Web Developer in Addis Ababa, Ethiopia</title>
-<meta name="title" content="Nahusenay Tadesse | Fullstack Web Developer in Addis Ababa, Ethiopia">
-<meta name="description" content="Nahusenay Tadesse is a fullstack web developer based in Addis Ababa, Ethiopia. Specialized in building fast, responsive, and user-friendly websites using SvelteKit and WordPress. Skilled in Supabase, Firebase, MySQL, PostgreSQL, and SQLite.">
-<meta name="keywords" content="Nahusenay Tadesse, fullstack web developer, Addis Ababa developer, SvelteKit developer, WordPress expert, responsive websites, frontend backend developer, Supabase, Firebase, MySQL, PostgreSQL, SQLite, Ethiopian web developer, web development portfolio">
-<meta name="author" content="Nahusenay Tadesse">
-<meta name="robots" content="index, follow">
-<meta name="language" content="en">
-<meta name="geo.region" content="ET-AD">
-<meta name="geo.placename" content="Addis Ababa, Ethiopia">
-<meta name="geo.position" content="9.03;38.74">
-<meta name="ICBM" content="9.03, 38.74">
-
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://nahusenay.vercel.app/">
-<meta property="og:title" content="Nahusenay Tadesse | Fullstack Web Developer">
-<meta property="og:description" content="Explore the portfolio of Nahusenay Tadesse, a fullstack web developer based in Addis Ababa, Ethiopia. Specialized in SvelteKit, WordPress, and modern backend technologies.">
-<meta property="og:image" content="/nahu.webp">
-
-<meta property="twitter:card" content="summary_large_image">
-<meta property="twitter:url" content="https://nahusenay.vercel.app/">
-<meta property="twitter:title" content="Nahusenay Tadesse | Fullstack Web Developer">
-<meta property="twitter:description" content="Explore the portfolio of Nahusenay Tadesse, a SvelteKit and WordPress web developer with backend expertise in Supabase, Firebase, MySQL, and more.">
-<meta property="twitter:image" content="/nahu.webp">
-
+    <!-- Local-intent signals for "… developer in Ethiopia" queries -->
+    <meta name="geo.region" content="ET-AD" />
+    <meta name="geo.placename" content="Addis Ababa, Ethiopia" />
+    <meta name="geo.position" content="9.03;38.74" />
+    <meta name="ICBM" content="9.03, 38.74" />
 </svelte:head>
 
 <div class="flex flex-col gap-6 lg:gap-8">

@@ -32,9 +32,9 @@
      {/if}
 
 
-    <h1 class="text-3xl font-head font-bold text-secondary-900 dark:text-white text-center mb-4" transition:typewriter={{ speed: 1 }}>
+    <h2 class="text-3xl font-head font-bold text-secondary-900 dark:text-white text-center mb-4" transition:typewriter={{ speed: 1 }}>
         Send Me a Message
-    </h1>
+    </h2>
  
  
     <input type="email" name="email" placeholder="Your Email" 

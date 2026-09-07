@@ -45,7 +45,7 @@
   {#if active[0]}
     <div class={contentClass} transition:slide|global>
      <div >
-                    <h1 class="text-lg font-bold font-head">Portfolio or Business Websites</h1>
+                    <h4 class="text-lg font-bold font-head">Portfolio or Business Websites</h4>
                     These websites are designed to showcase your work or business. They typically include sections like About, Services, Portfolio, and Contact. I focus on creating visually appealing designs that reflect your brand identity and engage your audience.
                      These websites, depending on the number of pages and their complexity it will take me <strong>3</strong> to <strong>5</strong> days.
                      </div>
@@ -54,7 +54,7 @@
 
   {#if active[1]}
     <div class={contentClass} transition:slide|global>
-     <h1 class="text-lg font-bold font-head">Blogging Websites</h1>
+     <h4 class="text-lg font-bold font-head">Blogging Websites</h4>
                     Blogging websites are designed for content creators to share their thoughts, ideas, and expertise. I ensure that these sites are user-friendly, with features like categories, tags, and comment sections to enhance user engagement.
                     These websites, depending on the number of pages and their complexity it will take me <strong>5</strong> to <strong>10</strong> days.
     </div>
@@ -62,7 +62,7 @@
 
   {#if active[2]}
     <div class={contentClass} transition:slide|global>
-       <h1 class="text-lg font-bold font-head">E-commerce Websites</h1>
+       <h4 class="text-lg font-bold font-head">E-commerce Websites</h4>
                     E-commerce websites are built to facilitate online sales. 
                     I focus on creating secure, user-friendly shopping experiences that drive conversions. 
                     These sites often include product catalogs, shopping carts, and payment gateways.

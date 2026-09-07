@@ -5,17 +5,40 @@
   
 
     let { data } = $props();
+
+  // An ItemList tells Google these are discrete works, which is what surfaces
+  // individual projects as sitelinks under the main result.
+  const listSchema = $derived(jsonLd({
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    '@id': `${SITE_URL}/projects#collection`,
+    url: `${SITE_URL}/projects`,
+    name: 'Projects',
+    isPartOf: { '@id': `${SITE_URL}/#website` },
+    about: { '@id': `${SITE_URL}/#person` },
+    mainEntity: {
+      '@type': 'ItemList',
+      itemListElement: data.projects.map((project, i) => ({
+        '@type': 'ListItem',
+        position: i + 1,
+        url: `${SITE_URL}/projects/${project.slug}`,
+        name: project.name
+      }))
+    }
+  }));
   import { typewriter, link } from "$lib/global.svelte";
+  import Seo from '$lib/Seo.svelte';
+  import { jsonLd, SITE_URL } from '$lib/seo';
   let searchQuery = $state('');
 
  
 
 </script>
-<svelte:head>
-  <title>Projects</title>
-   <meta property="og:title" content="Projects">
-   <meta property="og:description" content="List and Details of all the projects I did">
-</svelte:head>
+<Seo
+  title="Svelte & SvelteKit Projects — Portfolio of Nahusenay Tadesse"
+  description="Case studies from a Svelte and SvelteKit developer: production web apps built with TypeScript, Firebase, Supabase and WordPress, with the problems solved on each build."
+  schema={listSchema}
+/>
 
 
 <input type="text" 

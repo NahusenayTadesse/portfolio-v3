@@ -1,8 +1,46 @@
 
 <script lang="ts">
     import { Popover, Gallery } from "flowbite-svelte";
+    import Seo from '$lib/Seo.svelte';
+    import { jsonLd, SITE_URL, AUTHOR, absolute, techLabel } from '$lib/seo';
 
     let { data } = $props();
+
+    // Long-tail entry point: "<project name> svelte" / "<technology> case study".
+    // Title carries the stack so the query and the result share vocabulary.
+    const techList = $derived(
+        (Array.isArray(data.project?.technology) ? data.project.technology : []).map(
+            (t: string) => techLabel(String(t))
+        )
+    );
+    const seoTitle = $derived(
+        data.project
+            ? `${data.project.name} — ${techList.slice(0, 3).join(', ') || 'Web'} Project by ${AUTHOR}`
+            : 'Project Not Found'
+    );
+    const seoDescription = $derived(
+        (data.project?.description ?? '').toString().replace(/\s+/g, ' ').trim().slice(0, 300) ||
+        'A web development case study by Nahusenay Tadesse.'
+    );
+    const projectSchema = $derived(
+        data.project
+            ? jsonLd({
+                  '@context': 'https://schema.org',
+                  '@type': 'CreativeWork',
+                  '@id': `${SITE_URL}/projects/${data.project.slug}#work`,
+                  name: data.project.name,
+                  url: `${SITE_URL}/projects/${data.project.slug}`,
+                  description: seoDescription,
+                  image: absolute(data.project.featured),
+                  genre: data.project.category,
+                  keywords: techList.join(', '),
+                  inLanguage: 'en',
+                  author: { '@id': `${SITE_URL}/#person` },
+                  creator: { '@id': `${SITE_URL}/#person` },
+                  isPartOf: { '@id': `${SITE_URL}/#website` }
+              })
+            : ''
+    );
     let classer = "w-6 h-6 lg:w-12 lg:h-12 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300";
 
     let viewBox = "0 0 24 24";
@@ -132,12 +170,14 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 
 </script>
 
-<svelte:head> 
-  <title>{data.project?.name}</title>
-   <meta property="og:title" content={data.project?.name}>
-  <meta property="og:description" content={data.project?.description}>
-  <meta property="og:image" content={data.project?.featured}>
-</svelte:head>
+<Seo
+  title={seoTitle}
+  description={seoDescription}
+  image={data.project?.featured}
+  type="article"
+  noindex={!data.project}
+  schema={projectSchema}
+/>
 
 
 

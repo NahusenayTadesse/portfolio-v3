@@ -1,10 +1,9 @@
 
 <script lang="ts">
-import { fly } from "svelte/transition"
 import Home from '$lib/pages/Home.svelte';
 import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
-import Carousel from '$lib/Carousel.svelte';
+import ProjectCard from '$lib/ProjectCard.svelte';
 import {link} from '$lib/global.svelte';
 import Seo from '$lib/Seo.svelte';
 import { jsonLd, SITE_URL, SITE_NAME, AUTHOR, SAME_AS, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE } from '$lib/seo';
@@ -84,15 +83,23 @@ const websiteSchema = jsonLd({
 
  <div id="home" role="region" aria-label="Home Section"> <Home /></div>
  <div id="about" role="region" aria-label="About Section" > <About /></div>
- <div role="region" aria-label="Projects Section" id="projects" class="flex flex-col items-center justify-center gap-4 p-8"> 
-<Carousel data = {data.projects} />
-<a href="/projects" 
-    class={link}
-    transition:fly={{ x: -200, duration: 1000 }}>
-    See All Projects </a>
+ <section aria-labelledby="projects-heading" id="projects" class="flex flex-col items-center gap-8 px-4 py-12 lg:px-16">
+  <h2 id="projects-heading" class="font-head text-3xl font-bold lg:text-5xl">My Projects</h2>
 
+  <!-- A grid instead of a carousel: six projects visible at once rather than
+       one behind an auto-advancing widget with 19 off-screen pagination dots. -->
+  <div class="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    {#each data.projects.slice(0, 6) as project, i (project.slug)}
+      <ProjectCard {project} eager={i < 3} />
+    {/each}
+  </div>
 
- </div>
+  {#if data.projects.length > 6}
+    <a href="/projects" class={link}>
+      See all {data.projects.length} projects
+    </a>
+  {/if}
+ </section>
 
  <div id="contact" role="region" aria-label="Projects Section" >
     <Contact success={form?.success} status={form?.status} />

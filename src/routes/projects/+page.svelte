@@ -26,10 +26,20 @@
       }))
     }
   }));
-  import { typewriter, link } from "$lib/global.svelte";
+  import { typewriter } from "$lib/global.svelte";
+  import ProjectCard from '$lib/ProjectCard.svelte';
   import Seo from '$lib/Seo.svelte';
   import { jsonLd, SITE_URL } from '$lib/seo';
   let searchQuery = $state('');
+
+  const filtered = $derived.by(() => {
+    const q = searchQuery.trim().toLowerCase();
+    if (!q) return data.projects;
+    return data.projects.filter((p) =>
+      [p?.name, p?.category, p?.description, p?.challenges]
+        .some((field) => String(field ?? '').toLowerCase().includes(q))
+    );
+  });
 
  
 
@@ -41,38 +51,31 @@
 />
 
 
-<input type="text" 
- placeholder="Search Projects" 
- class="fixed right-0 lg:top-3 top-15  lg:right-2 max-w-md mx-auto mt-4 p-2 rounded-lg focus:outline-none focus:ring-2
-  focus:ring-background-2 dark:bg-secondary-900 dark:text-white dark:border-gray-600 bg-transparent
-   border-1 border-background-1 dark:shadow-white dark:shadow-sm shadow-lg" 
-  bind:value={searchQuery} >
+<div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 pt-12 lg:px-16">
+  <h1 class="font-head text-5xl font-bold text-ink dark:text-white lg:text-6xl" transition:typewriter={{ speed: 1 }}>Projects</h1>
 
-<h1 class="text-6xl font-head font-bold mt-8 text-center pt-8 text-muted dark:text-white m-4" transition:typewriter={{ speed: 1 }}>Projects</h1>
+  <label class="w-full max-w-md">
+    <span class="sr-only">Search projects</span>
+    <input
+      type="search"
+      placeholder="Search by name, category or technology"
+      bind:value={searchQuery}
+      class="w-full rounded-lg border border-line bg-surface p-3 text-ink shadow-sm
+             placeholder:text-muted focus:outline-2 focus:outline-offset-2 focus:outline-background-2
+             dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-400"
+    />
+  </label>
+</div>
 
 
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 lg:p-16">
-{#each 
-  searchQuery 
-    ? data.projects.filter(project => 
-        String(project?.name ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        String(project?.category ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        String(project?.description ?? '').toLowerCase().includes(searchQuery.toLowerCase()) ||
-        String(project?.challenges ?? '').toLowerCase().includes(searchQuery.toLowerCase())
-      ) 
-    : data.projects 
-  as project, index}
-  <div class="max-w-full w-full gap-4 flex flex-col items-center justify-center rounded-2xl shadow-2xl dark:shadow-white dark:shadow-md p-2" 
-  transition:fly={{ y: (index + 1) * 100, duration: 600, easing: t => t * (2 - t) }}>
-    <a href="/projects/{project.slug}">
-    <img src={project.featured} alt={project.name} class="rounded-lg w-full" loading="lazy"/>
-    </a>
-    <h1 class="font-head font-bold text-2xl">{project.name}</h1>
-    <h3 class="text-sm">Category: {project.category}</h3>
-    <a href="/projects/{project.slug}" class={link}>
-            See Project Detail</a>
-
+<div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2 lg:grid-cols-3 lg:p-16">
+{#each filtered as project, index (project.slug)}
+  <div transition:fly={{ y: 40, duration: 400, delay: Math.min(index, 5) * 60 }}>
+    <ProjectCard {project} eager={index < 3} />
   </div>
-{/each} 
-
+{:else}
+  <p class="col-span-full text-center text-muted dark:text-gray-300">
+    No projects match "{searchQuery}".
+  </p>
+{/each}
 </div>

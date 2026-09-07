@@ -5,12 +5,27 @@
     import { page, navigating } from '$app/state';
 	import { UserCircleSolid } from 'flowbite-svelte-icons';
 
+   // Projects is a real route, not a homepage anchor - linking it to #projects
+   // meant the nav could never reach /projects at all.
    let sections = [
-      { name: 'Home', href: '' },
-      { name: 'About Me', href: '#about' },
-      { name: 'Projects', href: '#projects' },
-      { name: 'Contact', href: '#contact' }
+      { name: 'Home', href: '/' },
+      { name: 'About Me', href: '/#about' },
+      { name: 'Projects', href: '/projects' },
+      { name: 'Contact', href: '/#contact' }
    ];
+
+   /**
+    * The old check compared page.url.hash against the href, so with an empty
+    * hash "Home" matched on every page, including /projects.
+    * @param {string} href
+    */
+   function isCurrent(href) {
+      const path = page.url.pathname;
+      const hash = page.url.hash;
+      if (href === '/') return path === '/' && !hash;
+      if (href.startsWith('/#')) return path === '/' && hash === href.slice(1);
+      return path === href || path.startsWith(href + '/');
+   }
 
 
   let isOpen = $state(false);
@@ -43,9 +58,8 @@
     <div class="hidden lg:flex gap-4 items-center ">
       {#each sections as section}
         <a 
-        aria-current={page.url.hash === section.href ? 'page' : undefined}
-
-          href="/{section.href}"
+        aria-current={isCurrent(section.href) ? 'page' : undefined}
+          href={section.href}
           class="relative text-lg px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
                  hover:shadow-lg hover:bg-background-2/40
                  dark:hover:from-secondary-600 dark:hover:to-background-2
@@ -85,8 +99,9 @@
     <div class="lg:hidden mt-4 flex flex-col gap-2 sticky top-0">
       {#each sections as section}
         <a 
-         aria-current={page.url.hash === section.href ? 'page' : undefined}
-          href="/{section.href}" 
+         aria-current={isCurrent(section.href) ? 'page' : undefined}
+          href={section.href}
+          onclick={() => (isOpen = false)} 
           class="px-4 py-2 rounded-lg text-gray-700 dark:text-gray-200
                  hover:text-black dark:hover:text-white
                  hover:shadow-lg hover:bg-background-2/40

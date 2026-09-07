@@ -32,6 +32,22 @@ export let link = `inline-flex flex-row items-center justify-center gap-3 rounde
     dark:hover:border-transparent dark:hover:bg-gradient-to-r dark:hover:from-primary-600 dark:hover:to-secondary-600 dark:hover:text-white
     transition-all duration-300`;
 
+/* Primary action. Mint is the accent, so the one button that matters is the
+   one that gets filled with it. */
+export let primary = `inline-flex flex-row items-center justify-center gap-3 rounded-lg px-6 py-3 text-lg font-semibold
+    bg-background-2 text-ink border border-background-2 shadow-sm
+    hover:brightness-95 hover:shadow-md
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink
+    dark:bg-background-2 dark:text-secondary-900 dark:border-transparent
+    dark:hover:brightness-110
+    transition-all duration-300`;
+
+/* Quiet tertiary action - a link, not a button. */
+export let quiet = `inline-flex flex-row items-center justify-center gap-2 text-base font-medium
+    text-muted underline-offset-4 hover:text-ink hover:underline
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background-2
+    dark:text-gray-300 dark:hover:text-white transition-colors duration-200`;
+
 export let button = ``
 
 export let svgClass = `w-8 h-8 text-ink dark:text-white transform hover:scale-110 transition-transform ease-in-out duration-300`;

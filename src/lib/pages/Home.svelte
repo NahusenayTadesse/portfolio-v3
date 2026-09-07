@@ -4,26 +4,51 @@
       import { DownloadOutline, GithubSolid, LinkedinSolid, WhatsappSolid, EnvelopeSolid} from "flowbite-svelte-icons";
 
       
-    import { typewriter, link, svgClass, popClass } from '$lib/global.svelte.js';
+    import { typewriter, link, primary, quiet, svgClass, popClass } from '$lib/global.svelte.js';
     
 </script>
 
 
-<div class="flex flex-col items-center justify-center p-2 pt-16 h-auto lg:h-[100vh] lg:p-0 lg:pt-0  ">
-  <h1 in:typewriter={{ speed: 1 }} class="text-5xl lg:text-8xl font-bold mb-4 font-head text-center text-primary-900 dark:text-white leading-16 lg:leading-none">
-    Design. Develop. Deploy.</h1>
-  <p class="text-xl lg:text-2xl font-body text-center text-wrap w-full lg:w-2/3">
-    I am Nahusenay, a Svelte and SvelteKit developer working in TypeScript. I build fast, accessible web apps end to end — design, development, security, deployment, and SEO.</p>
-  <div class="text-center flex flex-row gap-6 align-center justify-center center flex-wrap pt-4 font-head">
-    
+<div class="mx-auto flex max-w-6xl flex-col items-center justify-center gap-6 px-4 pb-24 pt-8 lg:min-h-[85vh] lg:flex-row lg:gap-16 lg:pb-0 lg:pt-0">
 
-    <a href="/Nahusenay%20Tadesse%20CV.pdf" download="Nahusenay_Tadesse_CV" 
-    class={link}
-    transition:fly={{ x: 200, duration: 200 }}>
-    Download CV <DownloadOutline class="inline-block ml-2 w-8 h-8 animate-bounce"  /></a>
+  <!-- Text first in the DOM so it is what a screen reader and a crawler meet
+       first; the photo is ordered above it visually on small screens only. -->
+  <div class="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
+    <h1 in:typewriter={{ speed: 1 }} class="mb-3 font-head text-4xl font-bold leading-tight text-ink dark:text-white sm:text-5xl lg:text-7xl">
+      Design. Develop. Deploy.</h1>
 
+    <p class="max-w-xl font-body text-lg sm:text-xl lg:text-2xl">
+      I am Nahusenay, a Svelte and SvelteKit developer working in TypeScript. I build fast, accessible web apps end to end — design, development, security, deployment, and SEO.</p>
+
+    <!-- One primary action that keeps people on the site, one secondary, and
+         the CV demoted to a quiet link. It used to be the only call to action,
+         which asked for commitment before showing any work. -->
+    <div class="mt-6 flex w-full flex-col items-stretch gap-3 font-head sm:w-auto sm:flex-row sm:items-center lg:mt-8 lg:items-start">
+      <a href="/projects" class={primary}>View my work</a>
+      <a href="/#contact" class={link}>Get in touch</a>
+    </div>
+
+    <a href="/Nahusenay%20Tadesse%20CV.pdf" download="Nahusenay_Tadesse_CV" class="{quiet} mt-4 lg:mt-5">
+      <DownloadOutline class="h-5 w-5" />
+      Download CV (PDF, 2 pages)
+    </a>
   </div>
 
+  <div class="order-1 shrink-0 lg:order-2">
+    <img
+      src="/nahusenay-headshot.webp"
+      alt="Nahusenay Tadesse"
+      width="460"
+      height="460"
+      fetchpriority="high"
+      decoding="async"
+      class="h-32 w-32 rounded-2xl border border-line object-cover shadow-lg sm:h-48 sm:w-48 lg:h-72 lg:w-72
+             dark:border-white/15 dark:shadow-black/40"
+    />
+  </div>
+</div>
+
+<div class="flex flex-col items-center px-4">
   <div class="flex flex-row flex-wrap justify-center items-center mt-8 gap-5 p-4 rounded-xl bg-surface border border-line shadow-sm
   dark:bg-white/5 dark:border-white/10 dark:shadow-none 
   " transition:fly={{ x: -200, duration: 200 }}>

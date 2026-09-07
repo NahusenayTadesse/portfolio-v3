@@ -5,6 +5,7 @@ import type { PageServerLoad } from './$types';
 
 type ProjectImage = { url: string; caption: string | null; alt: string };
 type Outcome = { value: string; label: string };
+type StackItem = { name: string; group: string; note: string };
 
 export const load: PageServerLoad = async ({ params }) => {
 	const slug = params.project;
@@ -33,7 +34,8 @@ export const load: PageServerLoad = async ({ params }) => {
 				images: (d.images as ProjectImage[]) ?? [],
 				services: (d.services as string[]) ?? [],
 				outcomes: (d.outcomes as Outcome[]) ?? [],
-				technology: (d.technology as string[]) ?? []
+				technology: (d.technology as string[]) ?? [],
+				stack: (d.stack as StackItem[]) ?? []
 			}
 		};
 	} catch (err) {

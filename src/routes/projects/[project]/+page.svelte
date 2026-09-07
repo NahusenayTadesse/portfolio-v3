@@ -22,6 +22,17 @@
         (data.project?.description ?? '').toString().replace(/\s+/g, ' ').trim().slice(0, 300) ||
         'A web development case study by Nahusenay Tadesse.'
     );
+    // Group the flat stack for display, preserving the order it arrives in.
+    const stackGroups = $derived.by(() => {
+        const groups: { name: string; items: { name: string; note: string }[] }[] = [];
+        for (const item of data.project?.stack ?? []) {
+            let g = groups.find((x) => x.name === item.group);
+            if (!g) { g = { name: item.group, items: [] }; groups.push(g); }
+            g.items.push({ name: item.name, note: item.note });
+        }
+        return groups;
+    });
+
     const projectSchema = $derived(
         data.project
             ? jsonLd({
@@ -33,7 +44,7 @@
                   description: seoDescription,
                   image: absolute(data.project.featured),
                   genre: data.project.category,
-                  keywords: techList.join(', '),
+                  keywords: (data.project.stack ?? []).map((s: { name: string }) => s.name).join(', '),
                   inLanguage: 'en',
                   author: { '@id': `${SITE_URL}/#person` },
                   creator: { '@id': `${SITE_URL}/#person` },
@@ -253,23 +264,41 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
     </section>
   {/if}
 
-  {#if data.project.technology?.length}
-    <section class="flex flex-col gap-4">
-      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">Built with</h2>
-      <div class="flex flex-row flex-wrap items-center gap-4">
-        {#each data.project.technology as tech}
-          {#if getLink(tech)}
-            <div class="flex flex-col items-center justify-center rounded-lg border border-line bg-surface p-3 shadow-sm transition-transform hover:scale-105 dark:border-white/10 dark:bg-white/5">
-              {@html getLink(tech)}
-              <Popover title={techLabel(tech)} class={popClass}>{getDescription(tech)}</Popover>
-            </div>
-          {:else}
-            <span class="rounded-lg border border-line bg-surface px-4 py-2 text-sm text-ink shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-gray-100">
-              {techLabel(tech)}
-            </span>
-          {/if}
+  {#if data.project.stack?.length}
+    <section class="flex flex-col gap-5">
+      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">How it was built</h2>
+
+      <!-- Icons first as a quick read, then the detail grouped by concern. -->
+      {#if data.project.technology?.length}
+        <div class="flex flex-row flex-wrap items-center gap-4">
+          {#each data.project.technology as tech}
+            {#if getLink(tech)}
+              <div class="flex flex-col items-center justify-center rounded-lg border border-line bg-surface p-3 shadow-sm transition-transform hover:scale-105 dark:border-white/10 dark:bg-white/5">
+                {@html getLink(tech)}
+                <Popover title={techLabel(tech)} class={popClass}>{getDescription(tech)}</Popover>
+              </div>
+            {/if}
+          {/each}
+        </div>
+      {/if}
+
+      <dl class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+        {#each stackGroups as group}
+          <div class="flex flex-col gap-3">
+            <dt class="font-head text-xs font-bold uppercase tracking-wider text-muted dark:text-gray-400">
+              {group.name}
+            </dt>
+            <dd class="flex flex-col gap-3">
+              {#each group.items as item}
+                <div class="rounded-lg border border-line bg-surface p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
+                  <p class="font-semibold text-ink dark:text-white">{item.name}</p>
+                  <p class="mt-0.5 text-sm text-muted dark:text-gray-300">{item.note}</p>
+                </div>
+              {/each}
+            </dd>
+          </div>
         {/each}
-      </div>
+      </dl>
     </section>
   {/if}
 

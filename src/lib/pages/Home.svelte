@@ -24,7 +24,8 @@
 
   </div>
 
-  <div class="flex flex-row flex-wrap justify-center shadow-lg items-center mt-8 gap-4 p-4 rounded-lg bg-gradient-to-br from-bg-gray-300 to-background-2 
+  <div class="flex flex-row flex-wrap justify-center items-center mt-8 gap-5 p-4 rounded-xl bg-surface border border-line shadow-sm
+  dark:bg-white/5 dark:border-white/10 dark:shadow-none 
   " transition:fly={{ x: -200, duration: 200 }}>
    <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" target="_blank" aria-label="LinkedIn">
       <LinkedinSolid class={svgClass} />

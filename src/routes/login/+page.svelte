@@ -4,7 +4,7 @@
     
    
     let {form} = $props();
-    let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
+    let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-muted dark:placeholder:text-white";
 
     
 
@@ -33,7 +33,7 @@
          
 
         <button type="submit"  class="w-full text-black font-semibold p-4 rounded-lg transition duration-300 
-           hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 
+           hover:bg-background-2/40 
            dark:hover:from-secondary-600 dark:hover:to-background-1 
            border-secondary-700 dark:border-background-2 dark:text-white border-1 shadow-2xl" >
           Login

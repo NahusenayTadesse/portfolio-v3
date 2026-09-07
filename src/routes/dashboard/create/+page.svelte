@@ -9,7 +9,7 @@ let searchQuery = $state('');
   function onsubmit(){
     alert('Are Your sure you want to delete projects?')
   }
-let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
+let inputField = "p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-muted dark:placeholder:text-white";
 let fileInput = " w-full px-3 py-2 shadow-lg rounded-lg text-sm bg-background-1 dark:bg-background-2 dark:text-white file:mr-4 file:py-2 file:px-4 file:border-0 file:rounded-md file:bg-gray-200 file:text-gray-700 dark:file:bg-gray-700 dark:file:text-white hover:file:bg-gray-300 dark:hover:file:bg-gray-600";
 
 
@@ -135,7 +135,7 @@ class={inputField}   />
     {onsubmit}
     type="submit" 
     class="w-full text-black font-semibold p-4 rounded-lg transition duration-300 
-           hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 
+           hover:bg-background-2/40 
            dark:hover:from-secondary-600 dark:hover:to-background-1 
            border-secondary-700 dark:border-background-2 dark:text-white border-1 shadow-2xl 
            "

@@ -147,7 +147,7 @@
 
      <h3 class="font-bold font-head text-2xl"> My Tech Stack</h3>
      <p class="w-full lg:w-1/2 text-left lg:text-left">I mainly use Sveltekit with Firebase or Supabase for backend services, and WordPress for simple content management. Here are some of the technologies I can work with:</p>
-    <div class="grid grid-cols-4 md:grid-cols-8 w-full h-full bg-gradient-to-brfrom-gray-300 to-background-2 p-4 rounded-lg shadow-lg dark:bg-gradient-to-br dark:from-primary-600 dark:to-secondary-600 justify-center place-items-center items-center">
+    <div class="grid grid-cols-4 md:grid-cols-8 w-full h-full bg-surface border border-line p-4 rounded-lg shadow-lg dark:bg-gradient-to-br dark:from-primary-600 dark:to-secondary-600 justify-center place-items-center items-center">
 
       {#each techStack as tech}
              {@html tech.link}

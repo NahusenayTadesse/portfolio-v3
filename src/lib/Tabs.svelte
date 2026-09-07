@@ -14,9 +14,9 @@
         }
         active[index] = !active[index];
     }
-    let activeClass = "font-head font-bold text-secondary-900 dark:text-white bg-gradient-to-br from-gray-300 to-background-2 dark:from-primary-600 dark:to-background-2 shadow-lg rounded-lg p-2 lg:p-4 dark:shadow-white dark:shadow-sm";
-    let inactiveClass = "text-secondary-900 shadow-sm font-head dark:text-white hover:bg-gradient-to-br hover:from-gray-300 hover:to-background-2 rounded-lg dark:hover:from-primary-600 dark:hover:to-background-2 p-4 dark:shadow-white";
-    let contentClass = "text-secondary-900 dark:text-white font-body text-sm bg-transparent shadow-lg rounded-lg p-4 text-left";
+    let activeClass = "font-head font-bold text-ink dark:text-white bg-background-2/60 border border-background-2 shadow-sm rounded-lg p-2 lg:p-4 dark:border-0 dark:bg-gradient-to-br dark:from-primary-600 dark:to-background-2 dark:shadow-white dark:shadow-sm";
+    let inactiveClass = "text-ink shadow-sm font-head dark:text-white hover:bg-background-2/40 rounded-lg dark:hover:from-primary-600 dark:hover:to-background-2 p-4 dark:shadow-white";
+    let contentClass = "text-ink dark:text-white font-body text-sm bg-transparent shadow-lg rounded-lg p-4 text-left";
 
 </script>
 

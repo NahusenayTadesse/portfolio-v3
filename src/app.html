@@ -6,9 +6,23 @@
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="icon" href="%sveltekit.assets%/logo1.webp" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="theme-color" content="#16212a" media="(prefers-color-scheme: dark)" />
+		<meta name="theme-color" content="#f7f9f9" media="(prefers-color-scheme: light)" />
+		<script>
+			// Dark is the default; only an explicit choice opts out. Runs before
+			// first paint so the page never flashes the wrong theme.
+			// Key matches flowbite-svelte's DarkMode toggle, which stores under the
+			// literal string "THEME_PREFERENCE_KEY".
+			try {
+				var stored = localStorage.getItem('THEME_PREFERENCE_KEY');
+				document.documentElement.classList.toggle('dark', stored !== 'light');
+			} catch (e) {
+				document.documentElement.classList.add('dark');
+			}
+		</script>
 		%sveltekit.head%
 	</head>
-	<body data-sveltekit-preload-data="hover" class="bg-gradient-to-br from-background-2 to-gray-50 dark:from-primary-700 dark:to-secondary-900 text-gray-900 dark:text-gray-100 transition-full">
+	<body data-sveltekit-preload-data="hover" class="bg-canvas text-ink dark:bg-gradient-to-br dark:from-primary-700 dark:to-secondary-900 dark:text-gray-100">
 		<div style="display: contents">%sveltekit.body%</div>
 	</body>
 </html>

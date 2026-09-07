@@ -82,11 +82,11 @@
         <a href="/projects/{slide.slug}" >
             <img src={slide.featured} alt={slide.name} class="w-full h-4/5 object-cover rounded-lg transition-all" loading="lazy"/>
         </a>
-         <div class="w-full flex flex-col justify-center items-center gap-1 bg-gradient-to-br from-gray-50 to-background-2 dark:from-primary-600
-         dark:to-secondary-600 text-black dark:text-white p-2 pb-8 shadow-lg text-center">
+         <div class="w-full flex flex-col justify-center items-center gap-1 bg-surface border-t border-line text-ink dark:text-white p-2 pb-8 text-center
+         dark:border-0 dark:bg-gradient-to-br dark:from-primary-600 dark:to-secondary-600">
           <h2 class="text-lg font-bold font-head">{slide.name}</h2>
             <p class="text-sm"> Category: {slide.category}</p>
-          <a href='/projects/{slide.slug}' class="font-head font-bold text-secondary-900 p-4
+          <a href='/projects/{slide.slug}' class="font-head font-bold text-ink p-4
            dark:text-white hover:text-blue-500 hover:text-shadow-2xs ">
             Learn More</a>
         </div>
@@ -111,11 +111,11 @@
   {/each}
   </div>
 
-  <button onclick={prev}  class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
+  <button onclick={prev}  class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white hover:bg-background-2/40 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
     <ArrowLeftOutline class="w-6 h-6" />
 
   </button>
-  <button onclick={next} class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white hover:bg-gradient-to-r hover:from-background-1 hover:to-background-2 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
+  <button onclick={next} class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white hover:bg-background-2/40 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 hover:text-black bg-opacity-70 p-2 rounded-full shadow hover:bg-opacity-100">
     <ArrowRightOutline class="w-6 h-6" />
     
   </button>

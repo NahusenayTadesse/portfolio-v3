@@ -41,7 +41,7 @@
               })
             : ''
     );
-    let classer = "w-6 h-6 lg:w-12 lg:h-12 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300";
+    let classer = "w-6 h-6 lg:w-12 lg:h-12 text-ink dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300";
 
     let viewBox = "0 0 24 24";
 
@@ -184,7 +184,7 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 {#if data.project}
 <div class="flex flex-col gap-4 lg:gap-8">
 
-<h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-secondary-700 dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
+<h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-muted dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
 <h3 class="text-lg font-head text-center">Category: {data.project?.category}</h3> 
 <br>
 <button class="flex flex-row justify-center items-center justify-self-center w-auto">
@@ -263,7 +263,7 @@ Site Link
 
 {:else}
     <div class="flex flex-col justify-center items-center h-screen">
-        <h1 class="text-4xl font-head font-bold text-secondary-700 dark:text-white">Project Not Found</h1>
+        <h1 class="text-4xl font-head font-bold text-muted dark:text-white">Project Not Found</h1>
         <p class="text-lg font-body">The project you are looking for does not exist.</p>
         <a href="/projects" class="mt-4 text-blue-600 hover:underline">Go back to projects</a>
     </div>

@@ -4,9 +4,7 @@
 	import Footer from '$lib/Footer.svelte';
 	let {data, children } = $props();
 	import { page } from '$app/state';
-	import DarkAnimation from '$lib/DarkAnimation.svelte';
-	import Animation from "$lib/Animation.svelte"
-	console.log("Welcome to my site")
+	import BackgroundCanvas from '$lib/BackgroundCanvas.svelte';
 	
 </script> 
 
@@ -18,5 +16,4 @@
 {@render children()}
 
 <Footer />
-<DarkAnimation />
-<Animation />
+<BackgroundCanvas />

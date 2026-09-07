@@ -24,7 +24,7 @@
  
 
  <form method="POST" use:enhance={submit} class="flex flex-col gap-4 p-8 max-w-md mx-auto rounded-lg shadow-lg
-   bg-gradient-to-br from-gray-50 to-background-2 dark:bg-gradient-to-r dark:from-[rgba(255,255,255,0)] dark:to-[rgba(255,255,255,0)]"
+   bg-surface border border-line shadow-sm dark:bg-white/5 dark:border-white/10"
     transition:fly={{ y: -200, duration: 600 }} >
 
      {#if success}
@@ -32,17 +32,17 @@
      {/if}
 
 
-    <h2 class="text-3xl font-head font-bold text-secondary-900 dark:text-white text-center mb-4" transition:typewriter={{ speed: 1 }}>
+    <h2 class="text-3xl font-head font-bold text-ink dark:text-white text-center mb-4" transition:typewriter={{ speed: 1 }}>
         Send Me a Message
     </h2>
  
  
     <input type="email" name="email" placeholder="Your Email" 
     class="p-2 rounded-lg focus:outline-none focus:ring-2
-  focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white" required>
+  focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-muted dark:placeholder:text-white" required>
 
 
-  <textarea name="message" placeholder="Your Message" class="h-[150px] p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-2 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-1 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white" required></textarea>
+  <textarea name="message" placeholder="Your Message" class="h-[150px] p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-2 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-1 shadow-lg placeholder:text-muted dark:placeholder:text-white" required></textarea>
 
 
   <button type="submit" disabled={submitting} aria-busy={submitting}

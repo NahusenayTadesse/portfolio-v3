@@ -30,7 +30,15 @@
 --color-secondary-900: #121c1c; /* glossy black */
 
 --color-background-1: #ffddc9; 
---color-background-2: #a8edea; /* light mint */
+--color-background-2: #a8edea; /* light mint - ACCENT ONLY, never a page canvas */
+
+/* Light theme neutrals. Mint reads as candy when it is the ground, so the
+   ground is near-white and mint is reserved for what should draw the eye. */
+--color-canvas: #f7f9f9;
+--color-surface: #ffffff;
+--color-line: #e2eaea;
+--color-ink: #16212a;
+--color-muted: #55676f;
 
 
 

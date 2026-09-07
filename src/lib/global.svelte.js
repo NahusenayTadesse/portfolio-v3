@@ -21,15 +21,30 @@ export function typewriter(node, { speed = 1 }) {
 		};
 	}
 
-export let link = `border-1 border-white dark:border-1 hover:border-0 hover:text-white dark:border-background-2 dark:text-white bg-transparent text-secondary-900 
-    px-6 py-3 rounded-lg hover:bg-gradient-to-br hover:from-primary-600 hover:to-background-2 hover:text-black hover:shadow-2xl shadow-sm
-     shadow-black dark:hover:border-0 dark:hover:shadow-2xl dark:hover:bg-gradient-to-r dark:hover:from-primary-600 dark:hover:to-background-2
-    transition-colors duration-300 dark:hover:text-white text-lg dark:shadow-white dark:shadow-sm flex flex-row gap-4`;
+/* In light mode the page ground is near-white and mint is the accent, so a
+   button earns attention with a border and a mint hover rather than by being
+   another gradient among gradients. Dark mode keeps its gradient treatment. */
+export let link = `inline-flex flex-row items-center justify-center gap-3 rounded-lg px-6 py-3 text-lg font-medium
+    border border-line bg-surface text-ink shadow-sm
+    hover:border-background-2 hover:bg-background-2/40 hover:shadow-md
+    focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background-2
+    dark:border-background-2/60 dark:bg-transparent dark:text-white dark:shadow-sm dark:shadow-white/20
+    dark:hover:border-transparent dark:hover:bg-gradient-to-r dark:hover:from-primary-600 dark:hover:to-secondary-600 dark:hover:text-white
+    transition-all duration-300`;
 
 export let button = ``
 
-export let svgClass = `w-8 h-8 text-secondary-900 dark:text-white transform hover:scale-125 transition-transform ease-in-out duration-300`;
-export let popClass = `w-64 text-sm text-secondary-900 dark:text-white bg-gradient-to-br from-gray-300 to-background-2 dark:bg-gradient-to-r
- dark:from-primary-600 dark:to-secondary-600 shadow-lg rounded-lg p-4 text-center`;
-export let classer = `w-12 h-12 lg:w-20 lg:h-20 text-secondary-900 dark:text-white dark:fill-white transform hover:scale-125 transition-transform ease-in-out duration-300`;
-export let toast = `bg-gradient-to-r from-gray-50 to-background-2 fixed bottom-20 lg:bottom-0 right-0 p-4 rounded-lg shadow-lg`
+export let svgClass = `w-8 h-8 text-ink dark:text-white transform hover:scale-110 transition-transform ease-in-out duration-300`;
+
+export let popClass = `w-64 text-sm text-ink dark:text-white bg-surface border border-line shadow-lg rounded-lg p-4 text-center
+    dark:border-0 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600`;
+
+export let classer = `w-12 h-12 lg:w-20 lg:h-20 text-ink dark:text-white dark:fill-white transform hover:scale-110 transition-transform ease-in-out duration-300`;
+
+export let toast = `fixed bottom-20 lg:bottom-0 right-0 p-4 rounded-lg shadow-lg
+    bg-surface border border-line text-ink
+    dark:bg-secondary-800 dark:border-secondary-600 dark:text-white`;
+
+/* Shared card surface: white with a hairline in light, translucent in dark. */
+export let card = `bg-surface border border-line rounded-xl shadow-sm
+    dark:bg-white/5 dark:border-white/10 dark:shadow-none`;

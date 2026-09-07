@@ -1,5 +1,6 @@
 import { db } from '$lib/firebase-admin';
 import { featuredUrl } from '$lib/projects';
+import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
 
 type ProjectImage = { url: string; caption: string | null; alt: string };
@@ -7,12 +8,12 @@ type Outcome = { value: string; label: string };
 
 export const load: PageServerLoad = async ({ params }) => {
 	const slug = params.project;
-	if (!slug) return { project: null };
+	if (!slug) throw error(404, 'Project not found');
 
 	try {
 		// Documents are keyed by slug, so this is a direct read rather than a query.
 		const doc = await db.collection('projects').doc(slug).get();
-		if (!doc.exists) return { project: null };
+		if (!doc.exists) throw error(404, 'Project not found');
 
 		const d = doc.data() ?? {};
 
@@ -35,8 +36,10 @@ export const load: PageServerLoad = async ({ params }) => {
 				technology: (d.technology as string[]) ?? []
 			}
 		};
-	} catch (error) {
-		console.error('Failed to load project:', error);
-		return { project: null };
+	} catch (err) {
+		// Re-throw SvelteKit's own HttpError; only a genuine failure is a 500.
+		if (err && typeof err === 'object' && 'status' in err) throw err;
+		console.error('Failed to load project:', err);
+		throw error(500, 'Could not load this project');
 	}
 };

@@ -2,14 +2,14 @@
 	import '../app.css';
 	import Header from '$lib/Header.svelte';
 	import Footer from '$lib/Footer.svelte';
-	let {data, children } = $props();
+	let { children } = $props();
 	import { page } from '$app/state';
 	import BackgroundCanvas from '$lib/BackgroundCanvas.svelte';
 	
 </script> 
 
 {#if page.url.pathname.startsWith('/dashboard') === false}
-<Header user={data.user} />
+<Header />
 {/if}
 	
 

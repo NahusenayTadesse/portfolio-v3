@@ -8,6 +8,19 @@ import nodemailer from 'nodemailer';
 import {EMAIL, APP_PASSWORD} from '$env/static/private'
 
 
+/**
+ * Incremental Static Regeneration: Vercel serves a cached HTML response and
+ * refreshes it in the background at most once an hour, so a visit no longer
+ * costs a Firestore round trip. Full prerendering is not an option here - the
+ * project list is edited from /dashboard at runtime, so a build-time snapshot
+ * would go stale until the next deploy.
+ */
+export const config = {
+	isr: {
+		expiration: 3600
+	}
+};
+
 export const load: PageServerLoad = async () => {
   try {
     const snapshot = await db.collection("projects")

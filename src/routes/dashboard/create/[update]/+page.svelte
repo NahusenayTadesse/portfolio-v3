@@ -4,8 +4,14 @@
 
     let {data, form} = $props(); 
     let inputField = "p-2 rounded-lg w-2xl focus:outline-none focus:ring-2 focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-secondary-700 dark:placeholder:text-white";
-    let screenshots = $state(data.project?.screenshots || []);
-    let screenshotsMobile = $state(data.project?.screenshotsMobile || []);
+    // Re-seed from the loaded project: these lists are edited locally (the X
+    // buttons remove entries), but must reset when a different project loads.
+    let screenshots: string[] = $state([]);
+    let screenshotsMobile: string[] = $state([]);
+    $effect(() => {
+        screenshots = data.project?.screenshots ?? [];
+        screenshotsMobile = data.project?.screenshotsMobile ?? [];
+    });
 </script>
 <svelte:head>
    <title>Update Projects</title>

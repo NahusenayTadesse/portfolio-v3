@@ -1,7 +1,8 @@
 import { db } from '$lib/firebase-admin';
-import type { PageServerLoad } from './$types';
+import { featuredUrl } from '$lib/projects';
+import type { LayoutServerLoad } from './$types';
 
-export const load: PageServerLoad = async () => {
+export const load: LayoutServerLoad = async () => {
   try {
     const snapshot = await db.collection("projects")
   .select("name", "slug", "category", "featured", "technology", "description", "challenges")
@@ -11,7 +12,7 @@ export const load: PageServerLoad = async () => {
       name: doc.data().name,
       slug: doc.data().slug,
       category: doc.data().category,
-      featured: doc.data().featured,
+      featured: featuredUrl(doc.data().featured),
       technology: doc.data().technology,
       description: doc.data().description,
       challenges: doc.data().challenges

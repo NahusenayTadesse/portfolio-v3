@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
     import { onMount } from "svelte";
     import { fly, fade } from "svelte/transition";
     import { ArrowLeftOutline, ArrowRightOutline, LaptopCodeSolid } from "flowbite-svelte-icons";
 
   let current = $state(0);
-   let autoplayInterval = $state(null);
+   let autoplayInterval: ReturnType<typeof setInterval> | undefined = $state();
   const autoplayDelay = 5000;
 
 
@@ -26,12 +26,12 @@
 
    let startX = 0;
   let endX = 0
-  function handleTouchStart(e) {
-    startX = e.touches ? e.touches[0].clientX : e.clientX;
+  function handleTouchStart(e: TouchEvent | PointerEvent) {
+    startX = 'touches' in e ? e.touches[0].clientX : e.clientX;
   }
 
-  function handleTouchEnd(e) {
-    endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  function handleTouchEnd(e: TouchEvent | PointerEvent) {
+    endX = 'changedTouches' in e ? e.changedTouches[0].clientX : e.clientX;
     const diff = endX - startX;
     if (Math.abs(diff) > 50) {
       if (diff > 0) {
@@ -57,7 +57,7 @@
     return stopAutoplay;
   });
 
-  function dots(index){
+  function dots(index: number) {
     current = index;
     stopAutoplay();
     startAutoplay();
@@ -67,7 +67,8 @@
 <div class="relative w-full lg:w-2/3 rounded-xl justify-self-center overflow-hidden">
 
     <h1 class="font-head font-bold text-3xl lg:text-5xl text-center mb-12">My  Projects</h1>
-  <div class="flex transition-transform duration-500 ease-in-out"
+  <div role="group" aria-roledescription="carousel" aria-label="Projects"
+       class="flex transition-transform duration-500 ease-in-out"
        style="transform: translateX(-{current * 100}%)"
         ontouchstart={handleTouchStart}
     ontouchend={handleTouchEnd}

@@ -1,5 +1,6 @@
 // src/routes/+page.server.ts
 import { db } from '$lib/firebase-admin';
+import { featuredUrl } from '$lib/projects';
 import type { PageServerLoad } from './$types';
 
 export const load: PageServerLoad = async ({params}) => {
@@ -25,9 +26,9 @@ export const load: PageServerLoad = async ({params}) => {
       name: doc.data().name,
       slug: doc.data().slug,
       category: doc.data().category,
-      featured: doc.data().featured,
       description: doc.data().description,
-      ...doc.data(), 
+      ...doc.data(),
+      featured: featuredUrl(doc.data().featured),
       technology: doc.data().technology ?? [],
       screenshots: doc.data().screenshots ?? [],
       screenshotsMobile: doc.data().screenshotsMobile ?? []

@@ -1,7 +1,9 @@
 // src/routes/+page.server.ts
 import { db } from '$lib/firebase-admin';
+import { featuredUrl } from '$lib/projects';
 import type { PageServerLoad } from './$types';
 import type { Actions } from './$types';
+import { fail } from '@sveltejs/kit';
 import nodemailer from 'nodemailer';
 import {EMAIL, APP_PASSWORD} from '$env/static/private'
 
@@ -9,15 +11,15 @@ import {EMAIL, APP_PASSWORD} from '$env/static/private'
 export const load: PageServerLoad = async () => {
   try {
     const snapshot = await db.collection("projects")
-  .select("name", "slug", "category", "featured", "technologies")
+  .select("name", "slug", "category", "featured", "technology")
   .get();
 
     const projects = snapshot.docs.map(doc => ({
       name: doc.data().name,
       slug: doc.data().slug,
       category: doc.data().category,
-      featured: doc.data().featured,
-      technologies: doc.data().technologies
+      featured: featuredUrl(doc.data().featured),
+      technology: doc.data().technology ?? []
     }));
 
     return { projects };
@@ -40,10 +42,11 @@ export const actions: Actions = {
     const message = formData.get('message')?.toString();
 
     if (!email || !message) {
-      return {
+      return fail(400, {
         success: false,
+        status: 400,
         error: 'Missing required fields.'
-      };
+      });
     }
 
     // Format date string for Firestore
@@ -109,17 +112,15 @@ export const actions: Actions = {
         text: `You received a new message from: ${email}\n\nMessage:\n${message}\n\nSaved to Firestore as: ${customId}`
       });
 
-      return { success: true,
-        loading: false,
-        status: 303
-       };
+      return { success: true, status: 200 };
 
     } catch (err) {
       console.error('Server error:', err);
-      return {
+      return fail(500, {
         success: false,
+        status: 500,
         error: 'Failed to process your request. Please try again later.'
-      };
+      });
     }
   }
 };

@@ -1,4 +1,5 @@
 import { db } from "$lib/firebase-admin";
+import { featuredUrl } from "$lib/projects";
 import { fail } from "@sveltejs/kit";
 
 import type { PageServerLoad, Actions } from "./$types";
@@ -15,7 +16,7 @@ import { v2 as cloudinary } from 'cloudinary';
 
          id: doc.id,
          name: doc.data().name,
-         featured: doc.data().featured,
+         featured: featuredUrl(doc.data().featured),
          slug: doc.data().slug
          
     }))
@@ -60,28 +61,28 @@ export const actions: Actions = {
         const link = formData.get('link');
         const screenshots = formData.getAll('screenshots');
         const screenshotsMobile = formData.getAll('screenshotsMobile');
-        const featured = formData.getAll('featured');
+        const featured = formData.get('featured');
         
         const technologyArray = typeof technology === 'string'
             ? technology.split(',').map(item => item.trim())
             : [];
 
         
-        const featuredUrls = [];
         const screenshotsUrls= [];
         const screenshotsMobileUrls = [];
         
         
         
-    for (const file of featured) {
-      const imageUrl = await uploadToCloudinary(file);
-      featuredUrls.push(imageUrl);
-    }
-    for (const file of screenshots) {
+    // Single file input, and the update action stores a plain string,
+    // so keep `featured` a string here too.
+    const featuredImageUrl = featured instanceof File && featured.size > 0
+      ? await uploadToCloudinary(featured)
+      : null;
+    for (const file of uploadedFiles(screenshots)) {
       const imageUrl = await uploadToCloudinary(file);
       screenshotsUrls.push(imageUrl);
     }
-    for (const file of screenshotsMobile) {
+    for (const file of uploadedFiles(screenshotsMobile)) {
       const imageUrl = await uploadToCloudinary(file);
       screenshotsMobileUrls.push(imageUrl);
     }
@@ -111,7 +112,7 @@ export const actions: Actions = {
                 screenshots: screenshotsUrls,
                 screenshotsMobile: screenshotsMobileUrls,
                 technology: technologyArray,
-                featured: featuredUrls
+                featured: featuredImageUrl
             });
             return { success: true,
                  loading: true
@@ -119,7 +120,7 @@ export const actions: Actions = {
         } catch (error) {
             console.error("Create failed:", error);
             return fail(500, {error: true,
-                message: "Error: " + error.message
+                message: "Error: " + (error instanceof Error ? error.message : String(error))
             });
         }
     },
@@ -139,7 +140,7 @@ test: async ({ request }) => {
       });
     }
 
-    for (const file of imageFiles) {
+    for (const file of uploadedFiles(imageFiles)) {
       const imageUrl = await uploadToCloudinary(file);
       imageUrls.push(imageUrl);
     }
@@ -180,6 +181,11 @@ cloudinary.config({
 
 
 
+
+/** Keeps only entries that are real, non-empty uploads. */
+function uploadedFiles(entries: FormDataEntryValue[]): File[] {
+  return entries.filter((e): e is File => e instanceof File && e.size > 0);
+}
 
 async function uploadToCloudinary(file: File): Promise<string> {
   const buffer = Buffer.from(await file.arrayBuffer());

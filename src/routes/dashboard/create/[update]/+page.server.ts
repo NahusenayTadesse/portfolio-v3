@@ -1,6 +1,7 @@
 
  import { db} from "$lib/firebase-admin";
-import type { Actions, PageServerLoad } from "../$types";
+import { featuredUrl } from "$lib/projects";
+import type { Actions, PageServerLoad } from "./$types";
 import { CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET, CLOUDINARY_CLOUD_NAME } from "$env/static/private";
 import { v2 as cloudinary } from 'cloudinary';
 import { fail } from "@sveltejs/kit";
@@ -32,7 +33,7 @@ export const load: PageServerLoad = async ({params}) => {
               screenshots: doc.data().screenshots,
               screenshotsMobile: doc.data().screenshotsMobile,
               technology: doc.data().technology,
-              featured: doc.data().featured
+              featured: featuredUrl(doc.data().featured)
             }));
 
             project = projects[0] || null;

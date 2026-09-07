@@ -9,12 +9,6 @@ import {link} from '$lib/global.svelte';
 
 
 let { data, form} = $props();
-
-function changer(message: string){
-
-    message = "Thank your Message, i will get back to you quickly";
-}
-   
 </script>
 <svelte:head>
     
@@ -60,7 +54,7 @@ function changer(message: string){
  </div>
 
  <div id="contact" role="region" aria-label="Projects Section" >
-    <Contact success={form?.success} status={form?.status} loading={form?.loading}/>
+    <Contact success={form?.success} status={form?.status} />
 </div>
 
 

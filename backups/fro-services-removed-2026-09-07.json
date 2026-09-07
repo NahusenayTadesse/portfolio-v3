@@ -1,0 +1,80 @@
+{
+  "id": "fro-services",
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772453/portfolio/pulse/51afba27-c06c-4564-a946-0b689b3ea935.webp",
+  "images": [
+    {
+      "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772453/portfolio/pulse/51afba27-c06c-4564-a946-0b689b3ea935.webp",
+      "caption": "The whole proposition in one line and one image: book, watch them come, pay when it is done.",
+      "alt": "Fro home page with a phone showing a provider travelling to a customer"
+    },
+    {
+      "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772457/portfolio/pulse/5d1cde4e-1955-4a1e-99c3-3f0638c8896d.webp",
+      "caption": "20% on top, $10 minimum withdrawal, 24-hour release, 5% on referrals. A provider is doing arithmetic, so the arithmetic leads.",
+      "alt": "The providers page stating commission, withdrawal and payout terms"
+    },
+    {
+      "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772477/portfolio/pulse/a2ffb2dc-1a1e-451c-ae57-310c219dd4ee.webp",
+      "caption": "The join page is a live target for referral links already shipping inside the app, so it has to carry the code through.",
+      "alt": "The join page, where in-app referral links land"
+    },
+    {
+      "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772470/portfolio/pulse/84e4c50e-2151-43a6-9b33-6fdc6ec51949.webp",
+      "caption": "Vetting, escrow and tracking explained plainly: the objections a first-time customer actually has.",
+      "alt": "The safety page"
+    },
+    {
+      "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772480/portfolio/pulse/c12ca38d-d784-4e37-9c8b-c3f832764582.webp",
+      "caption": "A working support URL is an App Store requirement, not a nicety.",
+      "alt": "The support page"
+    },
+    {
+      "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772446/portfolio/pulse/2fb65e3d-feb2-46f9-af69-5c0ffd53333a.webp",
+      "caption": "Google Play requires a public account-deletion request URL. This is it, and it works.",
+      "alt": "The account deletion request page"
+    }
+  ],
+  "year": "2026",
+  "link": "https://froservices.com",
+  "description": "The web front for a US on-demand services app, bilingual, dark-mode aware, and load-bearing: three of its pages are wired into the mobile app’s live payment and referral flows, not decoration around them.",
+  "services": [
+    "Marketing site for a mobile app",
+    "Stripe return & referral landing pages",
+    "App Store & Play compliance pages",
+    "Account-deletion request flow",
+    "English & Spanish, dark mode",
+    "Pre-launch email capture"
+  ],
+  "source": "pulsedata",
+  "technology": [],
+  "body": "<h2>A website the app cannot ship without</h2>\n<p>Fro is a local-services marketplace: customers book vetted providers who travel to them, pay into escrow, and watch the provider approach on a live map. One account serves both sides through a customer/provider toggle. The app is Flutter, Supabase and Stripe; the brand is Ethiopian-rooted and the market is the United States.</p>\n<p>When we picked this up the app had <strong>no public web presence at all</strong>: no marketing page, no reachable privacy policy, no support URL. That is not a marketing gap, it is a blocker: Apple requires a marketing URL, a working support URL and a privacy policy URL, and Google Play additionally requires a public account-deletion request URL. The app could not be submitted.</p>\n<h2>Three pages that are infrastructure</h2>\n<p>Most marketing sites can be rewritten freely. Three of these cannot, because shipping code already points at them:</p>\n<ul>\n<li><strong><code>/payment-complete</code></strong> is the <code>return_url</code> the booking payment edge function hands to Stripe, and the checkout WebView inside the app watches for that exact URL to know when to close the payment sheet. Before this site existed, that URL 404&#39;d: the payment succeeded and the sheet had nothing to catch.</li>\n<li><strong><code>/tip-complete</code></strong> does the same job for the tipping flow.</li>\n<li><strong><code>/join?ref=…</code></strong> is where the in-app referral link lands, so it has to carry the referral code through to the store.</li>\n</ul>\n<p>Getting those wrong does not make a page look bad; it breaks a payment.</p>\n<h2>The marketing half</h2>\n<p><strong>Bilingual English and Spanish</strong>, because the market is the US and the service is street-level. Both languages are first-class rather than a translated afterthought.</p>\n<p><strong>Dark mode</strong>, honoured from the visitor&#39;s own setting.</p>\n<p><strong>Two audiences, two arguments.</strong> Customers get escrow payments, identity-verified providers, live arrival tracking and card payment. Providers get the economics stated plainly on the page rather than buried in a help centre: 20% added on top and never taken out of their rate, a $10 minimum withdrawal, 24-hour auto-release after the job is finished, and a 5% lifetime share on referrals. A provider deciding whether to sign up is doing arithmetic, so the arithmetic is the headline.</p>\n<p><strong>Pre-launch, honestly.</strong> The app is not out yet, so the store badges say &quot;Coming soon&quot; and the site captures an email for launch: collecting address and language only, and saying so next to the field.</p>\n<h2>The compliance half</h2>\n<p>Full tailored legal prose rather than a generic template: terms, privacy, an app-specific privacy page, safety, support, and a working account-deletion request flow. These are the pages nobody reads until a store reviewer does.</p>\n<h2>The detail worth noticing</h2>\n<p>The Ethiopian border pattern running under each section. The brand is aimed at American customers and built by an Ethiopian team, and that band is the one place the site says so without explaining itself.</p>\n",
+  "screenshots": [
+    "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772453/portfolio/pulse/51afba27-c06c-4564-a946-0b689b3ea935.webp",
+    "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772457/portfolio/pulse/5d1cde4e-1955-4a1e-99c3-3f0638c8896d.webp",
+    "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772477/portfolio/pulse/a2ffb2dc-1a1e-451c-ae57-310c219dd4ee.webp",
+    "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772470/portfolio/pulse/84e4c50e-2151-43a6-9b33-6fdc6ec51949.webp",
+    "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772480/portfolio/pulse/c12ca38d-d784-4e37-9c8b-c3f832764582.webp",
+    "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772446/portfolio/pulse/2fb65e3d-feb2-46f9-af69-5c0ffd53333a.webp"
+  ],
+  "coverAlt": "The Fro home page showing a provider travelling to a customer on a live map",
+  "outcomes": [
+    {
+      "value": "3",
+      "label": "Store requirements unblocked: marketing, support, privacy"
+    },
+    {
+      "value": "1",
+      "label": "Payment return URL that used to 404"
+    },
+    {
+      "value": "2",
+      "label": "Languages, both first-class"
+    }
+  ],
+  "name": "Fro Services",
+  "client": "Fro",
+  "screenshotsMobile": [],
+  "category": "On-demand marketplace (US market)",
+  "slug": "fro-services",
+  "sortOrder": 6,
+  "isFeatured": false
+}

@@ -18,7 +18,7 @@ export const config = {
 export const load: LayoutServerLoad = async () => {
   try {
     const snapshot = await db.collection("projects")
-  .select("name", "slug", "category", "featured", "technology", "description", "challenges")
+  .select("name", "slug", "category", "featured", "description", "year", "client", "services", "sortOrder")
   .get();
 
     const projects = snapshot.docs.map(doc => ({
@@ -26,10 +26,15 @@ export const load: LayoutServerLoad = async () => {
       slug: doc.data().slug,
       category: doc.data().category,
       featured: featuredUrl(doc.data().featured),
-      technology: doc.data().technology,
-      description: doc.data().description,
-      challenges: doc.data().challenges
+      description: doc.data().description ?? '',
+      year: doc.data().year ?? null,
+      client: doc.data().client ?? null,
+      services: doc.data().services ?? [],
+      sortOrder: doc.data().sortOrder ?? 0
     }));
+
+
+    projects.sort((a, b) => (a.sortOrder ?? 99) - (b.sortOrder ?? 99));
 
     return { projects };
 

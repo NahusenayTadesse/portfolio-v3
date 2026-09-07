@@ -1,44 +1,42 @@
-// src/routes/+page.server.ts
 import { db } from '$lib/firebase-admin';
 import { featuredUrl } from '$lib/projects';
 import type { PageServerLoad } from './$types';
 
-export const load: PageServerLoad = async ({params}) => {
+type ProjectImage = { url: string; caption: string | null; alt: string };
+type Outcome = { value: string; label: string };
 
-  const { project } = params;
-  if (!project)
-    throw new Error("Project slug is required");
+export const load: PageServerLoad = async ({ params }) => {
+	const slug = params.project;
+	if (!slug) return { project: null };
 
-  const slug = project;
+	try {
+		// Documents are keyed by slug, so this is a direct read rather than a query.
+		const doc = await db.collection('projects').doc(slug).get();
+		if (!doc.exists) return { project: null };
 
-  try {
-    const snapshot = await db.collection("projects")
-      .where("slug", "==", slug) 
-      .limit(1) 
-      .get();
+		const d = doc.data() ?? {};
 
-    let project = null; // Initialize project as null
-
-    if (!snapshot.empty) {
-      const projects = snapshot.docs.map(doc => ({
-      id: doc.id,
-      link: doc.data().link,
-      name: doc.data().name,
-      slug: doc.data().slug,
-      category: doc.data().category,
-      description: doc.data().description,
-      ...doc.data(),
-      featured: featuredUrl(doc.data().featured),
-      technology: doc.data().technology ?? [],
-      screenshots: doc.data().screenshots ?? [],
-      screenshotsMobile: doc.data().screenshotsMobile ?? []
-    }));
-    project = projects[0] || null; 
-    return { project }; 
-    }
-
-  } catch (error) {
-    console.error('Failed to load project:', error);
-    return { project: null };
-  }
+		return {
+			project: {
+				id: doc.id,
+				slug: (d.slug as string) ?? doc.id,
+				name: (d.name as string) ?? '',
+				client: (d.client as string | null) ?? null,
+				category: (d.category as string | null) ?? null,
+				year: (d.year as string | null) ?? null,
+				description: (d.description as string) ?? '',
+				body: (d.body as string) ?? '',
+				link: (d.link as string | null) ?? null,
+				featured: featuredUrl(d.featured),
+				coverAlt: (d.coverAlt as string | null) ?? null,
+				images: (d.images as ProjectImage[]) ?? [],
+				services: (d.services as string[]) ?? [],
+				outcomes: (d.outcomes as Outcome[]) ?? [],
+				technology: (d.technology as string[]) ?? []
+			}
+		};
+	} catch (error) {
+		console.error('Failed to load project:', error);
+		return { project: null };
+	}
 };

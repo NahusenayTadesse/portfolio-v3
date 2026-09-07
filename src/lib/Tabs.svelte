@@ -26,11 +26,11 @@
 <div class="flex flex-row flex-wrap gap-1 lg:gap-4 ">
 
  <button onclick={() => toggle(0)} class={active[0] ? activeClass : inactiveClass}>
-    Portfolio
+    Business systems
  </button> 
 
 <button onclick={() => toggle(1)} class={active[1] ? activeClass : inactiveClass}>
-    Business
+    Platforms
  </button>
  
 
@@ -45,28 +45,32 @@
   {#if active[0]}
     <div class={contentClass} transition:slide|global>
      <div >
-                    <h4 class="text-lg font-bold font-head">Portfolio or Business Websites</h4>
-                    These websites are designed to showcase your work or business. They typically include sections like About, Services, Portfolio, and Contact. I focus on creating visually appealing designs that reflect your brand identity and engage your audience.
-                     These websites, depending on the number of pages and their complexity it will take me <strong>3</strong> to <strong>5</strong> days.
+                    <h4 class="text-lg font-bold font-head">Business systems and ERP</h4>
+                    Operations software a company runs its day on: staff records, payroll, contracts,
+                    site billing, stock and approval queues, all under one permission model with an
+                    audit log behind it. These are 70 to 90 table schemas with unit-tested accrual
+                    and payroll logic. Typically <strong>6</strong> to <strong>12</strong> weeks.
                      </div>
     </div>
   {/if}
 
   {#if active[1]}
     <div class={contentClass} transition:slide|global>
-     <h4 class="text-lg font-bold font-head">Blogging Websites</h4>
-                    Blogging websites are designed for content creators to share their thoughts, ideas, and expertise. I ensure that these sites are user-friendly, with features like categories, tags, and comment sections to enhance user engagement.
-                    These websites, depending on the number of pages and their complexity it will take me <strong>5</strong> to <strong>10</strong> days.
+     <h4 class="text-lg font-bold font-head">Platforms and portals</h4>
+                    Multi-role platforms with a public face and an authenticated back office:
+                    beneficiary and donor management, volunteer lifecycles, learning platforms,
+                    built-in CMS and a form builder, with database-driven translations where a
+                    second language is needed. Typically <strong>4</strong> to <strong>8</strong> weeks.
     </div>
   {/if}
 
   {#if active[2]}
     <div class={contentClass} transition:slide|global>
-       <h4 class="text-lg font-bold font-head">E-commerce Websites</h4>
-                    E-commerce websites are built to facilitate online sales. 
-                    I focus on creating secure, user-friendly shopping experiences that drive conversions. 
-                    These sites often include product catalogs, shopping carts, and payment gateways.
-                    These websites, depending on the number of pages and their complexity it will take me <strong>10</strong> to <strong>25</strong> days.
+       <h4 class="text-lg font-bold font-head">E-commerce and inventory</h4>
+                    Storefront plus the back office that keeps it honest: catalogue, discounts,
+                    token-based checkout and customer accounts on the front, suppliers, stock
+                    adjustments, damaged goods and fulfilment states behind it. Typically
+                    <strong>4</strong> to <strong>10</strong> weeks.
     </div>
   {/if}
   </div>

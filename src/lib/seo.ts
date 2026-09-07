@@ -1,6 +1,6 @@
 /**
  * Single source of truth for anything that needs an absolute URL.
- * Change SITE_URL here when a custom domain replaces the vercel.app one —
+ * Change SITE_URL here when a custom domain replaces the vercel.app one:
  * canonical tags, og:url, the sitemap and the JSON-LD all read from it.
  */
 export const SITE_URL = 'https://nahusenaytadesse.vercel.app';
@@ -9,11 +9,12 @@ export const SITE_NAME = 'Nahusenay Tadesse';
 export const AUTHOR = 'Nahusenay Tadesse';
 
 export const DEFAULT_TITLE =
-	'Nahusenay Tadesse — Svelte & SvelteKit Developer | TypeScript Developer in Ethiopia';
+	'Nahusenay Tadesse | SvelteKit Developer & Full-Stack Product Engineer';
 
 export const DEFAULT_DESCRIPTION =
-	'Svelte and SvelteKit developer building fast, accessible, production web apps in TypeScript. ' +
-	'Available worldwide and based in Addis Ababa, Ethiopia. Fullstack work across Firebase, Supabase and PostgreSQL.';
+	'SvelteKit developer and full-stack product engineer. I build complete business systems in TypeScript: ' +
+	'ERP platforms, payroll engines, role-based access control and reporting, with Drizzle, MySQL and Better Auth. ' +
+	'Over 20 SvelteKit applications in production. Based in Addis Ababa, Ethiopia and available worldwide.';
 
 export const DEFAULT_IMAGE = `${SITE_URL}/nahu.webp`;
 
@@ -63,7 +64,14 @@ const TECH_CASING: Record<string, string> = {
 	docker: 'Docker',
 	drizzle: 'Drizzle',
 	pocketbase: 'PocketBase',
-	elementor: 'Elementor'
+	elementor: 'Elementor',
+	playwright: 'Playwright',
+	vitest: 'Vitest',
+	betterauth: 'Better Auth',
+	argon2: 'Argon2',
+	paraglide: 'Paraglide i18n',
+	stripe: 'Stripe',
+	chapa: 'Chapa'
 };
 
 export function techLabel(name: string): string {

@@ -36,7 +36,7 @@
     const q = searchQuery.trim().toLowerCase();
     if (!q) return data.projects;
     return data.projects.filter((p) =>
-      [p?.name, p?.category, p?.description, p?.challenges]
+      [p?.name, p?.category, p?.description, p?.client, (p?.services ?? []).join(' ')]
         .some((field) => String(field ?? '').toLowerCase().includes(q))
     );
   });
@@ -45,7 +45,7 @@
 
 </script>
 <Seo
-  title="Svelte & SvelteKit Projects — Portfolio of Nahusenay Tadesse"
+  title="SvelteKit Projects & Case Studies | Nahusenay Tadesse"
   description="Case studies from a Svelte and SvelteKit developer: production web apps built with TypeScript, Firebase, Supabase and WordPress, with the problems solved on each build."
   schema={listSchema}
 />

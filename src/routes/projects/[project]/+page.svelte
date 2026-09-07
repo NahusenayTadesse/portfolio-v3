@@ -1,6 +1,6 @@
 
 <script lang="ts">
-    import { Popover, Gallery } from "flowbite-svelte";
+    import { Popover } from "flowbite-svelte";
     import Seo from '$lib/Seo.svelte';
     import { jsonLd, SITE_URL, AUTHOR, absolute, techLabel } from '$lib/seo';
 
@@ -15,7 +15,7 @@
     );
     const seoTitle = $derived(
         data.project
-            ? `${data.project.name} — ${techList.slice(0, 3).join(', ') || 'Web'} Project by ${AUTHOR}`
+            ? `${data.project.name} | SvelteKit Case Study by ${AUTHOR}`
             : 'Project Not Found'
     );
     const seoDescription = $derived(
@@ -74,7 +74,7 @@
     },
     {
       name: "TypeScript",
-      description: "JavaScript with types—helps catch bugs early.",
+      description: "JavaScript with types, which catches bugs early.",
       link: `<svg role="img" class= "${classer}" viewBox = "${viewBox}" xmlns="http://www.w3.org/2000/svg"><title>TypeScript</title><path d="M1.125 0C.502 0 0 .502 0 1.125v21.75C0 23.498.502 24 1.125 24h21.75c.623 0 1.125-.502 1.125-1.125V1.125C24 .502 23.498 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.717-.26 5.453 5.453 0 0 0-1.426-.2c-.3 0-.573.028-.819.086a2.1 2.1 0 0 0-.623.242c-.17.104-.3.229-.393.374a.888.888 0 0 0-.14.49c0 .196.053.373.156.529.104.156.252.304.443.444s.423.276.696.41c.273.135.582.274.926.416.47.197.892.407 1.266.628.374.222.695.473.963.753.268.279.472.598.614.957.142.359.214.776.214 1.253 0 .657-.125 1.21-.373 1.656a3.033 3.033 0 0 1-1.012 1.085 4.38 4.38 0 0 1-1.487.596c-.566.12-1.163.18-1.79.18a9.916 9.916 0 0 1-1.84-.164 5.544 5.544 0 0 1-1.512-.493v-2.63a5.033 5.033 0 0 0 3.237 1.2c.333 0 .624-.03.872-.09.249-.06.456-.144.623-.25.166-.108.29-.234.373-.38a1.023 1.023 0 0 0-.074-1.089 2.12 2.12 0 0 0-.537-.5 5.597 5.597 0 0 0-.807-.444 27.72 27.72 0 0 0-1.007-.436c-.918-.383-1.602-.852-2.053-1.405-.45-.553-.676-1.222-.676-2.005 0-.614.123-1.141.369-1.582.246-.441.58-.804 1.004-1.089a4.494 4.494 0 0 1 1.47-.629 7.536 7.536 0 0 1 1.77-.201zm-15.113.188h9.563v2.166H9.506v9.646H6.789v-9.646H3.375z"/></svg>`,
       group: "frontend"
     },
@@ -159,8 +159,7 @@
         return match ? match.description : '';
     }
 
-  import { fly, slide } from "svelte/transition";
-  import { link, typewriter, popClass } from "$lib/global.svelte";
+  import { link, quiet, popClass } from "$lib/global.svelte";
 
  
 import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
@@ -182,84 +181,123 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 
 
 {#if data.project}
-<div class="flex flex-col gap-4 lg:gap-8">
+<article class="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-12 lg:px-8">
 
-<h1 class="text-4xl lg:text-6xl font-head font-bold text-center pt-8 text-muted dark:text-white" transition:typewriter={{ speed: 1}}>{data.project?.name}</h1>
-<h3 class="text-lg font-head text-center">Category: {data.project?.category}</h3> 
-<br>
-<button class="flex flex-row justify-center items-center justify-self-center w-auto">
-  <a href={data.project?.link} target = "_blank" rel="noopener noreferrer"
-  class={link}>
- 
-Site Link
+  <header class="flex flex-col gap-4">
+    <a href="/projects" class="{quiet} self-start">&larr; All projects</a>
 
-    <ArrowUpRightFromSquareOutline class="animate-bounce"/>
+    <h1 class="font-head text-4xl font-bold text-ink dark:text-white lg:text-6xl">{data.project.name}</h1>
 
+    <dl class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted dark:text-gray-300">
+      {#if data.project.client}
+        <div><dt class="sr-only">Client</dt><dd>{data.project.client}</dd></div>
+      {/if}
+      {#if data.project.category}
+        <div><dt class="sr-only">Industry</dt><dd>{data.project.category}</dd></div>
+      {/if}
+      {#if data.project.year}
+        <div><dt class="sr-only">Year</dt><dd>{data.project.year}</dd></div>
+      {/if}
+    </dl>
 
+    {#if data.project.description}
+      <p class="max-w-3xl text-lg text-ink dark:text-gray-100 lg:text-xl">{data.project.description}</p>
+    {/if}
 
-</a></button>  
+    {#if data.project.link}
+      <a href={data.project.link} target="_blank" rel="noopener noreferrer" class="{link} self-start">
+        Visit the site
+        <ArrowUpRightFromSquareOutline class="h-5 w-5" />
+      </a>
+    {/if}
+  </header>
 
+  {#if data.project.featured}
+    <img
+      src={data.project.featured}
+      alt={data.project.coverAlt || data.project.name}
+      width="1600" height="1000"
+      class="w-full rounded-xl border border-line shadow-lg dark:border-white/10"
+      fetchpriority="high"
+    />
+  {/if}
 
-<div class="flex flex-col justify-center items-center gap-4 pt-8 p-4">
+  {#if data.project.outcomes?.length}
+    <section aria-label="Outcomes" class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+      {#each data.project.outcomes as outcome}
+        <div class="rounded-xl border border-line bg-surface p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+          <p class="font-head text-3xl font-bold text-ink dark:text-white">{outcome.value}</p>
+          <p class="mt-1 text-sm text-muted dark:text-gray-300">{outcome.label}</p>
+        </div>
+      {/each}
+    </section>
+  {/if}
 
-<img src={data.project?.featured} alt={data.project?.name} class="rounded-lg w-full lg:w-1/2 justify-self-center shadow-2xl" transition:fly={{ y: 100, duration: 600, easing: t => t * (2 - t) }} loading="lazy" />
-
-<br>
-
-    <h3 class="text-4xl lg:text-5xl font-head font-bold text-left m-4 lg:m-8">Project Details</h3>
-
-   <p class="text-lg w-full lg:w-1/2 font-body">{data.project?.description}</p>
-
-    
-
-
-
-         <h3 class="text-3xl lg:text-5xl font-head font-bold text-left m-4 lg:m-8">Technologies Used</h3>
-
-  
-
-    <div class="flex flex-row flex-wrap justify-center items-center gap-4 mt-4">
-
-        {#each data.project?.technology as tech}
-            <div class="flex flex-col justify-center items-center p-2 bg-secondary-100
-             dark:bg-secondary-800 rounded-lg shadow-lg transition-transform hover:scale-105" transition:slide|global>
-                {@html getLink(tech)}
-
-                <Popover title={tech.toUpperCase()} class={popClass}>{getDescription(tech)}</Popover>
-
-            </div>
-
+  {#if data.project.services?.length}
+    <section class="flex flex-col gap-3">
+      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">What it covers</h2>
+      <ul class="flex flex-wrap gap-2">
+        {#each data.project.services as service}
+          <li class="rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-ink shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-gray-100">
+            {service}
+          </li>
         {/each}
+      </ul>
+    </section>
+  {/if}
 
-    </div>
+  {#if data.project.body}
+    <!-- Case-study HTML authored in the PulseData dashboard. -->
+    <section class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-head prose-headings:text-ink dark:prose-headings:text-white prose-a:text-ink dark:prose-a:text-background-2">
+      {@html data.project.body}
+    </section>
+  {/if}
 
-<div class="flex flex-col justify-center items-center m-4 lg:m-8">
-    <h3 class="text-3xl lg:text-5xl font-head font-bold text-left">Project Screenshots</h3>
-      
-<Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
+  {#if data.project.technology?.length}
+    <section class="flex flex-col gap-4">
+      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">Built with</h2>
+      <div class="flex flex-row flex-wrap items-center gap-4">
+        {#each data.project.technology as tech}
+          {#if getLink(tech)}
+            <div class="flex flex-col items-center justify-center rounded-lg border border-line bg-surface p-3 shadow-sm transition-transform hover:scale-105 dark:border-white/10 dark:bg-white/5">
+              {@html getLink(tech)}
+              <Popover title={techLabel(tech)} class={popClass}>{getDescription(tech)}</Popover>
+            </div>
+          {:else}
+            <span class="rounded-lg border border-line bg-surface px-4 py-2 text-sm text-ink shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-gray-100">
+              {techLabel(tech)}
+            </span>
+          {/if}
+        {/each}
+      </div>
+    </section>
+  {/if}
 
-            {#each data.project?.screenshots as screenshot}
-            <img src={screenshot} alt="Desktop Screenshot for {data.project?.name}" class="w-full h-full" loading="lazy">
-            {/each}
-          </Gallery>
-<Gallery class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-8 w-full lg:w-3/4">
+  {#if data.project.images?.length}
+    <section class="flex flex-col gap-6">
+      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">Inside the system</h2>
+      <div class="flex flex-col gap-10">
+        {#each data.project.images as image, i}
+          <figure class="flex flex-col gap-3">
+            <img
+              src={image.url}
+              alt={image.alt}
+              width="1600" height="1000"
+              loading={i === 0 ? 'eager' : 'lazy'}
+              decoding="async"
+              class="w-full rounded-xl border border-line shadow-md dark:border-white/10"
+            />
+            {#if image.caption}
+              <figcaption class="text-sm text-muted dark:text-gray-300">{image.caption}</figcaption>
+            {/if}
+          </figure>
+        {/each}
+      </div>
+    </section>
+  {/if}
 
-            {#each data.project?.screenshotsMobile as screenshot}
-            <img src={screenshot} alt="Mobile Screenshot for {data.project?.name}" class="w-full h-192" loading="lazy">
-            {/each}
-          </Gallery>
-          
-      
-
-    
-</div>
-
-
-      <a href="/projects" class={link}>
-            Back to Projects</a>
-
-</div>
-</div>
+  <a href="/projects" class="{link} self-start">Back to all projects</a>
+</article>
 
 {:else}
     <div class="flex flex-col justify-center items-center h-screen">

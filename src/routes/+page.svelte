@@ -20,7 +20,7 @@ const personSchema = jsonLd({
     name: AUTHOR,
     url: SITE_URL,
     image: DEFAULT_IMAGE,
-    jobTitle: 'Svelte & SvelteKit Developer',
+    jobTitle: 'SvelteKit Developer & Full-Stack Product Engineer',
     description: DEFAULT_DESCRIPTION,
     email: 'mailto:nahusenaytadesse75@gmail.com',
     telephone: '+251947340602',
@@ -31,22 +31,24 @@ const personSchema = jsonLd({
         addressCountry: 'ET'
     },
     knowsAbout: [
-        'Svelte',
         'SvelteKit',
+        'Svelte 5',
         'TypeScript',
-        'JavaScript',
-        'Web Development',
-        'Firebase',
-        'Supabase',
-        'PostgreSQL',
+        'Drizzle ORM',
+        'MySQL',
+        'Better Auth',
         'Tailwind CSS',
-        'WordPress'
+        'Playwright',
+        'Vitest',
+        'ERP systems',
+        'Payroll systems',
+        'Role-based access control'
     ],
     knowsLanguage: ['en', 'am'],
     // Says "hire me, from anywhere" in a form search engines can parse.
     seeks: {
         '@type': 'Demand',
-        name: 'Freelance and contract Svelte / SvelteKit development'
+        name: 'Freelance and contract SvelteKit development'
     },
     worksFor: {
         '@type': 'Organization',

@@ -13,8 +13,9 @@ export const DEFAULT_TITLE =
 
 export const DEFAULT_DESCRIPTION =
 	'SvelteKit developer and full-stack product engineer. I build complete business systems in TypeScript: ' +
-	'ERP platforms, payroll engines, role-based access control and reporting, with Drizzle, MySQL and Better Auth. ' +
-	'Over 20 SvelteKit applications in production. Based in Addis Ababa, Ethiopia and available worldwide.';
+	'ERP platforms, payroll engines, multi-currency reconciliation and role-based access control, with Drizzle over ' +
+	'MySQL, PostgreSQL and SQLite. I deploy what I build: Linux, cPanel and LiteSpeed, Vercel, SMTP and CI. ' +
+	'Over 20 applications in production. Based in Addis Ababa, Ethiopia and available worldwide.';
 
 export const DEFAULT_IMAGE = `${SITE_URL}/nahu.webp`;
 

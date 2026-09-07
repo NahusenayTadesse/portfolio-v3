@@ -1,0 +1,731 @@
+[
+  {
+    "id": "golla-design-group",
+    "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772489/portfolio/pulse/fce0a34f-603e-467d-9277-4685c7d7efce.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772489/portfolio/pulse/fce0a34f-603e-467d-9277-4685c7d7efce.webp",
+        "caption": "A single line of type over the work, because the work is the argument.",
+        "alt": "Golla Design Group home page with a full-bleed architectural photograph"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772466/portfolio/pulse/7d3c149e-8c8a-4bc1-b025-26ab1ae38256.webp",
+        "caption": "Projects carry categories, galleries and video, all published from the dashboard.",
+        "alt": "The portfolio grid of completed projects"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772483/portfolio/pulse/d049e234-7993-48c7-bf3d-b19d77d67fab.webp",
+        "caption": "Each service has its own gallery, so the page shows work rather than describing it.",
+        "alt": "The services page"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772455/portfolio/pulse/5501d08e-9616-4a2b-be2d-3aea450e6756.webp",
+        "caption": "Practice, team and approach: a page the studio maintains itself.",
+        "alt": "The about page introducing the practice"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772471/portfolio/pulse/8e5b3945-cc0d-4706-9a50-e939773afd6f.webp",
+        "caption": "Categorised writing with galleries and embedded video.",
+        "alt": "The blog index"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772444/portfolio/pulse/28b3d5d9-e197-4feb-96c9-a4a927562047.webp",
+        "caption": "Enquiries become queue items with a status, not emails.",
+        "alt": "The contact and enquiry page"
+      }
+    ],
+    "year": "2025",
+    "link": "https://golladesigns.com",
+    "description": "A portfolio site and content system for an Addis Ababa architecture and design-build practice, where the work itself (projects, galleries and video) is the product and has to be published without a developer.",
+    "services": [
+      "Portfolio & project galleries",
+      "Service pages with media",
+      "Blog with rich text & video",
+      "Quote request queue",
+      "Browser-side image compression",
+      "Roles & special permissions"
+    ],
+    "source": "pulsedata",
+    "body": "<h2>A practice whose website is its portfolio</h2>\n<p>Golla is an architectural and design-build practice in Addis Ababa working in quiet, intentional spaces and bespoke materials. For a practice like that the website is not marketing collateral around the work: it <em>is</em> the work, and it goes out of date the moment a project completes.</p>\n<p>So the build treats publishing as the primary use case rather than an afterthought.</p>\n<h2>What it does</h2>\n<p><strong>Projects and portfolio, with real media.</strong> A project carries a category, a description, a cover image, an image gallery and video. Galleries are ordered, and images are compressed in the browser before upload: a practice photographing its own buildings uploads 8MB files, and nobody should have to think about that.</p>\n<p><strong>Services</strong>, each with its own gallery, so a service page shows work rather than describing it.</p>\n<p><strong>A blog</strong> with categories, image galleries and embedded video, written in a rich-text editor.</p>\n<p><strong>Testimonials and team</strong>, both managed from the dashboard.</p>\n<p><strong>A quote request</strong> that routes into a dashboard queue with a status, so an enquiry has a state rather than sitting in an inbox.</p>\n<p><strong>Roles and permissions</strong>, with per-user special permissions, so a studio assistant can publish a blog post without being able to touch the team page or the enquiry queue.</p>\n<h2>The engineering underneath</h2>\n<p>The whole thing runs on SQLite through libSQL, which for a practice of this size is the right answer: no database server to administer, no monthly bill for an idle instance, and a file that can be backed up by copying it. Uploads are handled with browser-side compression and a file manager that keeps the originals out of the database.</p>\n<h2>Why it reads the way it does</h2>\n<p>Almost every architecture-practice site in Ethiopia is a template with the practice&#39;s photographs dropped into it. This one was built around the specific thing Golla does (the long, slow reveal of a space), which is why the home page is a full-bleed image with a single line of type on it, and why the portfolio is a grid that gets out of the way.</p>\n",
+    "screenshots": [
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772489/portfolio/pulse/fce0a34f-603e-467d-9277-4685c7d7efce.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772466/portfolio/pulse/7d3c149e-8c8a-4bc1-b025-26ab1ae38256.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772483/portfolio/pulse/d049e234-7993-48c7-bf3d-b19d77d67fab.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772455/portfolio/pulse/5501d08e-9616-4a2b-be2d-3aea450e6756.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772471/portfolio/pulse/8e5b3945-cc0d-4706-9a50-e939773afd6f.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772444/portfolio/pulse/28b3d5d9-e197-4feb-96c9-a4a927562047.webp"
+    ],
+    "coverAlt": "The Golla Design Group home page",
+    "outcomes": [
+      {
+        "value": "0",
+        "label": "Developer involvement to publish a project"
+      },
+      {
+        "value": "3",
+        "label": "Media types per project: image, gallery, video"
+      },
+      {
+        "value": "1",
+        "label": "File to back up the whole site"
+      }
+    ],
+    "name": "Golla Design Group",
+    "client": "Golla Design Group",
+    "screenshotsMobile": [],
+    "category": "Architecture & interior design",
+    "isFeatured": false,
+    "slug": "golla-design-group",
+    "sortOrder": 12,
+    "stack": [
+      {
+        "name": "SvelteKit",
+        "group": "Framework",
+        "note": "Server load functions, form actions and endpoints; SSR by default."
+      },
+      {
+        "name": "Svelte 5",
+        "group": "Framework",
+        "note": "Runes for reactivity ($state, $derived, $effect)."
+      },
+      {
+        "name": "TypeScript",
+        "group": "Language",
+        "note": "Strict mode across app and server code."
+      },
+      {
+        "name": "SQLite / libSQL",
+        "group": "Data",
+        "note": "Primary datastore, embedded and file-backed."
+      },
+      {
+        "name": "Drizzle Kit",
+        "group": "Data",
+        "note": "Committed SQL migrations rather than push-to-prod diffing."
+      },
+      {
+        "name": "Drizzle ORM",
+        "group": "Data",
+        "note": "Typed schema and queries, with migrations generated from the schema."
+      },
+      {
+        "name": "Better Auth",
+        "group": "Auth",
+        "note": "Session-based auth with server-side verification."
+      },
+      {
+        "name": "Superforms",
+        "group": "Forms",
+        "note": "Progressive-enhancement forms with server-side validation."
+      },
+      {
+        "name": "Zod",
+        "group": "Forms",
+        "note": "One schema validating both client and server."
+      },
+      {
+        "name": "Tipex",
+        "group": "UI",
+        "note": "Rich-text editor for CMS content."
+      },
+      {
+        "name": "Embla",
+        "group": "UI",
+        "note": "Carousels."
+      },
+      {
+        "name": "Dark mode",
+        "group": "UI",
+        "note": "System-aware theme switching."
+      },
+      {
+        "name": "Lucide",
+        "group": "UI",
+        "note": "Icon set."
+      },
+      {
+        "name": "TanStack Table",
+        "group": "UI",
+        "note": "Sorting, filtering and pagination for admin tables."
+      },
+      {
+        "name": "Bits UI",
+        "group": "UI",
+        "note": "Headless primitives behind the component library."
+      },
+      {
+        "name": "Tailwind CSS",
+        "group": "UI",
+        "note": "Utility-first styling with a project design token layer."
+      },
+      {
+        "name": "jsPDF",
+        "group": "Reporting",
+        "note": "Server-side PDF generation for reports and receipts."
+      },
+      {
+        "name": "jsPDF AutoTable",
+        "group": "Reporting",
+        "note": "Tabular report export."
+      },
+      {
+        "name": "Client image compression",
+        "group": "Infrastructure",
+        "note": "Uploads compressed in the browser before hitting the server."
+      },
+      {
+        "name": "Nodemailer",
+        "group": "Infrastructure",
+        "note": "Transactional email over SMTP."
+      }
+    ],
+    "technology": [
+      "svelte",
+      "typescript",
+      "sqlite",
+      "drizzle",
+      "tailwind"
+    ]
+  },
+  {
+    "id": "yebehir-events",
+    "slug": "yebehir-events",
+    "name": "Yebehir Events",
+    "client": "Yebehir",
+    "category": "Events & hospitality",
+    "year": "2025",
+    "description": "An events and venue business online: browsable venues with features and galleries, an events programme, a structured quote request, and a dashboard where every part of it is edited.",
+    "body": "<h2>Selling something people have to picture</h2>\n<p>An events business sells an outcome nobody can see in advance. The website&#39;s whole job is to let someone picture their wedding, their conference or their launch in a room they have never stood in, and then make asking about it easy enough that they actually do.</p>\n<h2>Venues, described properly</h2>\n<p>A venue is not a photograph and a phone number. Here it carries structured details, a <strong>feature list</strong>, an image gallery and video, so two venues can be compared on the things that decide the booking: capacity, what is included, what is not.</p>\n<p>There is a <strong>venue booking</strong> record behind it, and a <strong>venue lottery</strong>: a registration list against a venue, for the promotions this business runs.</p>\n<h2>Events and services</h2>\n<p>An events programme with its own detail pages, and a services catalogue where each service carries its own gallery. Both are ordinary content for the client to publish, which matters because an events business&#39;s calendar changes weekly.</p>\n<h2>The quote request, which is the real product</h2>\n<p>Most events sites end at &quot;contact us&quot;. This one asks the questions that actually determine a quote: service type, event date, location, guest count and budget range, alongside the description. Each request lands in a dashboard queue with a status.</p>\n<p>That single design decision is the difference between an enquiry someone has to chase by phone to make sense of, and one that can be quoted the same day.</p>\n<h2>Behind it</h2>\n<p>Blog with categories and galleries, testimonials, team, a contact inbox, logo management, and role-based permissions with per-user overrides. It runs on SQLite through libSQL, the same reasoning as the other sites of this size: nothing to administer, and a backup is a file copy.</p>\n",
+    "link": "https://yebehir.com",
+    "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772436/portfolio/pulse/039235c5-95f4-47db-bf11-b2edcbcd00d8.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772436/portfolio/pulse/039235c5-95f4-47db-bf11-b2edcbcd00d8.webp",
+        "caption": "The front page has one job: make someone picture their event here.",
+        "alt": "Yebehir Events home page"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772463/portfolio/pulse/71d5c9a7-386b-4b05-a1c4-d34af20bb1b8.webp",
+        "caption": "Venues carry structured features, so two of them can actually be compared.",
+        "alt": "The venue listing"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772469/portfolio/pulse/84621d0f-bebf-4e50-89d6-151f2fb69330.webp",
+        "caption": "A calendar the client publishes weekly without touching code.",
+        "alt": "The events programme"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772448/portfolio/pulse/3089fe6b-2cc3-455c-8d45-f5c99609a480.webp",
+        "caption": "Date, location, guest count and budget: asked up front, so a quote can be written the same day.",
+        "alt": "The structured quote request form"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772437/portfolio/pulse/1314d129-677e-4678-a1fe-2b58aa1f4045.webp",
+        "caption": "Each service carries its own gallery of past work.",
+        "alt": "The services catalogue"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772487/portfolio/pulse/f245c6c0-5ce6-45bf-9e49-96c2c41fcc59.webp",
+        "caption": "Company story, team and testimonials, all dashboard-managed.",
+        "alt": "The about page"
+      }
+    ],
+    "screenshots": [
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772436/portfolio/pulse/039235c5-95f4-47db-bf11-b2edcbcd00d8.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772463/portfolio/pulse/71d5c9a7-386b-4b05-a1c4-d34af20bb1b8.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772469/portfolio/pulse/84621d0f-bebf-4e50-89d6-151f2fb69330.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772448/portfolio/pulse/3089fe6b-2cc3-455c-8d45-f5c99609a480.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772437/portfolio/pulse/1314d129-677e-4678-a1fe-2b58aa1f4045.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772487/portfolio/pulse/f245c6c0-5ce6-45bf-9e49-96c2c41fcc59.webp"
+    ],
+    "screenshotsMobile": [],
+    "services": [
+      "Venue catalogue with features & galleries",
+      "Events programme",
+      "Structured quote requests",
+      "Venue booking & lottery registration",
+      "Blog, testimonials & team",
+      "Roles & special permissions"
+    ],
+    "outcomes": [
+      {
+        "value": "6",
+        "label": "Facts captured before a quote is asked for"
+      },
+      {
+        "value": "0",
+        "label": "Enquiries without a status"
+      },
+      {
+        "value": "27",
+        "label": "Tables behind a site the client edits alone"
+      }
+    ],
+    "isFeatured": false,
+    "coverAlt": "The Yebehir Events home page",
+    "source": "pulsedata",
+    "sortOrder": 13,
+    "stack": [
+      {
+        "name": "SvelteKit",
+        "group": "Framework",
+        "note": "Server load functions, form actions and endpoints; SSR by default."
+      },
+      {
+        "name": "Svelte 5",
+        "group": "Framework",
+        "note": "Runes for reactivity ($state, $derived, $effect)."
+      },
+      {
+        "name": "TypeScript",
+        "group": "Language",
+        "note": "Strict mode across app and server code."
+      },
+      {
+        "name": "SQLite / libSQL",
+        "group": "Data",
+        "note": "Primary datastore, embedded and file-backed."
+      },
+      {
+        "name": "Drizzle Kit",
+        "group": "Data",
+        "note": "Committed SQL migrations rather than push-to-prod diffing."
+      },
+      {
+        "name": "Drizzle ORM",
+        "group": "Data",
+        "note": "Typed schema and queries, with migrations generated from the schema."
+      },
+      {
+        "name": "Better Auth",
+        "group": "Auth",
+        "note": "Session-based auth with server-side verification."
+      },
+      {
+        "name": "Superforms",
+        "group": "Forms",
+        "note": "Progressive-enhancement forms with server-side validation."
+      },
+      {
+        "name": "Zod",
+        "group": "Forms",
+        "note": "One schema validating both client and server."
+      },
+      {
+        "name": "Tipex",
+        "group": "UI",
+        "note": "Rich-text editor for CMS content."
+      },
+      {
+        "name": "Embla",
+        "group": "UI",
+        "note": "Carousels."
+      },
+      {
+        "name": "Dark mode",
+        "group": "UI",
+        "note": "System-aware theme switching."
+      },
+      {
+        "name": "Lucide",
+        "group": "UI",
+        "note": "Icon set."
+      },
+      {
+        "name": "TanStack Table",
+        "group": "UI",
+        "note": "Sorting, filtering and pagination for admin tables."
+      },
+      {
+        "name": "Bits UI",
+        "group": "UI",
+        "note": "Headless primitives behind the component library."
+      },
+      {
+        "name": "Tailwind CSS",
+        "group": "UI",
+        "note": "Utility-first styling with a project design token layer."
+      },
+      {
+        "name": "jsPDF",
+        "group": "Reporting",
+        "note": "Server-side PDF generation for reports and receipts."
+      },
+      {
+        "name": "jsPDF AutoTable",
+        "group": "Reporting",
+        "note": "Tabular report export."
+      },
+      {
+        "name": "Client image compression",
+        "group": "Infrastructure",
+        "note": "Uploads compressed in the browser before hitting the server."
+      },
+      {
+        "name": "Nodemailer",
+        "group": "Infrastructure",
+        "note": "Transactional email over SMTP."
+      }
+    ],
+    "technology": [
+      "svelte",
+      "typescript",
+      "sqlite",
+      "drizzle",
+      "tailwind"
+    ]
+  },
+  {
+    "id": "lalo-group",
+    "slug": "lalo-group",
+    "name": "Lalo Group",
+    "client": "Lalo Group",
+    "category": "Diversified trading group",
+    "year": "2025",
+    "description": "The parent company site for a group with several trading subsidiaries, built on the same editable content model as its sister sites, so the group page and the businesses under it stay in step.",
+    "body": "<h2>The problem with a group site</h2>\n<p>A holding company&#39;s website has an awkward job. It must say something meaningful about a group whose actual work happens in its subsidiaries, without either repeating those subsidiaries&#39; sites or becoming a directory of links nobody clicks.</p>\n<p>The resolution here was to make the group site the place where the <em>shape</em> of the group is expressed (subsidiaries, markets, scale, history and partners), and let each business speak for itself elsewhere.</p>\n<h2>What it holds</h2>\n<p><strong>Subsidiaries</strong> as first-class content, each with its own entry, rather than a paragraph on an about page.</p>\n<p><strong>Coffee regions and export markets</strong>, shared with the group&#39;s trading arm, so the same source data describes the same facts in both places.</p>\n<p><strong>Company stats and milestones</strong>: the numbers and the timeline a buyer or a partner looks for.</p>\n<p><strong>Value propositions, partners, traceability, FAQs, testimonials and a gallery</strong>, all managed the same way.</p>\n<p><strong>Page heroes and page sections</strong>, which is the part that matters most: the structure of a page is itself data. A new section on the home page is a row, not a deployment.</p>\n<h2>Shared foundations</h2>\n<p>This site and its sister sites were built from one set of decisions: the same content model, the same dashboard patterns, the same role and permission system, the same upload handling with browser-side image compression. That is deliberate. A group running several sites should not be paying to have the same admin screen designed five times, and the staff who move between them should not have to learn five interfaces.</p>\n",
+    "link": "https://main.lalobakerysolutions.com",
+    "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772478/portfolio/pulse/af3075ea-5541-477b-9927-ced79d7dbfc2.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772478/portfolio/pulse/af3075ea-5541-477b-9927-ced79d7dbfc2.webp",
+        "caption": "The page structure itself is data: sections are rows, ordered from the dashboard.",
+        "alt": "Lalo Group home page"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772473/portfolio/pulse/9724bc2c-15cc-4e58-90ba-e8454443f340.webp",
+        "caption": "Each business in the group is its own content entry, not a paragraph.",
+        "alt": "The subsidiaries page"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772460/portfolio/pulse/6b85e91c-69a4-4464-8f41-db5ac03586d9.webp",
+        "caption": "Stats, milestones and partners: the credentials a group site exists to carry.",
+        "alt": "The about page with milestones and stats"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772468/portfolio/pulse/830001e6-7fd9-4b1d-ba81-66e10d17074e.webp",
+        "caption": "One inbox for the group, with the same message handling as its sister sites.",
+        "alt": "The contact page"
+      }
+    ],
+    "screenshots": [
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772478/portfolio/pulse/af3075ea-5541-477b-9927-ced79d7dbfc2.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772473/portfolio/pulse/9724bc2c-15cc-4e58-90ba-e8454443f340.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772460/portfolio/pulse/6b85e91c-69a4-4464-8f41-db5ac03586d9.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772468/portfolio/pulse/830001e6-7fd9-4b1d-ba81-66e10d17074e.webp"
+    ],
+    "screenshotsMobile": [],
+    "services": [
+      "Group & subsidiary content model",
+      "Data-driven page sections",
+      "Company stats & milestones",
+      "Shared design system across group sites",
+      "Enquiry inbox"
+    ],
+    "outcomes": [
+      {
+        "value": "16",
+        "label": "Content tables, no hardcoded page"
+      },
+      {
+        "value": "1",
+        "label": "Design system across the group’s sites"
+      },
+      {
+        "value": "0",
+        "label": "Deployments to add a home page section"
+      }
+    ],
+    "isFeatured": false,
+    "coverAlt": "The Lalo Group home page",
+    "source": "pulsedata",
+    "sortOrder": 15,
+    "stack": [
+      {
+        "name": "SvelteKit",
+        "group": "Framework",
+        "note": "Server load functions, form actions and endpoints; SSR by default."
+      },
+      {
+        "name": "Svelte 5",
+        "group": "Framework",
+        "note": "Runes for reactivity ($state, $derived, $effect)."
+      },
+      {
+        "name": "TypeScript",
+        "group": "Language",
+        "note": "Strict mode across app and server code."
+      },
+      {
+        "name": "MySQL",
+        "group": "Data",
+        "note": "Primary datastore."
+      },
+      {
+        "name": "Drizzle Kit",
+        "group": "Data",
+        "note": "Committed SQL migrations rather than push-to-prod diffing."
+      },
+      {
+        "name": "Drizzle ORM",
+        "group": "Data",
+        "note": "Typed schema and queries, with migrations generated from the schema."
+      },
+      {
+        "name": "Better Auth",
+        "group": "Auth",
+        "note": "Session-based auth with server-side verification."
+      },
+      {
+        "name": "Superforms",
+        "group": "Forms",
+        "note": "Progressive-enhancement forms with server-side validation."
+      },
+      {
+        "name": "Zod",
+        "group": "Forms",
+        "note": "One schema validating both client and server."
+      },
+      {
+        "name": "TanStack Table",
+        "group": "UI",
+        "note": "Sorting, filtering and pagination for admin tables."
+      },
+      {
+        "name": "Chart.js",
+        "group": "UI",
+        "note": "Reporting charts."
+      },
+      {
+        "name": "Dark mode",
+        "group": "UI",
+        "note": "System-aware theme switching."
+      },
+      {
+        "name": "Lucide",
+        "group": "UI",
+        "note": "Icon set."
+      },
+      {
+        "name": "Bits UI",
+        "group": "UI",
+        "note": "Headless primitives behind the component library."
+      },
+      {
+        "name": "Embla",
+        "group": "UI",
+        "note": "Carousels."
+      },
+      {
+        "name": "Tailwind CSS",
+        "group": "UI",
+        "note": "Utility-first styling with a project design token layer."
+      },
+      {
+        "name": "Client image compression",
+        "group": "Infrastructure",
+        "note": "Uploads compressed in the browser before hitting the server."
+      },
+      {
+        "name": "Nodemailer",
+        "group": "Infrastructure",
+        "note": "Transactional email over SMTP."
+      }
+    ],
+    "technology": [
+      "svelte",
+      "typescript",
+      "mysql",
+      "drizzle",
+      "tailwind"
+    ]
+  },
+  {
+    "id": "lalo-fixtec",
+    "slug": "lalo-fixtec",
+    "name": "Lalo Fixtec",
+    "client": "Lalo Fixtec",
+    "category": "Industrial tools & equipment distribution",
+    "year": "2025",
+    "description": "A B2B tools and equipment distributor online: an industry-segmented catalogue, trade customer accounts, and the same stock, supplier and order back office as its sister trading businesses.",
+    "body": "<h2>Selling tools to businesses, not to hobbyists</h2>\n<p>Fixtec distributes professional-grade mechanical tools and bulk supply to infrastructure, industrial and distribution operations. The customer is a procurement officer with a project and a deadline, not someone browsing.</p>\n<p>That changes what the site has to do. A procurement officer does not want to be sold to; they want to establish, quickly, that the supplier stocks what they need, in the quantity they need, and will still exist in six months.</p>\n<h2>The catalogue</h2>\n<p>Products with categories, images and <strong>priced ranges</strong>: the same model as the group&#39;s other trading site, because a tool sold in three pack sizes has three prices, and flattening that into one number is how a quote goes wrong.</p>\n<p><strong>An industries page</strong>, which is the segmentation that actually matters here: buyers arrive knowing their sector, not the manufacturer&#39;s product taxonomy. A <strong>new arrivals</strong> section keeps the returning buyer&#39;s visit worthwhile.</p>\n<h2>Trade accounts</h2>\n<p>Customers get real accounts: sign-up, sign-in, password reset, saved delivery addresses, an order history and a settings page. For a repeat trade buyer, order history is the feature: last quarter&#39;s order is next quarter&#39;s order.</p>\n<h2>The back office</h2>\n<p>Products, categories, suppliers and a stock ledger built from signed adjustments with reasons attached; damaged stock recorded rather than silently deducted; orders across all states with their customers, items and payment methods; customer records with full history; discounts and delivery pricing; reports; and roles with per-user permission overrides.</p>\n<h2>Shared foundations</h2>\n<p>This is deliberately the same system as Lalo Bakery Solutions, wearing different clothes. Two trading businesses in one group with the same operational shape (catalogue, stock, orders, customers) should not be two codebases. What differs is the segmentation, the branding and the catalogue; what is shared is everything that would otherwise be built and debugged twice.</p>\n",
+    "link": "https://fixtec.lalobakerysolutions.com",
+    "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772465/portfolio/pulse/7c276de1-1e05-4853-bac5-4eac871bbf2c.webp",
+    "images": [
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772465/portfolio/pulse/7c276de1-1e05-4853-bac5-4eac871bbf2c.webp",
+        "caption": "Positioned at procurement officers, not browsers: reliability and range before price.",
+        "alt": "Lalo Fixtec home page showing professional power tools"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772474/portfolio/pulse/99e3e340-166c-4666-8831-39bfeddbd1f3.webp",
+        "caption": "Products carry priced ranges, because a tool sold in three pack sizes has three prices.",
+        "alt": "The product catalogue"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772479/portfolio/pulse/bc8a12d7-34b9-4832-8587-ddf9c32970ee.webp",
+        "caption": "Buyers arrive knowing their sector, not the manufacturer’s product taxonomy.",
+        "alt": "The industries page segmenting products by sector"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772456/portfolio/pulse/5b1b849c-c25e-4d40-9f30-73d981cde612.webp",
+        "caption": "What makes a repeat buyer’s visit worth making.",
+        "alt": "The new arrivals page"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772484/portfolio/pulse/d67e272c-f1bd-4eb4-8a82-6f75ed71d575.webp",
+        "caption": "Supply reliability is the pitch, so the about page is a credential, not a story.",
+        "alt": "The about page"
+      },
+      {
+        "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772437/portfolio/pulse/0db11fc7-1345-4ede-aa2d-cd8f02c96d0f.webp",
+        "caption": "Corporate profile requests and enquiries land in the same dashboard queue.",
+        "alt": "The contact page"
+      }
+    ],
+    "screenshots": [
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772465/portfolio/pulse/7c276de1-1e05-4853-bac5-4eac871bbf2c.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772474/portfolio/pulse/99e3e340-166c-4666-8831-39bfeddbd1f3.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772479/portfolio/pulse/bc8a12d7-34b9-4832-8587-ddf9c32970ee.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772456/portfolio/pulse/5b1b849c-c25e-4d40-9f30-73d981cde612.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772484/portfolio/pulse/d67e272c-f1bd-4eb4-8a82-6f75ed71d575.webp",
+      "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772437/portfolio/pulse/0db11fc7-1345-4ede-aa2d-cd8f02c96d0f.webp"
+    ],
+    "screenshotsMobile": [],
+    "services": [
+      "Industry-segmented B2B catalogue",
+      "Trade accounts & order history",
+      "Inventory & supplier management",
+      "Order pipeline & fulfilment",
+      "Discounts & delivery pricing",
+      "Reporting & permissions"
+    ],
+    "outcomes": [
+      {
+        "value": "2",
+        "label": "Trading businesses on one shared codebase"
+      },
+      {
+        "value": "1",
+        "label": "Stock ledger, from purchase to sale to wastage"
+      },
+      {
+        "value": "3",
+        "label": "Ways to find a product: industry, category, new arrivals"
+      }
+    ],
+    "isFeatured": false,
+    "coverAlt": "The Lalo Fixtec home page showing power tools",
+    "source": "pulsedata",
+    "sortOrder": 16,
+    "stack": [
+      {
+        "name": "SvelteKit",
+        "group": "Framework",
+        "note": "Server load functions, form actions and endpoints; SSR by default."
+      },
+      {
+        "name": "Svelte 5",
+        "group": "Framework",
+        "note": "Runes for reactivity ($state, $derived, $effect)."
+      },
+      {
+        "name": "TypeScript",
+        "group": "Language",
+        "note": "Strict mode across app and server code."
+      },
+      {
+        "name": "MySQL",
+        "group": "Data",
+        "note": "Primary datastore."
+      },
+      {
+        "name": "Drizzle Kit",
+        "group": "Data",
+        "note": "Committed SQL migrations rather than push-to-prod diffing."
+      },
+      {
+        "name": "Drizzle ORM",
+        "group": "Data",
+        "note": "Typed schema and queries, with migrations generated from the schema."
+      },
+      {
+        "name": "Better Auth",
+        "group": "Auth",
+        "note": "Session-based auth with server-side verification."
+      },
+      {
+        "name": "Superforms",
+        "group": "Forms",
+        "note": "Progressive-enhancement forms with server-side validation."
+      },
+      {
+        "name": "Zod",
+        "group": "Forms",
+        "note": "One schema validating both client and server."
+      },
+      {
+        "name": "Chart.js",
+        "group": "UI",
+        "note": "Reporting charts."
+      },
+      {
+        "name": "Embla",
+        "group": "UI",
+        "note": "Carousels."
+      },
+      {
+        "name": "Dark mode",
+        "group": "UI",
+        "note": "System-aware theme switching."
+      },
+      {
+        "name": "Lucide",
+        "group": "UI",
+        "note": "Icon set."
+      },
+      {
+        "name": "TanStack Table",
+        "group": "UI",
+        "note": "Sorting, filtering and pagination for admin tables."
+      },
+      {
+        "name": "Bits UI",
+        "group": "UI",
+        "note": "Headless primitives behind the component library."
+      },
+      {
+        "name": "Tailwind CSS",
+        "group": "UI",
+        "note": "Utility-first styling with a project design token layer."
+      },
+      {
+        "name": "jsPDF",
+        "group": "Reporting",
+        "note": "Server-side PDF generation for reports and receipts."
+      },
+      {
+        "name": "jsPDF AutoTable",
+        "group": "Reporting",
+        "note": "Tabular report export."
+      },
+      {
+        "name": "Client image compression",
+        "group": "Infrastructure",
+        "note": "Uploads compressed in the browser before hitting the server."
+      },
+      {
+        "name": "Nodemailer",
+        "group": "Infrastructure",
+        "note": "Transactional email over SMTP."
+      }
+    ],
+    "technology": [
+      "svelte",
+      "typescript",
+      "mysql",
+      "drizzle",
+      "tailwind"
+    ]
+  }
+]

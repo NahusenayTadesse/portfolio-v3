@@ -18,7 +18,7 @@
       Design. Develop. Deploy.</h1>
 
     <p class="max-w-xl font-body text-lg sm:text-xl lg:text-2xl">
-      I am Nahusenay, a SvelteKit developer and full-stack product engineer. I ship complete business systems on my own: authentication, payroll, admin dashboards, reporting and deployment. Over 20 SvelteKit applications in production.</p>
+      I am Nahusenay, a SvelteKit developer and full-stack product engineer. I ship complete business systems on my own: schema design, authentication, payroll engines, admin dashboards, reporting, and the deployment onto the server afterwards. Over 20 applications in production across MySQL, PostgreSQL and SQLite, on Linux, cPanel and Vercel.</p>
 
     <!-- One primary action that keeps people on the site, one secondary, and
          the CV demoted to a quiet link. It used to be the only call to action,

@@ -3,6 +3,7 @@
 	import { BottomNav, BottomNavItem } from "flowbite-svelte";
     let currentYear = new Date().getFullYear();
     import { MessageCaptionSolid, EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid, HomeSolid, WalletSolid, UserCircleSolid } from "flowbite-svelte-icons";
+    import { reveal } from '$lib/reveal';
 
 </script>
 
@@ -28,7 +29,7 @@
 </div>
 
 <footer class="bg-transparent p-6 pb-12">
-    <div class="container mx-auto text-center">
+    <div class="container mx-auto text-center" data-reveal="fade" use:reveal>
          <div class="flex flex-row flex-wrap justify-center">
             <a href="mailto:nahusenaytadesse75@gmail.com" class="mx-2 hover:scale-125 transition-transform duration-300">
                 <EnvelopeSolid class="w-6 h-6 text-muted dark:text-white" />

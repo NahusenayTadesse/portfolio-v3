@@ -1,8 +1,8 @@
 
 
 <script lang="ts">
-  import { fly } from "svelte/transition";
-  
+  import { reveal } from '$lib/reveal';
+
 
     let { data } = $props();
 
@@ -52,9 +52,9 @@
 
 
 <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 pt-12 lg:px-16">
-  <h1 class="font-head text-5xl font-bold text-ink dark:text-white lg:text-6xl" transition:typewriter={{ speed: 1 }}>Projects</h1>
+  <h1 class="enter font-head text-5xl font-bold text-ink dark:text-white lg:text-6xl" in:typewriter={{ speed: 1 }}>Projects</h1>
 
-  <label class="w-full max-w-md">
+  <label class="enter w-full max-w-md" style="--enter-delay: 180ms">
     <span class="sr-only">Search projects</span>
     <input
       type="search"
@@ -69,8 +69,11 @@
 
 
 <div class="mx-auto grid max-w-6xl grid-cols-1 gap-6 p-6 sm:grid-cols-2 lg:grid-cols-3 lg:p-16">
+<!-- Reveal rather than a mount transition, which covers both cases at once:
+     cards rise in as you scroll the grid, and a card brought back by a search
+     term is a freshly mounted node, so it animates in on its own. -->
 {#each filtered as project, index (project.slug)}
-  <div transition:fly={{ y: 40, duration: 400, delay: Math.min(index, 5) * 60 }}>
+  <div data-reveal="scale" use:reveal={{ delay: (index % 3) * 90 }}>
     <ProjectCard {project} eager={index < 3} />
   </div>
 {:else}

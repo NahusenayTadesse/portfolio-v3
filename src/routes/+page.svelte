@@ -4,6 +4,7 @@ import Home from '$lib/pages/Home.svelte';
 import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
 import ProjectCard from '$lib/ProjectCard.svelte';
+import { reveal } from '$lib/reveal';
 import {link} from '$lib/global.svelte';
 import Seo from '$lib/Seo.svelte';
 import { jsonLd, SITE_URL, SITE_NAME, AUTHOR, SAME_AS, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE } from '$lib/seo';
@@ -92,18 +93,22 @@ const websiteSchema = jsonLd({
  <div id="home" role="region" aria-label="Home Section"> <Home /></div>
  <div id="about" role="region" aria-label="About Section" > <About /></div>
  <section aria-labelledby="projects-heading" id="projects" class="flex flex-col items-center gap-8 px-4 py-12 lg:px-16">
-  <h2 id="projects-heading" class="font-head text-3xl font-bold lg:text-5xl">My Projects</h2>
+  <h2 id="projects-heading" class="font-head text-3xl font-bold lg:text-5xl" data-reveal use:reveal>My Projects</h2>
 
   <!-- A grid instead of a carousel: six projects visible at once rather than
        one behind an auto-advancing widget with 19 off-screen pagination dots. -->
   <div class="grid w-full max-w-6xl grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+    <!-- Cards reveal in reading order. The stagger resets every three so the
+         second row does not start a second and a half after the first. -->
     {#each data.projects.slice(0, 6) as project, i (project.slug)}
-      <ProjectCard {project} eager={i < 3} />
+      <div data-reveal="scale" use:reveal={{ delay: (i % 3) * 90 }}>
+        <ProjectCard {project} eager={i < 3} />
+      </div>
     {/each}
   </div>
 
   {#if data.projects.length > 6}
-    <a href="/projects" class={link}>
+    <a href="/projects" class={link} data-reveal use:reveal>
       See all {data.projects.length} projects
     </a>
   {/if}

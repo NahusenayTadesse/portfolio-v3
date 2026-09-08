@@ -2,7 +2,7 @@
 	import { enhance } from '$app/forms';
 	import type { SubmitFunction } from '@sveltejs/kit';
     import {link, typewriter, toast} from '$lib/global.svelte';
-    import { fly } from 'svelte/transition';
+    import { reveal } from '$lib/reveal';
 	import { Toast } from 'flowbite-svelte';
 	import { ThumbsUpSolid, ExclamationCircleSolid } from 'flowbite-svelte-icons';
     let { success, status } = $props();
@@ -23,9 +23,11 @@
 
  
 
+ <!-- The form is the last thing on the page, so it earns a reveal on scroll
+      rather than a mount transition that plays while it is still off screen. -->
  <form method="POST" use:enhance={submit} class="flex flex-col gap-4 p-8 max-w-md mx-auto rounded-lg shadow-lg
    bg-surface border border-line shadow-sm dark:bg-white/5 dark:border-white/10"
-    transition:fly={{ y: -200, duration: 600 }} >
+    data-reveal="scale" use:reveal >
 
      {#if success}
      <h2 class="text-center text-head text-xl bg-green-400 p-4 rounded-lg">Thank you for your message</h2>

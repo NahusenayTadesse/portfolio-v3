@@ -19,6 +19,21 @@
 			} catch (e) {
 				document.documentElement.classList.add('dark');
 			}
+
+			// Arms the scroll-reveal hidden state. It lives here, before first
+			// paint, so revealed content is never painted visible and then
+			// yanked away once hydration runs. Without JavaScript the class is
+			// never added and the page stays plainly visible.
+			document.documentElement.classList.add('js-motion');
+
+			// Watchdog: if the bundle never hydrates, nothing would ever clear
+			// the hidden state and the visitor would be left staring at a blank
+			// page. Better a page with no animation than no page.
+			setTimeout(function () {
+				if (document.documentElement.dataset.revealReady !== 'true') {
+					document.documentElement.classList.remove('js-motion');
+				}
+			}, 4000);
 		</script>
 		%sveltekit.head%
 	</head>

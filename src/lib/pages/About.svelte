@@ -1,6 +1,7 @@
 <script>
     import { Popover} from "flowbite-svelte";
     import Tabs from '$lib/Tabs.svelte';
+    import { reveal } from '$lib/reveal';
     import {classer, popClass} from "$lib/global.svelte"
 
     
@@ -140,11 +141,12 @@
 </script>
 
 
-<h2 class="text-3xl lg:text-6xl font-head text-center font-bold mb-4">About Me</h2>
+<h2 class="text-3xl lg:text-6xl font-head text-center font-bold mb-4" data-reveal use:reveal>About Me</h2>
 
 <div class="flex flex-col justify-center items-center justify-self-center px-0 lg:px-24">
 <div class="flex flex-row flex-wrap justify-center items-start text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-2 lg:p-8 gap-8">
-      <div class="flex flex-col w-full lg:w-1/3 h-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
+      <div class="flex flex-col w-full lg:w-1/3 h-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4"
+        data-reveal="left" use:reveal>
     <h3 class="font-bold font-head text-2xl text-center">Who Am I?</h3>
         
     <p class="text-left">
@@ -161,7 +163,8 @@
         put it somewhere.</p>
   
   </div>
-    <div class="flex flex-col w-full lg:w-1/2 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4">
+    <div class="flex flex-col w-full lg:w-1/2 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4"
+      data-reveal="right" use:reveal={{ delay: 120 }}>
         
          <div class="w-full text-center lg:text-center flex flex-col gap-4 rounded-lg">
             <h3 class="font-head font-bold text-2xl">What Do I Build?</h3>  
@@ -172,7 +175,8 @@
             <Tabs />
           </div>
     </div>
-     <div class="flex flex-col justify-center lg:justify-start items-center w-full shadow-md gap-4 p-4">
+     <div class="flex flex-col justify-center lg:justify-start items-center w-full shadow-md gap-4 p-4"
+       data-reveal use:reveal>
 
      <h3 class="font-bold font-head text-2xl"> My Tech Stack</h3>
      <p class="w-full lg:w-1/2 text-left lg:text-left">SvelteKit and TypeScript are my default, with
@@ -181,8 +185,10 @@
      databases and on three different hosting models. Here are the technologies I work with:</p>
     <div class="grid grid-cols-4 md:grid-cols-8 w-full h-full bg-surface border border-line p-4 rounded-lg shadow-lg dark:bg-gradient-to-br dark:from-primary-600 dark:to-secondary-600 justify-center place-items-center items-center">
 
-      {#each techStack as tech}
-             {@html tech.link}
+      <!-- Each icon is wrapped so it can carry its own reveal delay; the span
+           stays the Popover's previous sibling, which is what it hangs off. -->
+      {#each techStack as tech, i}
+            <span data-reveal="scale" use:reveal={{ delay: (i % 8) * 45 }}>{@html tech.link}</span>
             <Popover title={tech.name} class={popClass}>{tech.description}</Popover>
     {/each}
 

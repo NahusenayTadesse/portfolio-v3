@@ -2,6 +2,7 @@
 <script lang="ts">
     import { Popover } from "flowbite-svelte";
     import Seo from '$lib/Seo.svelte';
+  import { reveal } from '$lib/reveal';
     import { jsonLd, SITE_URL, AUTHOR, absolute, techLabel } from '$lib/seo';
 
     let { data } = $props();
@@ -194,7 +195,7 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 {#if data.project}
 <article class="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-12 lg:px-8">
 
-  <header class="flex flex-col gap-4">
+  <header class="enter flex flex-col gap-4">
     <a href="/projects" class="{quiet} self-start">&larr; All projects</a>
 
     <h1 class="font-head text-4xl font-bold text-ink dark:text-white lg:text-6xl">{data.project.name}</h1>
@@ -228,15 +229,17 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
       src={data.project.featured}
       alt={data.project.coverAlt || data.project.name}
       width="1600" height="1000"
-      class="w-full rounded-xl border border-line shadow-lg dark:border-white/10"
+      class="enter-scale w-full rounded-xl border border-line shadow-lg dark:border-white/10"
+      style="--enter-delay: 140ms"
       fetchpriority="high"
     />
   {/if}
 
   {#if data.project.outcomes?.length}
     <section aria-label="Outcomes" class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-      {#each data.project.outcomes as outcome}
-        <div class="rounded-xl border border-line bg-surface p-5 shadow-sm dark:border-white/10 dark:bg-white/5">
+      {#each data.project.outcomes as outcome, i}
+        <div class="rounded-xl border border-line bg-surface p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
+          data-reveal="scale" use:reveal={{ delay: i * 100 }}>
           <p class="font-head text-3xl font-bold text-ink dark:text-white">{outcome.value}</p>
           <p class="mt-1 text-sm text-muted dark:text-gray-300">{outcome.label}</p>
         </div>
@@ -245,7 +248,7 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
   {/if}
 
   {#if data.project.services?.length}
-    <section class="flex flex-col gap-3">
+    <section class="flex flex-col gap-3" data-reveal use:reveal>
       <h2 class="font-head text-2xl font-bold text-ink dark:text-white">What it covers</h2>
       <ul class="flex flex-wrap gap-2">
         {#each data.project.services as service}
@@ -259,13 +262,13 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 
   {#if data.project.body}
     <!-- Case-study HTML authored in the PulseData dashboard. -->
-    <section class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-head prose-headings:text-ink dark:prose-headings:text-white prose-a:text-ink dark:prose-a:text-background-2">
+    <section data-reveal use:reveal class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-head prose-headings:text-ink dark:prose-headings:text-white prose-a:text-ink dark:prose-a:text-background-2">
       {@html data.project.body}
     </section>
   {/if}
 
   {#if data.project.stack?.length}
-    <section class="flex flex-col gap-5">
+    <section class="flex flex-col gap-5" data-reveal use:reveal>
       <h2 class="font-head text-2xl font-bold text-ink dark:text-white">How it was built</h2>
 
       <!-- Icons first as a quick read, then the detail grouped by concern. -->
@@ -303,11 +306,11 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
   {/if}
 
   {#if data.project.images?.length}
-    <section class="flex flex-col gap-6">
+    <section class="flex flex-col gap-6" data-reveal="fade" use:reveal>
       <h2 class="font-head text-2xl font-bold text-ink dark:text-white">Inside the system</h2>
       <div class="flex flex-col gap-10">
         {#each data.project.images as image, i}
-          <figure class="flex flex-col gap-3">
+          <figure class="flex flex-col gap-3" data-reveal use:reveal>
             <img
               src={image.url}
               alt={image.alt}
@@ -325,7 +328,7 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
     </section>
   {/if}
 
-  <a href="/projects" class="{link} self-start">Back to all projects</a>
+  <a href="/projects" class="{link} self-start" data-reveal use:reveal>Back to all projects</a>
 </article>
 
 {:else}

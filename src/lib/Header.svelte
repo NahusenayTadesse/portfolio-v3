@@ -33,7 +33,9 @@
 
 </script>
 
-<nav class="bg-surface/95 border border-line dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
+<!-- The bar drops in from above on load; it is the first thing on the page,
+     so it leads the entrance sequence the hero then follows. -->
+<nav class="enter-fall bg-surface/95 border border-line dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 dark:bg-gray-900 font-head mt-[10px] shadow-md p-4 rounded-3xl max-w-screen-md mx-auto sticky top-[10px] z-50 transition-all duration-300">
   <div class="flex justify-between items-center">
     <button 
       class="lg:hidden text-black dark:text-white focus:outline-none" 
@@ -54,11 +56,12 @@
     </button>
 
     <div class="hidden lg:flex gap-4 items-center ">
-      {#each sections as section}
+      {#each sections as section, i}
         <a 
         aria-current={isCurrent(section.href) ? 'page' : undefined}
           href={section.href}
-          class="relative text-lg px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
+          style="--enter-delay: {150 + i * 70}ms"
+          class="enter-fade relative text-lg px-4 py-2 rounded-lg text-gray-700 hover:text-black dark:hover:text-white
                  hover:shadow-lg hover:bg-background-2/40
                  dark:hover:from-secondary-600 dark:hover:to-background-2
                   transition:all duration-300

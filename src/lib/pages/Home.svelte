@@ -1,6 +1,6 @@
 <script >
-    import { fly }  from  'svelte/transition'; 
     import { Popover } from 'flowbite-svelte';
+    import { reveal } from '$lib/reveal';
       import { DownloadOutline, GithubSolid, LinkedinSolid, WhatsappSolid, EnvelopeSolid} from "flowbite-svelte-icons";
 
       
@@ -14,27 +14,30 @@
   <!-- Text first in the DOM so it is what a screen reader and a crawler meet
        first; the photo is ordered above it visually on small screens only. -->
   <div class="order-2 flex flex-col items-center text-center lg:order-1 lg:items-start lg:text-left">
-    <h1 in:typewriter={{ speed: 1 }} class="mb-3 font-head text-4xl font-bold leading-tight text-ink dark:text-white sm:text-5xl lg:text-7xl">
+    <!-- The typewriter types the line out; the CSS entrance lifts it into
+         place, and still runs on the hydrated page where an intro transition
+         would not. -->
+    <h1 in:typewriter={{ speed: 1 }} style="--enter-delay: 80ms" class="enter mb-3 font-head text-4xl font-bold leading-tight text-ink dark:text-white sm:text-5xl lg:text-7xl">
       Design. Develop. Deploy.</h1>
 
-    <p class="max-w-xl font-body text-lg sm:text-xl lg:text-2xl">
+    <p class="enter max-w-xl font-body text-lg sm:text-xl lg:text-2xl" style="--enter-delay: 260ms">
       I am Nahusenay, a SvelteKit developer and full-stack product engineer. I ship complete business systems on my own: schema design, authentication, payroll engines, admin dashboards, reporting, and the deployment onto the server afterwards. Over 20 applications in production across MySQL, PostgreSQL and SQLite, on Linux, cPanel and Vercel.</p>
 
     <!-- One primary action that keeps people on the site, one secondary, and
          the CV demoted to a quiet link. It used to be the only call to action,
          which asked for commitment before showing any work. -->
-    <div class="mt-6 flex w-full flex-col items-stretch gap-3 font-head sm:w-auto sm:flex-row sm:items-center lg:mt-8 lg:items-start">
+    <div class="enter mt-6 flex w-full flex-col items-stretch gap-3 font-head sm:w-auto sm:flex-row sm:items-center lg:mt-8 lg:items-start" style="--enter-delay: 400ms">
       <a href="/projects" class={primary}>View my work</a>
       <a href="/#contact" class={link}>Get in touch</a>
     </div>
 
-    <a href="/Nahusenay%20Tadesse%20CV.pdf" download="Nahusenay_Tadesse_CV" class="{quiet} mt-4 lg:mt-5">
+    <a href="/Nahusenay%20Tadesse%20CV.pdf" download="Nahusenay_Tadesse_CV" class="{quiet} enter mt-4 lg:mt-5" style="--enter-delay: 520ms">
       <DownloadOutline class="h-5 w-5" />
       Download CV (PDF, 2 pages)
     </a>
   </div>
 
-  <div class="order-1 shrink-0 lg:order-2">
+  <div class="enter-scale order-1 shrink-0 lg:order-2" style="--enter-delay: 120ms">
     <img
       src="/nahusenay-headshot.webp"
       alt="Nahusenay Tadesse"
@@ -49,9 +52,11 @@
 </div>
 
 <div class="flex flex-col items-center px-4">
+  <!-- The bar sits at the fold on most screens, so it reveals on scroll
+       rather than firing an intro nobody is looking at. -->
   <div class="flex flex-row flex-wrap justify-center items-center mt-8 gap-5 p-4 rounded-xl bg-surface border border-line shadow-sm
   dark:bg-white/5 dark:border-white/10 dark:shadow-none 
-  " transition:fly={{ x: -200, duration: 200 }}>
+  " data-reveal="scale" use:reveal>
    <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" target="_blank" aria-label="LinkedIn">
       <LinkedinSolid class={svgClass} />
     </a>

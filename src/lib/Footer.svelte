@@ -2,7 +2,7 @@
 <script>
 	import { BottomNav, BottomNavItem } from "flowbite-svelte";
     let currentYear = new Date().getFullYear();
-    import { MessageCaptionSolid, EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid, HomeSolid, WalletSolid, UserCircleSolid, BookOpenSolid } from "flowbite-svelte-icons";
+    import { MessageCaptionSolid, EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid, HomeSolid, WalletSolid, UserCircleSolid } from "flowbite-svelte-icons";
     import { reveal } from '$lib/reveal';
 
 </script>
@@ -10,7 +10,7 @@
 <div class="block lg:hidden bottom-2"> 
 
 
-<BottomNav  position="fixed" classes={{ inner: "rounded-lg grid-cols-5 bg-surface border border-line dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 !bottom-6" }}>
+<BottomNav  position="fixed" classes={{ inner: "rounded-lg grid-cols-4 bg-surface border border-line dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 !bottom-6" }}>
 
   <BottomNavItem btnName="Home" href="/">
     <HomeSolid />
@@ -20,9 +20,6 @@
   </BottomNavItem>
   <BottomNavItem btnName="Projects" href="/projects">
     <WalletSolid   />
-  </BottomNavItem>
-  <BottomNavItem btnName="Writing" href="/writing">
-    <BookOpenSolid />
   </BottomNavItem>
   <BottomNavItem btnName="Contact" href="/#contact">
     <MessageCaptionSolid  />

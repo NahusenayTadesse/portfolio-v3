@@ -55,6 +55,8 @@ export let svgClass = `w-8 h-8 text-ink dark:text-white transform hover:scale-11
 export let popClass = `w-64 text-sm text-ink dark:text-white bg-surface border border-line shadow-lg rounded-lg p-4 text-center
     dark:border-0 dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600`;
 
+export let classer = `w-12 h-12 lg:w-20 lg:h-20 text-ink dark:text-white dark:fill-white transform hover:scale-110 transition-transform ease-in-out duration-300`;
+
 export let toast = `fixed bottom-20 lg:bottom-0 right-0 p-4 rounded-lg shadow-lg
     bg-surface border border-line text-ink
     dark:bg-secondary-800 dark:border-secondary-600 dark:text-white`;

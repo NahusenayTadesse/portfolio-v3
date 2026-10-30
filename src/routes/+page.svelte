@@ -5,7 +5,7 @@ import About from '$lib/pages/About.svelte';
 import Contact from './Contact.svelte';
 import ProjectCard from '$lib/ProjectCard.svelte';
 import { reveal } from '$lib/reveal';
-import {link} from '$lib/global.svelte';
+import { link, h2, eyebrow } from '$lib/global.svelte';
 import Seo from '$lib/Seo.svelte';
 import { jsonLd, SITE_URL, SITE_NAME, AUTHOR, SAME_AS, DEFAULT_TITLE, DEFAULT_DESCRIPTION, DEFAULT_IMAGE } from '$lib/seo';
 
@@ -93,7 +93,10 @@ const websiteSchema = jsonLd({
  <div id="home" role="region" aria-label="Home Section"> <Home /></div>
  <div id="about" role="region" aria-label="About Section" > <About /></div>
  <section aria-labelledby="projects-heading" id="projects" class="flex flex-col items-center gap-8 px-4 py-12 lg:px-16">
-  <h2 id="projects-heading" class="font-head text-3xl font-bold lg:text-5xl" data-reveal use:reveal>My Projects</h2>
+  <header class="flex flex-col items-center gap-3 text-center" data-reveal use:reveal>
+    <p class={eyebrow}>03 · Selected work</p>
+    <h2 id="projects-heading" class={h2}>Projects</h2>
+  </header>
 
   <!-- A grid instead of a carousel: six projects visible at once rather than
        one behind an auto-advancing widget with 19 off-screen pagination dots. -->

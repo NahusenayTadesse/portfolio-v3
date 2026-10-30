@@ -1,46 +1,27 @@
 
 <script>
-	import { BottomNav, BottomNavItem } from "flowbite-svelte";
     let currentYear = new Date().getFullYear();
-    import { MessageCaptionSolid, EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid, HomeSolid, WalletSolid, UserCircleSolid } from "flowbite-svelte-icons";
+    import { EnvelopeSolid, PhoneSolid, WhatsappSolid, LinkedinSolid } from "flowbite-svelte-icons";
     import { reveal } from '$lib/reveal';
 
 </script>
 
-<div class="block lg:hidden bottom-2"> 
 
 
-<BottomNav  position="fixed" classes={{ inner: "rounded-lg grid-cols-4 bg-surface border border-line dark:bg-gradient-to-r dark:from-primary-600 dark:to-secondary-600 !bottom-6" }}>
-
-  <BottomNavItem btnName="Home" href="/">
-    <HomeSolid />
-  </BottomNavItem>
-  <BottomNavItem btnName="About" href="/#about">
-    <UserCircleSolid  />
-  </BottomNavItem>
-  <BottomNavItem btnName="Projects" href="/projects">
-    <WalletSolid   />
-  </BottomNavItem>
-  <BottomNavItem btnName="Contact" href="/#contact">
-    <MessageCaptionSolid  />
-  </BottomNavItem>
-
-</BottomNav>
-</div>
-
-<footer class="bg-transparent p-6 pb-12">
+<!-- pb-32 on phones keeps the last line clear of the fixed bottom navigation. -->
+<footer class="bg-transparent p-6 pb-32 lg:pb-12">
     <div class="container mx-auto text-center" data-reveal="fade" use:reveal>
-         <div class="flex flex-row flex-wrap justify-center">
-            <a href="mailto:nahusenaytadesse75@gmail.com" class="mx-2 hover:scale-125 transition-transform duration-300">
+         <div class="mb-4 flex flex-row flex-wrap justify-center gap-2">
+            <a href="mailto:nahusenaytadesse75@gmail.com" aria-label="Email" class="mx-2 hover:scale-125 transition-transform duration-300">
                 <EnvelopeSolid class="w-6 h-6 text-muted dark:text-white" />
             </a>
-            <a href="tel:+251947340602" class="mx-2 hover:scale-125 transition-transform duration-300">
+            <a href="tel:+251947340602" aria-label="Phone" class="mx-2 hover:scale-125 transition-transform duration-300">
                 <PhoneSolid class="w-6 h-6 text-muted dark:text-white" />
             </a>
-            <a href="https://wa.me/+251947340602" class="mx-2 hover:scale-125 transition-transform duration-300">
+            <a href="https://wa.me/+251947340602" aria-label="WhatsApp" class="mx-2 hover:scale-125 transition-transform duration-300">
                 <WhatsappSolid class="w-6 h-6 text-muted dark:text-white" />
             </a>
-            <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" 
+            <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" aria-label="LinkedIn"
             class="mx-2 hover:scale-125 transition-transform duration-300">
                 <LinkedinSolid class="w-6 h-6 text-muted dark:text-white" />
             </a>
@@ -55,13 +36,13 @@
     </svg> </a>
         </div>
 
-        <p class="text-sm font-head">© {currentYear} Nahusenay . All rights reserved.</p>
-        <p class="text-sm font-head">Built with 
-            <a href="https://svelte.dev/" class="text-blue-700 dark:text-blue-400" target="_blank">Sveltekit</a> and 
-            <a href="https://firebase.google.com/" class="text-blue-700 dark:text-blue-400" target="_blank">Firebase</a></p>
-            <p class="text-sm from-head">
+        <p class="text-sm text-muted dark:text-gray-400">© {currentYear} Nahusenay Tadesse. All rights reserved.</p>
+        <p class="text-sm text-muted dark:text-gray-400">Built with 
+            <a href="https://svelte.dev/" class="text-ink underline underline-offset-4 hover:text-background-2 dark:text-background-2" target="_blank">SvelteKit</a> and 
+            <a href="https://firebase.google.com/" class="text-ink underline underline-offset-4 hover:text-background-2 dark:text-background-2" target="_blank">Firebase</a></p>
+            <p class="text-sm text-muted dark:text-gray-400">
             Source
-            <a href="https://github.com/NahusenayTadesse/portfolio-v3" class="text-blue-700 dark:text-blue-400" target="_blank">Code</a>
+            <a href="https://github.com/NahusenayTadesse/portfolio-v3" class="text-ink underline underline-offset-4 hover:text-background-2 dark:text-background-2" target="_blank">Code</a>
             for this site.
         </p>
     </div>

@@ -4,7 +4,7 @@
       import { DownloadOutline, GithubSolid, LinkedinSolid, WhatsappSolid, EnvelopeSolid} from "flowbite-svelte-icons";
 
       
-    import { typewriter, link, primary, quiet, svgClass, popClass } from '$lib/global.svelte.js';
+    import { typewriter, link, primary, quiet, svgClass, popClass, display } from '$lib/global.svelte.js';
     
 </script>
 
@@ -17,10 +17,10 @@
     <!-- The typewriter types the line out; the CSS entrance lifts it into
          place, and still runs on the hydrated page where an intro transition
          would not. -->
-    <h1 in:typewriter={{ speed: 1 }} style="--enter-delay: 80ms" class="enter mb-3 font-head text-4xl font-bold leading-tight text-ink dark:text-white sm:text-5xl lg:text-7xl">
+    <h1 in:typewriter={{ speed: 1 }} style="--enter-delay: 80ms" class="enter mb-3 {display}">
       Design. Develop. Deploy.</h1>
 
-    <p class="enter max-w-xl font-body text-lg sm:text-xl lg:text-2xl" style="--enter-delay: 260ms">
+    <p class="enter max-w-xl font-body text-lg leading-relaxed text-ink/85 lg:text-xl dark:text-gray-300" style="--enter-delay: 260ms">
       I am Nahusenay, a SvelteKit developer and full-stack product engineer. I ship complete business systems on my own: schema design, authentication, payroll engines, admin dashboards, reporting, and the deployment onto the server afterwards. Over 20 applications in production across MySQL, PostgreSQL and SQLite, on Linux, cPanel and Vercel.</p>
 
     <!-- One primary action that keeps people on the site, one secondary, and
@@ -46,7 +46,7 @@
       fetchpriority="high"
       decoding="async"
       class="h-32 w-32 rounded-2xl border border-line object-cover shadow-lg sm:h-48 sm:w-48 lg:h-72 lg:w-72
-             dark:border-white/15 dark:shadow-black/40"
+             dark:border-white/15 dark:shadow-[0_0_60px_-10px_rgb(120_160_255/0.35)]"
     />
   </div>
 </div>
@@ -55,7 +55,7 @@
   <!-- The bar sits at the fold on most screens, so it reveals on scroll
        rather than firing an intro nobody is looking at. -->
   <div class="flex flex-row flex-wrap justify-center items-center mt-8 gap-5 p-4 rounded-xl bg-surface border border-line shadow-sm
-  dark:bg-white/5 dark:border-white/10 dark:shadow-none 
+  dark:bg-surface/85 dark:border-white/10 dark:shadow-none 
   " data-reveal="scale" use:reveal>
    <a href="https://www.linkedin.com/in/nahusenay-tadesse-ba0375233?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BXDbv38FTQOGT31o4PqhzkQ%3D%3D" target="_blank" aria-label="LinkedIn">
       <LinkedinSolid class={svgClass} />

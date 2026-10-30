@@ -9,7 +9,7 @@
 		description: string;
 		link: string;
 		group: string;
-		expertise: string;
+		expertise?: string;
 	};
 
 	let { techStack }: { techStack: Tech[] } = $props();
@@ -45,6 +45,7 @@
 	}
 
 	function shuffle() {
+		close();
 		const names = ordered.map((t) => t.name);
 		for (let i = names.length - 1; i > 0; i--) {
 			const j = Math.floor(Math.random() * (i + 1));
@@ -71,17 +72,105 @@
 		el.style.setProperty('--ry', '0deg');
 	}
 
+	/*
+	 * Details open in a floating card instead of a panel under the grid. On a
+	 * phone the panel sat below the fold, so tapping an icon near the top of
+	 * the grid changed something you could not see. Now the card comes to you:
+	 * a bottom sheet on small screens, a popover above the tile on desktop.
+	 *
+	 * The card is moved to <body> so no ancestor's transform or backdrop-filter
+	 * can capture its fixed positioning.
+	 */
+	let anchor: HTMLElement | null = null;
+	let pinned = $state(false);
+	let placement = $state('');
+
+	function portal(node: HTMLElement) {
+		document.body.appendChild(node);
+	}
+
+	function place() {
+		if (!anchor) return;
+		const r = anchor.getBoundingClientRect();
+		// Scrolled away from the grid: the card has nothing left to describe.
+		if (r.bottom < 0 || r.top > window.innerHeight) {
+			close();
+			return;
+		}
+		if (!window.matchMedia('(min-width: 64rem)').matches) {
+			placement = '';
+			return;
+		}
+		const half = 168; // half the card width plus a margin
+		const x = Math.min(window.innerWidth - half, Math.max(half, r.left + r.width / 2));
+		// Flip below the tile when there is no room above it (under the nav).
+		const above = r.top > 260;
+		const y = above ? r.top - 12 : r.bottom + 12;
+		placement = `left:${x}px;top:${y}px;transform:translate(-50%,${above ? '-100%' : '0'})`;
+	}
+
+	function open(name: string, el: HTMLElement, pin: boolean) {
+		selected = name;
+		anchor = el;
+		pinned = pin;
+		place();
+	}
+
+	function close() {
+		selected = null;
+		pinned = false;
+		anchor = null;
+	}
+
+	function toggle(event: MouseEvent, name: string) {
+		const el = event.currentTarget as HTMLElement;
+		if (selected === name && pinned) close();
+		else open(name, el, true);
+	}
+
 	function preview(event: PointerEvent, name: string) {
-		if (event.pointerType === 'mouse') selected = name;
+		if (event.pointerType === 'mouse' && !pinned) open(name, event.currentTarget as HTMLElement, false);
+	}
+
+	function unpreview(event: PointerEvent) {
+		untilt(event);
+		if (event.pointerType === 'mouse' && !pinned) close();
+	}
+
+	function onWindowPointerDown(event: PointerEvent) {
+		if (!selected) return;
+		const target = event.target as Element | null;
+		if (target?.closest('.tech-card, .tile')) return;
+		close();
+	}
+
+	function onKeydown(event: KeyboardEvent) {
+		if (event.key === 'Escape' && selected) {
+			const el = anchor;
+			close();
+			el?.focus();
+		}
+	}
+
+	function setFilter(id: string) {
+		close();
+		filter = id;
 	}
 </script>
+
+<svelte:window
+	onpointerdown={onWindowPointerDown}
+	onkeydown={onKeydown}
+	onresize={place}
+	onscroll={() => selected && place()}
+/>
 
 <div class="flex w-full flex-col items-center gap-6">
 	<div class="flex flex-wrap items-center justify-center gap-2" role="group" aria-label="Filter technologies">
 		{#each filters as f (f.id)}
 			<button
 				type="button"
-				onclick={() => (filter = f.id)}
+				onclick={() => setFilter(f.id)}
 				aria-pressed={filter === f.id}
 				class="chip rounded-full border px-4 py-1.5 font-head text-sm transition-all duration-300
 				       {filter === f.id
@@ -105,13 +194,13 @@
 
 	<ul
 		class="stack flex w-full max-w-4xl flex-wrap justify-center gap-3 rounded-lg border border-line bg-surface p-4 shadow-lg lg:gap-4
-		       dark:border-transparent dark:bg-gradient-to-br dark:from-primary-600 dark:to-secondary-600"
+		       dark:border-white/10 dark:bg-surface/85 dark:shadow-black/40"
 		data-reveal="scale"
 		use:reveal
 	>
 		{#each visible as tech, i (tech.name)}
 			<li
-				class="flex items-center justify-center"
+				class="flex w-[4.5rem] flex-col items-center gap-1.5 sm:w-20 lg:w-24"
 				animate:flip={{ duration: 500, easing: cubicOut }}
 				in:scale={{ duration: 400, start: 0.4, easing: backOut, delay: i * 25 }}
 			>
@@ -121,54 +210,56 @@
 					       border border-line bg-primary-50/60 dark:border-white/10 dark:bg-white/5
 					       {selected === tech.name ? 'is-selected' : ''}"
 					style="--i: {i}; --dur: {(3 + ((i * 0.37) % 1.6)).toFixed(2)}s"
-					aria-label="{tech.name}: {tech.expertise}"
-					aria-pressed={selected === tech.name}
-					onclick={() => (selected = selected === tech.name ? null : tech.name)}
+					aria-label="{tech.name}: what I use it for"
+					aria-expanded={selected === tech.name}
+					aria-controls="tech-card"
+					onclick={(e) => toggle(e, tech.name)}
 					onpointerenter={(e) => preview(e, tech.name)}
 					onpointermove={tilt}
-					onpointerleave={untilt}
+					onpointerleave={unpreview}
 				>
 					<span class="float pointer-events-none">{@html tech.link}</span>
 				</button>
+				<!-- Names under the icons: not everyone knows the Drizzle or
+				     PocketBase logo on sight, and a recruiter should not have to
+				     tap each one to find out. -->
+				<span class="w-full truncate text-center font-head text-[0.6875rem] sm:text-xs text-muted dark:text-gray-400" aria-hidden="true">{tech.name}</span>
 			</li>
 		{/each}
 	</ul>
 
-	<div class="relative grid min-h-36 w-full max-w-xl" aria-live="polite">
-		{#key current?.name}
-			<div
-				class="col-start-1 row-start-1 flex items-center gap-5 rounded-xl border border-line bg-surface p-5 text-left shadow-md
-				       dark:border-white/10 dark:bg-white/5"
-				in:fly={{ y: 16, duration: 350, easing: backOut }}
-				out:fly={{ y: -10, duration: 200 }}
-			>
-				{#if current}
-					<div class="spot shrink-0">{@html current.link}</div>
-					<div class="flex min-w-0 flex-1 flex-col gap-2">
-						<p class="font-head text-xl font-bold text-ink dark:text-white">{current.name}</p>
-						<p class="text-sm text-muted dark:text-gray-300">{current.description}</p>
-						<div class="flex items-center gap-3">
-							<div class="h-2 flex-1 overflow-hidden rounded-full bg-line dark:bg-white/10">
-								<div
-									class="meter h-full rounded-full bg-background-2"
-									style="--level: {current.expertise === 'expert' ? '100%' : '66%'}"
-								></div>
-							</div>
-							<span class="font-head text-xs uppercase tracking-wider text-muted dark:text-gray-300">
-								{current.expertise}
-							</span>
-						</div>
-					</div>
-				{:else}
-					<p class="w-full text-center font-head text-muted dark:text-gray-300">
-						<span class="wave inline-block" aria-hidden="true">👆</span>
-						Tap any icon to see what I use it for
-					</p>
-				{/if}
-			</div>
-		{/key}
-	</div>
+	<p class="font-head text-sm text-muted dark:text-gray-400">
+		<span class="wave inline-block" aria-hidden="true">👆</span>
+		Tap or hover an icon to see what I use it for
+	</p>
 </div>
+
+{#if current}
+	<div
+		use:portal
+		id="tech-card"
+		role="dialog"
+		aria-label={current.name}
+		class="tech-card fixed inset-x-3 bottom-24 z-[60] flex items-start gap-4 rounded-2xl border border-line bg-surface p-5 text-left shadow-2xl
+		       lg:inset-x-auto lg:bottom-auto lg:w-80
+		       dark:border-white/10 dark:bg-surface dark:shadow-black/70"
+		style={placement}
+		transition:fly={{ y: 12, duration: 220, easing: cubicOut }}
+	>
+		<div class="spot shrink-0">{@html current.link}</div>
+		<div class="flex min-w-0 flex-1 flex-col gap-1.5">
+			<p class="font-head text-lg font-bold text-ink dark:text-white">{current.name}</p>
+			<p class="text-sm leading-relaxed text-muted dark:text-gray-300">{current.description}</p>
+		</div>
+		<button
+			type="button"
+			onclick={close}
+			aria-label="Close"
+			class="-mr-1 -mt-1 grid h-8 w-8 shrink-0 place-items-center rounded-lg text-muted hover:bg-line hover:text-ink lg:hidden
+			       dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-white"
+		>✕</button>
+	</div>
+{/if}
 
 <style>
 	.tile {
@@ -247,20 +338,9 @@
 	}
 
 	.spot :global(svg) {
-		width: 4rem;
-		height: 4rem;
+		width: 3rem;
+		height: 3rem;
 		animation: bounce 700ms cubic-bezier(0.34, 1.56, 0.64, 1);
-	}
-
-	.meter {
-		animation: fill 700ms 150ms cubic-bezier(0.22, 1, 0.36, 1) both;
-		width: var(--level);
-	}
-
-	@keyframes fill {
-		from {
-			width: 0;
-		}
 	}
 
 	.shuffle:hover .dice {
@@ -295,7 +375,6 @@
 		.float,
 		.wave,
 		.spot :global(svg),
-		.meter,
 		.tile.is-selected .float,
 		.stack:global(.is-revealed) .pop {
 			animation: none;

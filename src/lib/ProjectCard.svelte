@@ -25,7 +25,7 @@
 	class="group flex h-full flex-col overflow-hidden rounded-xl border border-line bg-surface shadow-sm
 	       transition-all duration-300 hover:-translate-y-1 hover:shadow-lg
 	       focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-background-2
-	       dark:border-white/10 dark:bg-white/5 dark:shadow-none dark:hover:border-background-2/60"
+	       dark:border-white/10 dark:bg-surface/85 dark:shadow-none dark:hover:border-background-2/60"
 >
 	<!-- Fixed ratio: the uploads have wildly different intrinsic heights, which
 	     used to leave every grid row ragged. object-cover crops instead. -->
@@ -43,7 +43,7 @@
 	</div>
 
 	<div class="flex flex-1 flex-col gap-1 p-4">
-		<h3 class="font-head text-lg font-bold text-ink dark:text-white">{project.name}</h3>
+		<h3 class="font-head text-xl font-bold text-ink dark:text-white">{project.name}</h3>
 		{#if project.category}
 			<p class="text-sm text-muted dark:text-gray-300">{project.category}</p>
 		{/if}

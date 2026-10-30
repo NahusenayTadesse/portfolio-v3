@@ -81,6 +81,9 @@ export const actions: Actions = {
 
     const email = formData.get('email')?.toString().trim();
     const message = formData.get('message')?.toString().trim();
+    // Optional; capped and stripped of line breaks so it cannot reshape the
+    // notification email it is interpolated into.
+    const name = (formData.get('name')?.toString() ?? '').replace(/[\r\n]+/g, ' ').trim().slice(0, 100);
 
     if (!email || !message || !EMAIL_PATTERN.test(email) || email.length > 254 || message.length > 5000) {
       return fail(400, {
@@ -109,6 +112,7 @@ export const actions: Actions = {
 
     try {
       await db.collection('contacts').doc(customId).set({
+        name,
         email,
         message,
         createdAt: dateString
@@ -140,7 +144,7 @@ export const actions: Actions = {
         to: 'nahusenaytadesse75@gmail.com',
         replyTo: email,
         subject: 'New Contact Form Submission',
-        text: `You received a new message from: ${email}\n\nMessage:\n${message}\n\nSaved to Firestore as: ${customId}`
+        text: `You received a new message from: ${name ? `${name} <${email}>` : email}\n\nMessage:\n${message}\n\nSaved to Firestore as: ${customId}`
       });
     } catch (err) {
       console.error('Failed to send contact notification:', err);

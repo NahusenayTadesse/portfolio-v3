@@ -6,9 +6,10 @@ import { fail } from "@sveltejs/kit";
 
 export const load: PageServerLoad = async () => {
 
-    const snapshot =  await db.collection("contacts").select("email", "message","createdAt").orderBy('createdAt').get();
+    const snapshot =  await db.collection("contacts").select("name", "email", "message","createdAt").orderBy('createdAt').get();
     const contacts = snapshot.docs.map(doc=>  ({
         id:doc.id,
+        name: doc.data().name ?? "",
         email: doc.data().email,
         message: doc.data().message,
         createdAt: doc.data().createdAt,

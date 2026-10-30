@@ -2,15 +2,23 @@
 	import { onMount } from 'svelte';
 
 	type Particle = { x: number; y: number; vx: number; vy: number; r: number };
+	/** A background star: fixed in place, too faint to join a constellation. */
+	type Star = { x: number; y: number; r: number; base: number; phase: number; speed: number; tint: string };
+	type Meteor = { x: number; y: number; vx: number; vy: number; life: number; ttl: number };
 
 	let canvas: HTMLCanvasElement;
 
 	// Tuned per theme so the same effect reads as "constellation" on dark and as
 	// a faint blueprint mesh on white, rather than dirty smudges.
+	// Dark lines are a cool starlight blue and kept faint: they used to run
+	// through body copy at 0.45 and fight it for attention.
 	const PALETTE = {
-		dark: { dot: '255,255,255', line: '255,255,255', dotAlpha: 0.75, lineAlpha: 0.45 },
+		dark: { dot: '235,242,255', line: '170,195,255', dotAlpha: 0.9, lineAlpha: 0.2 },
 		light: { dot: '38,110,110', line: '38,110,110', dotAlpha: 0.5, lineAlpha: 0.3 }
 	};
+
+	// Real stars are not all white: most are, a few run warm or blue.
+	const STAR_TINTS = ['255,255,255', '255,255,255', '255,255,255', '255,236,200', '200,220,255'];
 
 	const LINK_DISTANCE = 130;
 	const POINTER_RADIUS = 190;
@@ -21,6 +29,10 @@
 
 		const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 		let particles: Particle[] = [];
+		let stars: Star[] = [];
+		let meteor: Meteor | null = null;
+		let nextMeteor = 0;
+		let time = 0;
 		let width = 0;
 		let height = 0;
 		let frame = 0;
@@ -53,6 +65,77 @@
 				vy: (Math.random() - 0.5) * 0.35,
 				r: Math.random() * 1.4 + 0.9
 			}));
+
+			// The far field: dense, tiny, static stars that only twinkle. They
+			// give the sky depth behind the moving constellation without
+			// adding anything to the link pass.
+			const starCount = Math.min(320, Math.round((width * height) / 4500));
+			stars = Array.from({ length: starCount }, () => ({
+				x: Math.random() * width,
+				y: Math.random() * height,
+				r: Math.random() < 0.9 ? Math.random() * 0.7 + 0.25 : Math.random() * 0.6 + 0.9,
+				base: Math.random() * 0.5 + 0.2,
+				phase: Math.random() * Math.PI * 2,
+				speed: Math.random() * 0.02 + 0.005,
+				tint: STAR_TINTS[Math.floor(Math.random() * STAR_TINTS.length)]
+			}));
+		}
+
+		function drawStars() {
+			for (const s of stars) {
+				const alpha = s.base * (0.65 + 0.35 * Math.sin(s.phase + time * s.speed));
+				ctx!.fillStyle = `rgba(${s.tint},${alpha.toFixed(3)})`;
+				if (s.r < 0.8) {
+					// A square is indistinguishable at this size and far cheaper than an arc.
+					ctx!.fillRect(s.x, s.y, s.r * 2, s.r * 2);
+				} else {
+					ctx!.beginPath();
+					ctx!.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+					ctx!.fill();
+				}
+			}
+		}
+
+		/** One shooting star every 7-16 seconds: rare enough to be a small reward. */
+		function updateMeteor() {
+			if (!meteor) {
+				if (time < nextMeteor) return;
+				const angle = Math.PI / 5 + Math.random() * 0.35;
+				const speed = 9 + Math.random() * 5;
+				meteor = {
+					x: Math.random() * width * 0.8,
+					y: Math.random() * height * 0.35,
+					vx: Math.cos(angle) * speed,
+					vy: Math.sin(angle) * speed,
+					life: 0,
+					ttl: 45 + Math.random() * 25
+				};
+				return;
+			}
+			meteor.x += meteor.vx;
+			meteor.y += meteor.vy;
+			meteor.life++;
+			if (meteor.life > meteor.ttl) {
+				meteor = null;
+				nextMeteor = time + 420 + Math.random() * 540;
+			}
+		}
+
+		function drawMeteor() {
+			if (!meteor) return;
+			const fade = Math.sin((meteor.life / meteor.ttl) * Math.PI);
+			const tailX = meteor.x - meteor.vx * 9;
+			const tailY = meteor.y - meteor.vy * 9;
+			const trail = ctx!.createLinearGradient(meteor.x, meteor.y, tailX, tailY);
+			trail.addColorStop(0, `rgba(255,255,255,${(0.9 * fade).toFixed(3)})`);
+			trail.addColorStop(1, 'rgba(170,195,255,0)');
+			ctx!.strokeStyle = trail;
+			ctx!.lineWidth = 1.5;
+			ctx!.beginPath();
+			ctx!.moveTo(meteor.x, meteor.y);
+			ctx!.lineTo(tailX, tailY);
+			ctx!.stroke();
+			ctx!.lineWidth = 1;
 		}
 
 		/**
@@ -113,21 +196,36 @@
 		}
 
 		function render() {
-			const colors = isDark() ? PALETTE.dark : PALETTE.light;
+			const dark = isDark();
+			const colors = dark ? PALETTE.dark : PALETTE.light;
 			ctx!.clearRect(0, 0, width, height);
 			ctx!.lineWidth = 1;
 
+			if (dark) drawStars();
+
 			drawLinks(colors);
 
-			ctx!.fillStyle = `rgba(${colors.dot},${colors.dotAlpha})`;
 			for (const p of particles) {
+				// The bigger constellation stars get a soft halo, so they read as
+				// bright stars rather than flat dots.
+				if (dark && p.r > 1.7) {
+					ctx!.fillStyle = `rgba(${colors.dot},0.12)`;
+					ctx!.beginPath();
+					ctx!.arc(p.x, p.y, p.r * 3, 0, Math.PI * 2);
+					ctx!.fill();
+				}
+				ctx!.fillStyle = `rgba(${colors.dot},${colors.dotAlpha})`;
 				ctx!.beginPath();
 				ctx!.arc(p.x, p.y, p.r, 0, Math.PI * 2);
 				ctx!.fill();
 			}
+
+			if (dark) drawMeteor();
 		}
 
 		function step() {
+			time++;
+			if (isDark()) updateMeteor();
 			for (const p of particles) {
 				p.x += p.vx;
 				p.y += p.vy;
@@ -193,6 +291,7 @@
 		});
 
 		resize();
+		nextMeteor = 240 + Math.random() * 300;
 		start();
 
 		window.addEventListener('resize', onResize);

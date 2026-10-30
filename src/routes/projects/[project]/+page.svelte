@@ -1,6 +1,5 @@
 
 <script lang="ts">
-    import { Popover } from "flowbite-svelte";
     import Seo from '$lib/Seo.svelte';
   import { reveal } from '$lib/reveal';
     import { jsonLd, SITE_URL, AUTHOR, absolute, techLabel } from '$lib/seo';
@@ -177,10 +176,75 @@
         return match ? match.description : '';
     }
 
-  import { link, quiet, popClass } from "$lib/global.svelte";
+  import { link, quiet, display, h3, eyebrow } from "$lib/global.svelte";
+  import { ArrowUpRightFromSquareOutline, ArrowLeftOutline, ArrowRightOutline } from "flowbite-svelte-icons";
 
- 
-import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
+    // --- Story headings -----------------------------------------------------
+    // The case-study body is HTML from the dashboard. Its <h2>s get stable ids
+    // here, on the server as well as the client, so the contents list can link
+    // to them and the page renders complete without JavaScript.
+    const ENTITIES: Record<string, string> = { '&amp;': '&', '&lt;': '<', '&gt;': '>', '&quot;': '"', '&#39;': "'", '&nbsp;': ' ' };
+    const decode = (t: string) => t.replace(/&(amp|lt|gt|quot|#39|nbsp);/g, (m) => ENTITIES[m] ?? m);
+    const slugify = (t: string) => t.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+
+    const story = $derived.by(() => {
+        const headings: { id: string; text: string }[] = [];
+        const html = String(data.project?.body ?? '').replace(
+            /<h2([^>]*)>([\s\S]*?)<\/h2>/gi,
+            (_match: string, attrs: string, inner: string) => {
+                const text = decode(inner.replace(/<[^>]+>/g, '')).trim();
+                const existing = /\bid=["']([^"']+)["']/.exec(attrs)?.[1];
+                const id = existing ?? `story-${slugify(text) || headings.length + 1}`;
+                headings.push({ id, text });
+                return existing ? `<h2${attrs}>${inner}</h2>` : `<h2${attrs} id="${id}">${inner}</h2>`;
+            }
+        );
+        return { html, headings };
+    });
+
+    const toc = $derived(
+        data.project
+            ? [
+                  data.project.outcomes?.length && { id: 'outcomes', text: 'Outcomes' },
+                  data.project.services?.length && { id: 'covers', text: 'What it covers' },
+                  ...story.headings,
+                  data.project.stack?.length && { id: 'built', text: 'How it was built' },
+                  data.project.images?.length && { id: 'inside', text: 'Inside the system' }
+              ].filter((x): x is { id: string; text: string } => !!x)
+            : []
+    );
+
+    // Highlight the section being read: the last heading that has crossed the
+    // upper third of the viewport.
+    let activeId = $state('');
+    $effect(() => {
+        const ids = toc.map((t) => t.id);
+        const targets = ids.map((id) => document.getElementById(id)).filter((el): el is HTMLElement => !!el);
+        if (!targets.length) return;
+        const observer = new IntersectionObserver(
+            () => {
+                const line = window.innerHeight * 0.33;
+                let current = targets[0].id;
+                for (const el of targets) if (el.getBoundingClientRect().top <= line) current = el.id;
+                activeId = current;
+            },
+            { rootMargin: '0px 0px -60% 0px', threshold: [0, 1] }
+        );
+        targets.forEach((el) => observer.observe(el));
+        return () => observer.disconnect();
+    });
+
+    // --- Previous / next ----------------------------------------------------
+    // Wraps around, so every case study leads somewhere.
+    const neighbours = $derived.by(() => {
+        const list = (data.projects ?? []) as { slug: string; name: string; category?: string }[];
+        const i = list.findIndex((p) => p.slug === data.project?.slug);
+        if (i === -1 || list.length < 2) return null;
+        return {
+            prev: list[(i - 1 + list.length) % list.length],
+            next: list[(i + 1) % list.length]
+        };
+    });
 
 
 
@@ -199,27 +263,27 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
 
 
 {#if data.project}
-<article class="mx-auto flex max-w-5xl flex-col gap-10 px-4 py-12 lg:px-8">
+<article class="mx-auto max-w-6xl px-4 py-12 lg:px-8">
 
-  <header class="enter flex flex-col gap-4">
+  <header class="enter flex max-w-4xl flex-col gap-5">
     <a href="/projects" class="{quiet} self-start">&larr; All projects</a>
 
-    <h1 class="font-head text-4xl font-bold text-ink dark:text-white lg:text-6xl">{data.project.name}</h1>
+    <h1 class={display}>{data.project.name}</h1>
 
-    <dl class="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-muted dark:text-gray-300">
+    <dl class="flex flex-wrap items-center gap-2 text-sm">
       {#if data.project.client}
-        <div><dt class="sr-only">Client</dt><dd>{data.project.client}</dd></div>
+        <div class="rounded-full border border-line px-3 py-1 text-muted dark:border-white/10 dark:text-gray-300"><dt class="sr-only">Client</dt><dd>{data.project.client}</dd></div>
       {/if}
       {#if data.project.category}
-        <div><dt class="sr-only">Industry</dt><dd>{data.project.category}</dd></div>
+        <div class="rounded-full border border-line px-3 py-1 text-muted dark:border-white/10 dark:text-gray-300"><dt class="sr-only">Industry</dt><dd>{data.project.category}</dd></div>
       {/if}
       {#if data.project.year}
-        <div><dt class="sr-only">Year</dt><dd>{data.project.year}</dd></div>
+        <div class="rounded-full border border-line px-3 py-1 text-muted dark:border-white/10 dark:text-gray-300"><dt class="sr-only">Year</dt><dd>{data.project.year}</dd></div>
       {/if}
     </dl>
 
     {#if data.project.description}
-      <p class="max-w-3xl text-lg text-ink dark:text-gray-100 lg:text-xl">{data.project.description}</p>
+      <p class="text-lg leading-relaxed text-ink/85 lg:text-xl dark:text-gray-300">{data.project.description}</p>
     {/if}
 
     {#if data.project.link}
@@ -235,113 +299,174 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
       src={data.project.featured}
       alt={data.project.coverAlt || data.project.name}
       width="1600" height="1000"
-      class="enter-scale w-full rounded-xl border border-line shadow-lg dark:border-white/10"
+      class="enter-scale mt-10 w-full rounded-2xl border border-line shadow-lg dark:border-white/10 dark:shadow-black/60"
       style="--enter-delay: 140ms"
       fetchpriority="high"
     />
   {/if}
 
-  {#if data.project.outcomes?.length}
-    <section aria-label="Outcomes" class="grid grid-cols-1 gap-4 sm:grid-cols-3">
-      {#each data.project.outcomes as outcome, i}
-        <div class="rounded-xl border border-line bg-surface p-5 shadow-sm dark:border-white/10 dark:bg-white/5"
-          data-reveal="scale" use:reveal={{ delay: i * 100 }}>
-          <p class="font-head text-3xl font-bold text-ink dark:text-white">{outcome.value}</p>
-          <p class="mt-1 text-sm text-muted dark:text-gray-300">{outcome.label}</p>
+  <!-- Contents rail on wide screens: a long case study needs a way to see its
+       shape and jump around it. Below lg it simply drops away. -->
+  <div class="mt-14 grid grid-cols-1 gap-12 lg:grid-cols-[12rem_minmax(0,1fr)] lg:gap-16">
+    {#if toc.length > 1}
+      <nav aria-label="On this page" class="hidden lg:block">
+        <div class="sticky top-28 flex flex-col gap-3">
+          <p class={eyebrow}>On this page</p>
+          <ul class="flex flex-col border-l border-line dark:border-white/10">
+            {#each toc as item}
+              <li>
+                <a
+                  href="#{item.id}"
+                  aria-current={activeId === item.id ? 'location' : undefined}
+                  class="-ml-px block border-l-2 border-transparent py-1.5 pl-4 text-sm leading-snug text-muted transition-colors
+                         hover:text-ink aria-[current=location]:border-background-2 aria-[current=location]:font-semibold aria-[current=location]:text-ink
+                         dark:text-gray-400 dark:hover:text-white dark:aria-[current=location]:text-background-2"
+                >{item.text}</a>
+              </li>
+            {/each}
+          </ul>
         </div>
-      {/each}
-    </section>
-  {/if}
+      </nav>
+    {/if}
 
-  {#if data.project.services?.length}
-    <section class="flex flex-col gap-3" data-reveal use:reveal>
-      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">What it covers</h2>
-      <ul class="flex flex-wrap gap-2">
-        {#each data.project.services as service}
-          <li class="rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-ink shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-gray-100">
-            {service}
-          </li>
-        {/each}
-      </ul>
-    </section>
-  {/if}
+    <div class="flex min-w-0 flex-col gap-16 {toc.length > 1 ? '' : 'lg:col-span-2'}">
 
-  {#if data.project.body}
-    <!-- Case-study HTML authored in the PulseData dashboard. -->
-    <section data-reveal use:reveal class="prose prose-lg max-w-none dark:prose-invert prose-headings:font-head prose-headings:text-ink dark:prose-headings:text-white prose-a:text-ink dark:prose-a:text-background-2">
-      {@html data.project.body}
-    </section>
-  {/if}
-
-  {#if data.project.stack?.length}
-    <section class="flex flex-col gap-5" data-reveal use:reveal>
-      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">How it was built</h2>
-
-      <!-- Icons first as a quick read, then the detail grouped by concern. -->
-      {#if data.project.technology?.length}
-        <div class="flex flex-row flex-wrap items-center gap-4">
-          {#each data.project.technology as tech}
-            {#if getLink(tech)}
-              <div class="flex flex-col items-center justify-center rounded-lg border border-line bg-surface p-3 shadow-sm transition-transform hover:scale-105 dark:border-white/10 dark:bg-white/5">
-                {@html getLink(tech)}
-                <Popover title={techLabel(tech)} class={popClass}>{getDescription(tech)}</Popover>
+      {#if data.project.outcomes?.length}
+        <section id="outcomes" aria-labelledby="outcomes-heading" class="scroll-mt-28 flex flex-col gap-5">
+          <h2 id="outcomes-heading" class={h3}>Outcomes</h2>
+          <div class="grid grid-cols-1 gap-4 sm:grid-cols-3">
+            {#each data.project.outcomes as outcome, i}
+              <div class="rounded-2xl border border-line bg-surface p-5 shadow-sm dark:border-white/10 dark:bg-surface/85 dark:shadow-none"
+                data-reveal="scale" use:reveal={{ delay: i * 100 }}>
+                <p class="font-head text-4xl font-bold text-ink dark:text-background-2">{outcome.value}</p>
+                <p class="mt-2 text-sm leading-snug text-muted dark:text-gray-300">{outcome.label}</p>
               </div>
-            {/if}
-          {/each}
-        </div>
+            {/each}
+          </div>
+        </section>
       {/if}
 
-      <dl class="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
-        {#each stackGroups as group}
-          <div class="flex flex-col gap-3">
-            <dt class="font-head text-xs font-bold uppercase tracking-wider text-muted dark:text-gray-400">
-              {group.name}
-            </dt>
-            <dd class="flex flex-col gap-3">
-              {#each group.items as item}
-                <div class="rounded-lg border border-line bg-surface p-3 shadow-sm dark:border-white/10 dark:bg-white/5">
-                  <p class="font-semibold text-ink dark:text-white">{item.name}</p>
-                  <p class="mt-0.5 text-sm text-muted dark:text-gray-300">{item.note}</p>
-                </div>
+      {#if data.project.services?.length}
+        <section id="covers" aria-labelledby="covers-heading" class="scroll-mt-28 flex flex-col gap-5" data-reveal use:reveal>
+          <h2 id="covers-heading" class={h3}>What it covers</h2>
+          <ul class="flex flex-wrap gap-2">
+            {#each data.project.services as service}
+              <li class="rounded-full border border-line bg-surface px-4 py-1.5 text-sm text-ink dark:border-white/10 dark:bg-surface/85 dark:text-gray-200">
+                {service}
+              </li>
+            {/each}
+          </ul>
+        </section>
+      {/if}
+
+      {#if story.html}
+        <!-- Case-study HTML authored in the dashboard. Its headings follow the
+             same h3 step as the sections around it. -->
+        <section data-reveal use:reveal
+          class="prose prose-lg max-w-[68ch] dark:prose-invert
+                 prose-headings:font-head prose-headings:text-ink dark:prose-headings:text-white
+                 prose-h2:mt-14 prose-h2:mb-4 prose-h2:scroll-mt-28 prose-h2:text-xl lg:prose-h2:text-2xl prose-h2:first:mt-0
+                 prose-p:leading-relaxed prose-p:text-ink/85 dark:prose-p:text-gray-300
+                 prose-li:text-ink/85 dark:prose-li:text-gray-300
+                 prose-strong:text-ink dark:prose-strong:text-white
+                 prose-a:text-ink dark:prose-a:text-background-2">
+          {@html story.html}
+        </section>
+      {/if}
+
+      {#if data.project.stack?.length}
+        <section id="built" aria-labelledby="built-heading" class="scroll-mt-28 flex flex-col gap-6" data-reveal use:reveal>
+          <h2 id="built-heading" class={h3}>How it was built</h2>
+
+          {#if data.project.technology?.length}
+            <ul class="flex flex-row flex-wrap gap-3">
+              {#each data.project.technology as tech}
+                {#if getLink(tech)}
+                  <li class="flex w-24 flex-col items-center gap-2 rounded-xl border border-line bg-surface p-3 text-center
+                             dark:border-white/10 dark:bg-surface/85" title={getDescription(tech)}>
+                    {@html getLink(tech)}
+                    <span class="w-full truncate font-head text-xs text-muted dark:text-gray-400">{techLabel(tech)}</span>
+                  </li>
+                {/if}
               {/each}
-            </dd>
+            </ul>
+          {/if}
+
+          <!-- A compact list rather than a card per item: the old grid of
+               boxes made a ten-line answer look like a wall. -->
+          <div class="grid grid-cols-1 gap-x-10 gap-y-8 sm:grid-cols-2">
+            {#each stackGroups as group}
+              <div class="flex flex-col gap-2">
+                <h3 class={eyebrow}>{group.name}</h3>
+                <ul class="divide-y divide-line border-t border-line dark:divide-white/10 dark:border-white/10">
+                  {#each group.items as item}
+                    <li class="py-2.5">
+                      <span class="font-semibold text-ink dark:text-white">{item.name}</span>
+                      {#if item.note}
+                        <span class="block text-sm leading-snug text-muted dark:text-gray-400">{item.note}</span>
+                      {/if}
+                    </li>
+                  {/each}
+                </ul>
+              </div>
+            {/each}
           </div>
-        {/each}
-      </dl>
-    </section>
+        </section>
+      {/if}
+
+      {#if data.project.images?.length}
+        <section id="inside" aria-labelledby="inside-heading" class="scroll-mt-28 flex flex-col gap-6">
+          <h2 id="inside-heading" class={h3}>Inside the system</h2>
+          <div class="flex flex-col gap-12">
+            {#each data.project.images as image, i}
+              <figure class="flex flex-col gap-3" data-reveal use:reveal>
+                <img
+                  src={image.url}
+                  alt={image.alt}
+                  width="1600" height="1000"
+                  loading={i === 0 ? 'eager' : 'lazy'}
+                  decoding="async"
+                  class="w-full rounded-2xl border border-line shadow-md dark:border-white/10 dark:shadow-black/60"
+                />
+                {#if image.caption}
+                  <figcaption class="text-sm text-muted dark:text-gray-400">{image.caption}</figcaption>
+                {/if}
+              </figure>
+            {/each}
+          </div>
+        </section>
+      {/if}
+    </div>
+  </div>
+
+  {#if neighbours}
+    <nav aria-label="More case studies" class="mt-20 grid grid-cols-1 gap-4 border-t border-line pt-10 sm:grid-cols-2 dark:border-white/10" data-reveal use:reveal>
+      <a href="/projects/{neighbours.prev.slug}"
+         class="group flex flex-col gap-1 rounded-2xl border border-line bg-surface p-5 transition-colors hover:border-background-2
+                dark:border-white/10 dark:bg-surface/85 dark:hover:border-background-2/50">
+        <span class="flex items-center gap-2 text-sm text-muted dark:text-gray-400"><ArrowLeftOutline class="h-4 w-4 transition-transform group-hover:-translate-x-1" /> Previous</span>
+        <span class={h3}>{neighbours.prev.name}</span>
+        {#if neighbours.prev.category}<span class="text-sm text-muted dark:text-gray-400">{neighbours.prev.category}</span>{/if}
+      </a>
+      <a href="/projects/{neighbours.next.slug}"
+         class="group flex flex-col items-end gap-1 rounded-2xl border border-line bg-surface p-5 text-right transition-colors hover:border-background-2
+                dark:border-white/10 dark:bg-surface/85 dark:hover:border-background-2/50">
+        <span class="flex items-center gap-2 text-sm text-muted dark:text-gray-400">Next <ArrowRightOutline class="h-4 w-4 transition-transform group-hover:translate-x-1" /></span>
+        <span class={h3}>{neighbours.next.name}</span>
+        {#if neighbours.next.category}<span class="text-sm text-muted dark:text-gray-400">{neighbours.next.category}</span>{/if}
+      </a>
+    </nav>
   {/if}
 
-  {#if data.project.images?.length}
-    <section class="flex flex-col gap-6" data-reveal="fade" use:reveal>
-      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">Inside the system</h2>
-      <div class="flex flex-col gap-10">
-        {#each data.project.images as image, i}
-          <figure class="flex flex-col gap-3" data-reveal use:reveal>
-            <img
-              src={image.url}
-              alt={image.alt}
-              width="1600" height="1000"
-              loading={i === 0 ? 'eager' : 'lazy'}
-              decoding="async"
-              class="w-full rounded-xl border border-line shadow-md dark:border-white/10"
-            />
-            {#if image.caption}
-              <figcaption class="text-sm text-muted dark:text-gray-300">{image.caption}</figcaption>
-            {/if}
-          </figure>
-        {/each}
-      </div>
-    </section>
-  {/if}
-
-  <a href="/projects" class="{link} self-start" data-reveal use:reveal>Back to all projects</a>
+  <div class="mt-8 flex justify-center">
+    <a href="/projects" class={quiet}>&larr; All {data.projects?.length ?? ''} projects</a>
+  </div>
 </article>
 
 {:else}
-    <div class="flex flex-col justify-center items-center h-screen">
-        <h1 class="text-4xl font-head font-bold text-muted dark:text-white">Project Not Found</h1>
-        <p class="text-lg font-body">The project you are looking for does not exist.</p>
-        <a href="/projects" class="mt-4 text-blue-600 hover:underline">Go back to projects</a>
+    <div class="flex h-screen flex-col items-center justify-center gap-4 px-4 text-center">
+        <h1 class={display}>Project not found</h1>
+        <p class="text-lg text-muted dark:text-gray-300">The project you are looking for does not exist.</p>
+        <a href="/projects" class={link}>Back to projects</a>
     </div>
 {/if}
- 

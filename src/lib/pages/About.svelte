@@ -2,7 +2,10 @@
     import Tabs from '$lib/Tabs.svelte';
     import TechStack from '$lib/TechStack.svelte';
     import { reveal } from '$lib/reveal';
-    import { classer } from "$lib/global.svelte"
+    import { classer, h2, h3, eyebrow, body } from "$lib/global.svelte"
+
+    const panel = `flex flex-col gap-4 rounded-2xl border border-line bg-surface p-6 text-left shadow-sm lg:p-8
+      dark:border-white/10 dark:bg-surface/85 dark:shadow-none`;
 
     
     
@@ -148,56 +151,49 @@
 </script>
 
 
-<h2 class="text-3xl lg:text-6xl font-head text-center font-bold mb-4" data-reveal use:reveal>About Me</h2>
+<!-- One heading scale for the whole site lives in $lib/global.svelte.js; the
+     panels are flat surfaces side by side rather than cards inside a card. -->
+<div class="mx-auto flex max-w-6xl flex-col gap-12 px-4 lg:gap-16">
+  <header class="flex flex-col items-center gap-3 text-center" data-reveal use:reveal>
+    <p class={eyebrow}>01 · About</p>
+    <h2 class={h2}>About Me</h2>
+  </header>
 
-<div class="flex flex-col justify-center items-center justify-self-center px-0 lg:px-24">
-<div class="flex flex-row flex-wrap justify-center items-start text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-2 lg:p-8 gap-8">
-      <div class="flex flex-col w-full lg:w-1/3 h-full justify-start align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4"
-        data-reveal="left" use:reveal>
-    <h3 class="font-bold font-head text-2xl text-center">Who Am I?</h3>
-        
-    <p class="text-left">
-      I'm Nahusenay Tadesse, a SvelteKit developer and full-stack product engineer. I build the
-      systems businesses actually run on: ERP platforms with 70 to 90 table schemas, payroll and
-      leave-accrual engines, multi-currency reconciliation, role-based access control and audit
-      logging. All of it is live and in daily use, not a demo.</p>
-    
-    <h3 class="font-bold font-head text-2xl text-center">Development Philosophy</h3>
-        <p class="text-left">I own the parts most front-end developers hand off: schema design and
+  <div class="grid grid-cols-1 gap-6 lg:grid-cols-5 lg:gap-8">
+    <div class="{panel} lg:col-span-2" data-reveal="left" use:reveal>
+      <h3 class={h3}>Who am I?</h3>
+      <p class={body}>
+        I'm Nahusenay Tadesse, a SvelteKit developer and full-stack product engineer. I build the
+        systems businesses actually run on: ERP platforms with 70 to 90 table schemas, payroll and
+        leave-accrual engines, multi-currency reconciliation, role-based access control and audit
+        logging. All of it is live and in daily use, not a demo.</p>
+
+      <h3 class="{h3} mt-4">Development philosophy</h3>
+      <p class={body}>I own the parts most front-end developers hand off: schema design and
         migrations, session security, file storage and caching, SMTP, and the deployment itself.
         I run these apps on Linux servers, on shared cPanel and LiteSpeed hosting where Node is
         awkward to get working, and on Vercel where serverless fits. If it needs to ship, I can
         put it somewhere.</p>
-  
-  </div>
-    <div class="flex flex-col w-full lg:w-1/2 justify-center align-center text-center shadow-md rounded-lg dark:shadow-[rgba(255,255,255,0.1)] p-4 lg:p-8 gap-4"
-      data-reveal="right" use:reveal={{ delay: 120 }}>
-        
-         <div class="w-full text-center lg:text-center flex flex-col gap-4 rounded-lg">
-            <h3 class="font-head font-bold text-2xl">What Do I Build?</h3>  
-
-              <p class="text-left">Most of my work is custom business software rather than brochure
-              sites. Each type below carries a different schema, a different permission model and a
-              different timeline.</p>
-            <Tabs />
-          </div>
     </div>
-     <div class="flex flex-col justify-center lg:justify-start items-center w-full shadow-md gap-4 p-4"
-       data-reveal use:reveal>
 
-     <h3 class="font-bold font-head text-2xl"> My Tech Stack</h3>
-     <p class="w-full lg:w-1/2 text-left lg:text-left">SvelteKit and TypeScript are my default, with
-     Drizzle over MySQL, PostgreSQL or SQLite depending on what the project needs, Better Auth for
-     sessions, and Playwright and Vitest for tests. I have production apps running on all three
-     databases and on three different hosting models. Here are the technologies I work with:</p>
+    <div class="{panel} lg:col-span-3 lg:self-start" data-reveal="right" use:reveal={{ delay: 120 }}>
+      <h3 class={h3}>What do I build?</h3>
+      <p class={body}>Most of my work is custom business software rather than brochure
+        sites. Each type below carries a different schema, a different permission model and a
+        different timeline.</p>
+      <Tabs />
+    </div>
+  </div>
+
+  <section aria-labelledby="stack-heading" class="flex flex-col items-center gap-6" data-reveal use:reveal>
+    <header class="flex flex-col items-center gap-3 text-center">
+      <p class={eyebrow}>02 · Toolbox</p>
+      <h2 id="stack-heading" class={h2}>Tech stack</h2>
+    </header>
+    <p class="{body} max-w-2xl text-center">SvelteKit and TypeScript are my default, with
+      Drizzle over MySQL, PostgreSQL or SQLite depending on what the project needs, Better Auth for
+      sessions, and Playwright and Vitest for tests. I have production apps running on all three
+      databases and on three different hosting models.</p>
     <TechStack {techStack} />
-</div>
-
-
-</div>
-
-</div>
-
-<div>
-
+  </section>
 </div>

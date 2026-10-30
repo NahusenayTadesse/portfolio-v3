@@ -76,6 +76,7 @@ let searchQuery = $state('');
           type="checkbox"
           onchange={() => pushId(contact.id)}
         />
+        {#if contact?.name}<h2>Name: {contact.name}</h2>{/if}
         <h2 > Email: <a href="mailto:{contact?.email}" target="_blank" class="text-blue-700"> {contact?.email}</a></h2>
   <h3>Created At:  {formatDateTime(contact.createdAt)} </h3>
   <p> Message:  {contact?.message}</p>

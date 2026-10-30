@@ -26,7 +26,7 @@
       }))
     }
   }));
-  import { typewriter } from "$lib/global.svelte";
+  import { typewriter, display } from "$lib/global.svelte";
   import ProjectCard from '$lib/ProjectCard.svelte';
   import Seo from '$lib/Seo.svelte';
   import { jsonLd, SITE_URL } from '$lib/seo';
@@ -52,7 +52,7 @@
 
 
 <div class="mx-auto flex max-w-6xl flex-col items-center gap-6 px-4 pt-12 lg:px-16">
-  <h1 class="enter font-head text-5xl font-bold text-ink dark:text-white lg:text-6xl" in:typewriter={{ speed: 1 }}>Projects</h1>
+  <h1 class="enter {display}" in:typewriter={{ speed: 1 }}>Projects</h1>
 
   <label class="enter w-full max-w-md" style="--enter-delay: 180ms">
     <span class="sr-only">Search projects</span>
@@ -62,7 +62,7 @@
       bind:value={searchQuery}
       class="w-full rounded-lg border border-line bg-surface p-3 text-ink shadow-sm
              placeholder:text-muted focus:outline-2 focus:outline-offset-2 focus:outline-background-2
-             dark:border-white/10 dark:bg-white/5 dark:text-white dark:placeholder:text-gray-400"
+             dark:border-white/10 dark:bg-surface/85 dark:text-white dark:placeholder:text-gray-400"
     />
   </label>
 </div>

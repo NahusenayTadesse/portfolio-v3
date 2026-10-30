@@ -1,0 +1,2326 @@
+[
+ {
+  "id": "creator-network",
+  "slug": "creator-network",
+  "name": "Creator Network",
+  "client": "Creator Network",
+  "category": "Two-sided creator marketplace",
+  "year": "2026",
+  "link": null,
+  "description": "A two-sided marketplace connecting brands, agencies, NGOs and event organisers with content creators across Ethiopia and the wider Pan-African market, covering discovery, negotiation, agreed terms, delivery, review and settlement.",
+  "body": "<h2>The problem with handshake deals</h2>\n<p>Creator work in the region runs on direct messages. Scope, price and deadline are agreed in a chat and then remembered differently by each side. Creator Network exists to make the agreement the record.</p>\n<h2>Terms are frozen on agreement</h2>\n<p>When both sides accept, scope, price, deadline and revision allowance are copied into an unchangeable record. Later edits to a profile or a brief never rewrite a live deal. Every state change after that lands in an audit log.</p>\n<h2>Matching that shows its work</h2>\n<p>Discovery scores five factors: niche, audience geography, past performance, platform fit and budget headroom. The arithmetic is shown on each profile rather than hidden behind a relevance number.</p>\n<h2>Operations</h2>\n<p>An operator dashboard carries the queues that need a human: verification, introductions, claims, disputes and payouts, over the marketplace's own reference data for countries, categories, platforms and languages.</p>",
+  "services": [
+   "Creator discovery & scoring",
+   "Campaign briefs",
+   "Agreement & frozen terms",
+   "Bookings & delivery tracking",
+   "Payouts & settlement",
+   "Disputes & claims",
+   "Verification queue",
+   "Audit log",
+   "Built-in CMS & blog",
+   "Bilingual delivery"
+  ],
+  "outcomes": [
+   {
+    "value": "146",
+    "label": "Published creators across 16 markets"
+   },
+   {
+    "value": "148.9M",
+    "label": "Combined audience reach"
+   },
+   {
+    "value": "5",
+    "label": "Factors scored on every match"
+   }
+  ],
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779937/portfolio/local/cn-home.webp",
+    "alt": "Creator Network marketplace home page",
+    "caption": "The public marketplace leads with search and a live count of published creators and campaigns."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779936/portfolio/local/cn-discover.webp",
+    "alt": "Creator discovery with market and category filters",
+    "caption": "Discovery filters by market, category, region and platform, and can rank the whole directory against a specific brief."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779934/portfolio/local/cn-campaigns.webp",
+    "alt": "Campaign briefs listing",
+    "caption": "Live campaign briefs are public, so creators can approach organisations rather than only the other way around."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779935/portfolio/local/cn-dashboard.webp",
+    "alt": "Operator dashboard showing marketplace health",
+    "caption": "The operator dashboard is built around queues that need a human decision, not vanity metrics."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779937/portfolio/local/cn-verification.webp",
+    "alt": "Creator verification queue",
+    "caption": "Verification is a queue with a decision trail, so an approval can always be traced back to a person."
+   }
+  ],
+  "isFeatured": true,
+  "source": "local",
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779937/portfolio/local/cn-home.webp",
+  "coverAlt": "Creator Network marketplace home page",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779937/portfolio/local/cn-home.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779936/portfolio/local/cn-discover.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779934/portfolio/local/cn-campaigns.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779935/portfolio/local/cn-dashboard.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779937/portfolio/local/cn-verification.webp"
+  ],
+  "screenshotsMobile": [],
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Tipex",
+    "group": "UI",
+    "note": "Rich-text editor for CMS content."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "LayerChart",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "Paraglide i18n",
+    "group": "i18n",
+    "note": "Compiled translations, English and Amharic."
+   },
+   {
+    "name": "Playwright",
+    "group": "Testing",
+    "note": "End-to-end tests against a running build."
+   },
+   {
+    "name": "Vitest",
+    "group": "Testing",
+    "note": "Unit tests over business logic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "sortOrder": 2
+ },
+ {
+  "id": "dana-steel-factory",
+  "slug": "dana-steel-factory",
+  "name": "Dana Steel Factory",
+  "client": "Dana Steel Factory",
+  "category": "Manufacturing & industrial e-commerce",
+  "year": "2025",
+  "link": null,
+  "description": "A manufacturer site and ordering system for a coated steel factory in Adama: PPGI, GI, roof tiles and accessories, with quote requests, a configurable order builder, customer accounts and a full admin back office.",
+  "body": "<h2>Selling steel is not selling shoes</h2>\n<p>Coated steel is bought by specification: gauge, coating, RAL colour, length and quantity, and the price follows the specification rather than a fixed SKU. The ordering flow is a configurator that produces a quotable order, not a shopping cart with a fixed price.</p>\n<h2>Buyers who are not consumers</h2>\n<p>The customers are builders, contractors and wholesalers. They come back, they order in volume, and they need their history. Accounts carry past orders and reorder, and the request-a-quote path exists alongside direct ordering for the cases that need a human.</p>\n<h2>Everything the factory changes itself</h2>\n<p>Products, pricing, page text, logos, FAQ, blog, company details and business settings are all editable from the dashboard, alongside customers, orders and messages. The site does not need a developer to keep it current.</p>",
+  "services": [
+   "Product catalogue by specification",
+   "Quote requests",
+   "Order builder & checkout",
+   "Customer accounts & order history",
+   "Admin dashboard",
+   "Content & page-text management",
+   "Blog & FAQ",
+   "Messages & enquiries"
+  ],
+  "outcomes": [
+   {
+    "value": "52",
+    "label": "Tables behind the ordering system"
+   },
+   {
+    "value": "3",
+    "label": "Buyer types served: builders, contractors, wholesalers"
+   },
+   {
+    "value": "0",
+    "label": "Developer involvement to change site content"
+   }
+  ],
+  "sortOrder": 5,
+  "isFeatured": true,
+  "source": "local",
+  "screenshotsMobile": [],
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Tipex",
+    "group": "UI",
+    "note": "Rich-text editor for CMS content."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "Chapa",
+    "group": "Payments",
+    "note": "Ethiopian payment gateway."
+   },
+   {
+    "name": "Google Gemini",
+    "group": "AI",
+    "note": "Shopping assistant answering against the live catalogue."
+   },
+   {
+    "name": "Paraglide i18n",
+    "group": "i18n",
+    "note": "Compiled translations, English and Amharic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792197/portfolio/local/dana-dash.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792197/portfolio/local/dana-dash.webp",
+    "alt": "Dana Steel Factory admin dashboard",
+    "caption": "Quotes and orders sit alongside inventory, production and purchase orders: the site takes the enquiry and the factory works the same record."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779940/portfolio/local/dana-home.webp",
+    "alt": "Dana Steel Factory home page",
+    "caption": "The manufacturer site leads with the quote request, because that is how this market actually buys."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779939/portfolio/local/dana-buy.webp",
+    "alt": "Dana Steel order builder",
+    "caption": "Ordering is a configurator: specification first, price follows."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779939/portfolio/local/dana-factory.webp",
+    "alt": "Dana Steel factory page",
+    "caption": "The factory page carries the proof a construction buyer looks for before committing."
+   }
+  ],
+  "coverAlt": "Dana Steel Factory admin dashboard",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792197/portfolio/local/dana-dash.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779940/portfolio/local/dana-home.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779939/portfolio/local/dana-buy.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779939/portfolio/local/dana-factory.webp"
+  ]
+ },
+ {
+  "id": "dnd-barber-academy",
+  "slug": "dnd-barber-academy",
+  "name": "D&D Barber & Academy",
+  "client": "D&D Barber & Academy",
+  "category": "Vocational training & bookings",
+  "year": "2026",
+  "link": null,
+  "description": "A London barber shop and training academy in one site: course enrolment with flexible payment, haircut services and prices, a suitability quiz, and the admin behind both sides of the business.",
+  "body": "<h2>Two businesses, two audiences</h2>\n<p>A barber shop sells a haircut this week. An academy sells a career change over twelve weeks. They need different pages, different calls to action and different funnels, but they share a brand, a location and an admin.</p>\n<h2>Enrolment is a decision, not a purchase</h2>\n<p>Nobody spends hundreds on a course from a price list alone, so the enrolment path carries the things people actually weigh: how long until they are job-ready, when they touch a real client, what the deposit is, and whether the payment plan involves a credit check. A quiz exists for people who are not sure yet.</p>\n<h2>The shop side stays simple</h2>\n<p>Services and prices, and a way to get in touch. The shop does not need a booking engine to sell a haircut; it needs to be found and to be clear.</p>",
+  "services": [
+   "Course catalogue & enrolment",
+   "Flexible payment plans",
+   "Suitability quiz",
+   "Haircut services & prices",
+   "Free haircut campaign",
+   "Enquiries & contact",
+   "Admin dashboard"
+  ],
+  "outcomes": [
+   {
+    "value": "12",
+    "label": "Weeks from no experience to job-ready"
+   },
+   {
+    "value": "2",
+    "label": "Businesses served by one codebase"
+   },
+   {
+    "value": "13",
+    "label": "Tables behind courses and enrolment"
+   }
+  ],
+  "isFeatured": false,
+  "source": "local",
+  "screenshotsMobile": [],
+  "sortOrder": 9,
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   },
+   {
+    "name": "Stripe",
+    "group": "Payments",
+    "note": "Card payments."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788156/portfolio/local/dnd-dash-overview.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788156/portfolio/local/dnd-dash-overview.webp",
+    "alt": "D&D Barber Academy admin dashboard",
+    "caption": "The admin covers both sides of the business: enrolments and inquiries from the academy, services and opening hours from the shop."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785398/portfolio/local/dnd-courses.webp",
+    "alt": "D&D Barber Academy courses landing page",
+    "caption": "The academy leads on outcome and cost, the two things a career changer actually weighs."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785399/portfolio/local/dnd-haircuts.webp",
+    "alt": "D&D Barber haircuts and prices",
+    "caption": "The shop side stays deliberately simple: services, prices, and how to reach them."
+   }
+  ],
+  "coverAlt": "D&D Barber Academy admin dashboard",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788156/portfolio/local/dnd-dash-overview.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785398/portfolio/local/dnd-courses.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785399/portfolio/local/dnd-haircuts.webp"
+  ]
+ },
+ {
+  "id": "fahem-general-trading",
+  "slug": "fahem-general-trading",
+  "name": "Fahem General Trading",
+  "client": "Fahem General Trading",
+  "category": "Coffee export & agriculture",
+  "year": "2025",
+  "description": "A coffee exporter’s corporate site built entirely on editable content: origins, farms, traceability steps, export markets, ventures and milestones are all database rows, not hardcoded pages.",
+  "body": "<h2>What a coffee exporter&#39;s website is for</h2>\n<p>An Ethiopian coffee exporter is not selling to walk-in customers. The audience is a small number of foreign buyers who are deciding whether to trust a supplier they have never met, from a country they may never visit, with a container of something whose quality they cannot verify until it lands.</p>\n<p>That makes the website an act of proof, not persuasion. The build is organised around the specific things a buyer checks.</p>\n<h2>The content model</h2>\n<p>Every one of these is a table the client edits:</p>\n<ul>\n<li><strong>Coffee regions and sub-regions</strong>: Jimma, Limu, and the growing areas beneath them, each with its own profile.</li>\n<li><strong>Coffee products</strong>: grades and lots, tied to where they came from.</li>\n<li><strong>Farms</strong>: the actual sources, with their own pages.</li>\n<li><strong>Traceability steps</strong>: the chain from cherry to container, laid out as ordered stages. This is the section that answers the buyer&#39;s real question.</li>\n<li><strong>Export markets</strong>: where the company already ships, which is itself a credential.</li>\n<li><strong>Ventures</strong>: the group&#39;s other businesses.</li>\n<li><strong>Milestones</strong>: the company timeline.</li>\n<li><strong>Value propositions, partners, FAQs, gallery and testimonials.</strong></li>\n</ul>\n<p>Alongside those: page heroes and site settings, so the headline image and the contact details on any page are content rather than code.</p>\n<h2>Why it was built this way</h2>\n<p>The alternative (a designer&#39;s static pages) would have been faster to ship and wrong within a season. Harvests change, grades change, markets are added. A site that cannot keep up with the crop year stops being used, and an exporter&#39;s website that says last year&#39;s harvest is worse than no website at all.</p>\n<h2>The dashboard</h2>\n<p>Every section above has a management screen, with an image gallery, role-based permissions, per-user overrides, a message inbox from the contact form and email notification through Nodemailer.</p>\n",
+  "link": "https://fahemgeneraltrading.com",
+  "screenshotsMobile": [],
+  "services": [
+   "Content-modelled corporate site",
+   "Origin, farm & traceability pages",
+   "Export market & partner directory",
+   "Ventures & company timeline",
+   "Enquiry inbox & email notification",
+   "Roles & permissions"
+  ],
+  "outcomes": [
+   {
+    "value": "14",
+    "label": "Content types the client edits without a developer"
+   },
+   {
+    "value": "0",
+    "label": "Hardcoded pages to update at harvest"
+   },
+   {
+    "value": "1",
+    "label": "Traceability chain, shown as ordered stages"
+   }
+  ],
+  "isFeatured": false,
+  "source": "pulsedata",
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792198/portfolio/local/fahem-dash.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792198/portfolio/local/fahem-dash.webp",
+    "alt": "Fahem General Trading content dashboard",
+    "caption": "Farms, coffee regions, gallery, partners and FAQs are all editable records; the public site is a view over this."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772450/portfolio/pulse/445d7bd5-2ae8-49ef-9196-ef967be0a31d.webp",
+    "caption": "The hero image, headline and call to action are all site settings the client controls.",
+    "alt": "Fahem General Trading home page with coffee cherries"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772449/portfolio/pulse/36f3da06-1989-4619-99ae-f7ea4358be29.webp",
+    "caption": "Products tie back to their region, sub-region and farm: the chain a buyer asks about.",
+    "alt": "The coffee page showing grades and growing regions"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772456/portfolio/pulse/5cdb1f11-81ec-4f8b-a31a-9e40554f5d4b.webp",
+    "caption": "The wider group, kept current as a table rather than rewritten as a page.",
+    "alt": "The ventures page listing the group’s businesses"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772449/portfolio/pulse/314bc2de-1244-4a4a-af62-0841826dd5a7.webp",
+    "caption": "Milestones, value propositions and partners: three separate content types on one page.",
+    "alt": "The about page with the company timeline"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772467/portfolio/pulse/80dbab77-4f37-47c7-85a7-45b807c5c508.webp",
+    "caption": "Enquiries reach a dashboard inbox and an email notification at the same time.",
+    "alt": "The contact page"
+   }
+  ],
+  "coverAlt": "Fahem General Trading content dashboard",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792198/portfolio/local/fahem-dash.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772450/portfolio/pulse/445d7bd5-2ae8-49ef-9196-ef967be0a31d.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772449/portfolio/pulse/36f3da06-1989-4619-99ae-f7ea4358be29.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772456/portfolio/pulse/5cdb1f11-81ec-4f8b-a31a-9e40554f5d4b.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772449/portfolio/pulse/314bc2de-1244-4a4a-af62-0841826dd5a7.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772467/portfolio/pulse/80dbab77-4f37-47c7-85a7-45b807c5c508.webp"
+  ],
+  "sortOrder": 12
+ },
+ {
+  "id": "fro-admin",
+  "slug": "fro-admin",
+  "name": "Fro Admin",
+  "client": "Fro",
+  "category": "Operations back office (on-demand services)",
+  "year": "2026",
+  "link": null,
+  "description": "The operations back office behind the Fro on-demand marketplace: bookings and live job tracking, provider wallets, ledger entries and withdrawals, payments, services catalogue and granular role-based permissions, on Supabase and PostgreSQL.",
+  "body": "<h2>The half of a marketplace nobody sees</h2>\n<p>The public side of an on-demand marketplace is a booking form. The side that decides whether the business works is this one: who took the job, what the customer paid, what the provider is owed, what the platform kept, and whether the money has actually moved.</p>\n<h2>Money as a ledger, not a number</h2>\n<p>Provider earnings are ledger entries rather than a running balance. Wallets, wallet transactions, provider balances and withdrawals are separate concerns, so a withdrawal can be traced to the jobs that funded it and a balance can always be recomputed from its history.</p>\n<h2>Jobs in flight</h2>\n<p>Bookings carry live location for jobs in progress, with threads and messages against each one, so a dispute is answered from the record rather than from memory.</p>\n<h2>Permissions with verbs</h2>\n<p>Roles, permissions, role permissions and per-user permission grants are separate tables, so access is granted by verb on a resource rather than by handing someone the admin role.</p>",
+  "services": [
+   "Bookings & live job tracking",
+   "Provider wallets & ledger",
+   "Withdrawals & payouts",
+   "Payments & payment events",
+   "Services & categories catalogue",
+   "Expenses tracking",
+   "Affiliate programme",
+   "Threads & messaging",
+   "Granular RBAC"
+  ],
+  "outcomes": [
+   {
+    "value": "20+",
+    "label": "Tables behind bookings, money and access"
+   },
+   {
+    "value": "4",
+    "label": "Separate money concerns: wallet, transaction, balance, withdrawal"
+   },
+   {
+    "value": "0",
+    "label": "Balances stored without a ledger to rebuild them"
+   }
+  ],
+  "source": "local",
+  "screenshotsMobile": [],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785401/portfolio/local/froadmin-payments.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785401/portfolio/local/froadmin-payments.webp",
+    "alt": "Fro Admin payments overview with ledger tiles",
+    "caption": "Every money tile names the table and column it is read from, so a number can always be traced to its source."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785400/portfolio/local/froadmin-dashboard.webp",
+    "alt": "Fro Admin operations dashboard",
+    "caption": "The ops centre: booking pipeline, live activity and revenue for the day."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785402/portfolio/local/froadmin-services.webp",
+    "alt": "Fro Admin services catalogue",
+    "caption": "A listing is only bookable when it is both active and booking-enabled, which is why those are two separate filters."
+   }
+  ],
+  "coverAlt": "Fro Admin payments overview with ledger tiles",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785401/portfolio/local/froadmin-payments.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785400/portfolio/local/froadmin-dashboard.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785402/portfolio/local/froadmin-services.webp"
+  ],
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "PostgreSQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Supabase",
+    "group": "Data",
+    "note": "Managed Postgres with row-level security."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "LayerChart",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "postgresql",
+   "supabase",
+   "drizzle",
+   "tailwind"
+  ],
+  "sortOrder": 4,
+  "isFeatured": true
+ },
+ {
+  "id": "gifa-lounge",
+  "slug": "gifa-lounge",
+  "name": "Gifa Restaurant & Lounge",
+  "client": "Gifa Restaurant & Lounge",
+  "category": "Hospitality",
+  "year": "2026",
+  "link": null,
+  "description": "A restaurant and lounge site for Seven Sisters Road, London: menu, gallery, events, private hire and table reservations, all managed by the restaurant from its own dashboard.",
+  "body": "<h2>A menu that changes is a database, not a PDF</h2>\n<p>Most restaurant sites publish the menu as an image or a PDF that goes stale the week after launch. Here the menu is data: dishes, categories, prices and descriptions the restaurant edits itself, which means the site is still accurate in six months.</p>\n<h2>Everything a room needs to fill itself</h2>\n<p>Reservations, private hire enquiries, an events calendar and a gallery, alongside the delivery partner link. The site is the front of house for people who have not walked in yet.</p>\n<h2>Built for the evening</h2>\n<p>The design is dark and warm by default because that is what the room is like, and because a restaurant site is mostly opened at night on a phone.</p>",
+  "services": [
+   "Menu management",
+   "Table reservations",
+   "Private hire enquiries",
+   "Events calendar",
+   "Gallery",
+   "Contact & opening hours",
+   "Content dashboard"
+  ],
+  "outcomes": [
+   {
+    "value": "24",
+    "label": "Tables behind menu, bookings and events"
+   },
+   {
+    "value": "0",
+    "label": "PDF menus to keep in sync"
+   },
+   {
+    "value": "1",
+    "label": "Place the restaurant edits everything"
+   }
+  ],
+  "isFeatured": false,
+  "source": "local",
+  "screenshotsMobile": [],
+  "sortOrder": 10,
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788157/portfolio/local/gifa-dash-content.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788157/portfolio/local/gifa-dash-content.webp",
+    "alt": "Gifa Lounge website content dashboard",
+    "caption": "Everything on the public site is editable here: 20 menu items, 21 gallery images, 5 events and the FAQ, all data rather than markup."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785403/portfolio/local/gifa-home.webp",
+    "alt": "Gifa Restaurant and Lounge home page",
+    "caption": "The site opens the way the room does: dark, warm, and pointed straight at booking a table."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785404/portfolio/local/gifa-menu.webp",
+    "alt": "Gifa menu page",
+    "caption": "The menu is data the restaurant edits, not an image that goes stale."
+   }
+  ],
+  "coverAlt": "Gifa Lounge website content dashboard",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788157/portfolio/local/gifa-dash-content.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785403/portfolio/local/gifa-home.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785404/portfolio/local/gifa-menu.webp"
+  ]
+ },
+ {
+  "id": "gotera",
+  "slug": "gotera",
+  "name": "Gotera",
+  "client": "Gotera",
+  "category": "Subscription food commerce",
+  "year": "2026",
+  "link": null,
+  "description": "A subscription service delivering real injera, made and packed in Ethiopia, to doors in London. Recurring plans, delivery scheduling and a customer account, with the whole storefront managed from its own dashboard.",
+  "body": "<h2>A subscription is not a shop</h2>\n<p>A one-off order ends at checkout. A subscription has to survive months of changes: a plan upgrade, a paused month, a new address, a failed payment, a delivery window that no longer suits. Gotera is built around the recurring relationship rather than the single transaction.</p>\n<h2>Plans, deliveries and the gap between them</h2>\n<p>A plan is what somebody pays for. A delivery is what actually arrives. Keeping them as separate concerns means a skipped week does not corrupt the billing history, and a billing change does not silently rewrite what is already scheduled.</p>\n<h2>Made in one country, delivered in another</h2>\n<p>The product is made and packed in Ethiopia and delivered in London, so the site carries provenance as content rather than as marketing decoration: what teff is, how the injera is fermented, and why that matters to somebody ordering from abroad.</p>",
+  "services": [
+   "Subscription plans",
+   "Recurring billing",
+   "Delivery scheduling",
+   "Customer accounts",
+   "Allergen & product information",
+   "Content dashboard",
+   "FAQ management"
+  ],
+  "outcomes": [
+   {
+    "value": "23",
+    "label": "Tables behind plans, deliveries and accounts"
+   },
+   {
+    "value": "2",
+    "label": "Countries in one fulfilment flow"
+   },
+   {
+    "value": "1",
+    "label": "Dashboard for plans, content and customers"
+   }
+  ],
+  "isFeatured": false,
+  "source": "local",
+  "screenshotsMobile": [],
+  "sortOrder": 8,
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Tipex",
+    "group": "UI",
+    "note": "Rich-text editor for CMS content."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   },
+   {
+    "name": "Stripe",
+    "group": "Payments",
+    "note": "Card payments."
+   },
+   {
+    "name": "Paraglide i18n",
+    "group": "i18n",
+    "note": "Compiled translations, English and Amharic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792199/portfolio/local/gotera-dash-plans.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792199/portfolio/local/gotera-dash-plans.webp",
+    "alt": "Gotera subscription plans admin",
+    "caption": "Plans are data with a kind, a price and a sort order, so a one-off order and a recurring subscription are the same table with different behaviour."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785405/portfolio/local/gotera-home.webp",
+    "alt": "Gotera injera subscription home page",
+    "caption": "The storefront leads with provenance, because the product is a familiar food arriving from far away."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785407/portfolio/local/gotera-subscribe.webp",
+    "alt": "Gotera subscription plan selection",
+    "caption": "Plan selection is the checkout: the recurring commitment is the product, not a cart of items."
+   }
+  ],
+  "coverAlt": "Gotera subscription plans admin",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792199/portfolio/local/gotera-dash-plans.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785405/portfolio/local/gotera-home.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785407/portfolio/local/gotera-subscribe.webp"
+  ]
+ },
+ {
+  "id": "lalo-bakery-solutions",
+  "slug": "lalo-bakery-solutions",
+  "name": "Lalo Bakery Solutions",
+  "client": "Lalo Bakery Solutions",
+  "category": "Food manufacturing & distribution",
+  "year": "2025",
+  "description": "A storefront and back office for a bakery-ingredients supplier: customer accounts and checkout on the front, and products, suppliers, stock adjustments, recipes and delivery pricing behind it.",
+  "body": "<h2>Two systems that had to be one</h2>\n<p>A bakery-ingredients supplier sells to the public and to trade, and the two look nothing alike from the inside. The shop needs a catalogue, a cart, a delivery fee and an order confirmation. The business needs to know what it paid, what it has left, what went to waste, and who owes it money.</p>\n<p>Building those separately is how a shop ends up selling something the warehouse ran out of last week.</p>\n<h2>The storefront</h2>\n<p>A catalogue with categories, product galleries and <strong>priced ranges</strong>: a product is sold in several pack sizes, each with its own price, rather than as a single line with a single number. Customers get real accounts: an order history, saved delivery addresses, a settings page and password reset.</p>\n<p><strong>Delivery pricing is server-side, always.</strong> The fee is looked up from the delivery area the customer picked, orders at or above the free-delivery threshold pay nothing whatever the area, and local pickup is free by definition. The same function serves checkout and the dashboard, so the fee quoted to a customer and the fee staff see on that order are the one number. A fee posted by a browser is never trusted.</p>\n<p><strong>Recipes</strong> are a genuine content section, not filler: each recipe carries prep and cook times, instructions, a featured image and its ingredient list, which links to the products the shop actually sells.</p>\n<h2>The back office</h2>\n<p><strong>Products and stock.</strong> Categories, images, suppliers, and a stock ledger built from adjustments: every movement is a signed row with a reason, and a sale links directly to the transaction that caused it. Damaged stock is recorded against the product rather than quietly deducted, so wastage is a number somebody can look at.</p>\n<p><strong>Orders.</strong> All orders, delivered, cancelled; each with its customer, its items, its delivery fee and its payment method. Customer records carry their full order history.</p>\n<p><strong>Money and reporting.</strong> Transactions, discounts, free-delivery thresholds, payment methods and a reports screen over the lot.</p>\n<p><strong>Administration.</strong> Roles and permissions with per-user overrides, a testimonials manager, a message inbox from the contact form, and a logo/branding manager.</p>\n<h2>The result</h2>\n<p>One place where a price change, a stock count and a customer&#39;s order are the same set of facts. The shop cannot sell what the warehouse does not have, and the month-end question (what did we actually make on this) has an answer that does not require assembling it from three spreadsheets.</p>\n",
+  "link": "https://lalobakerysolutions.com",
+  "screenshotsMobile": [],
+  "services": [
+   "E-commerce storefront & checkout",
+   "Customer accounts & order history",
+   "Server-side delivery pricing",
+   "Inventory & stock adjustments",
+   "Suppliers & damaged-stock tracking",
+   "Recipe library"
+  ],
+  "outcomes": [
+   {
+    "value": "1",
+    "label": "Delivery fee calculation, shared by shop and staff"
+   },
+   {
+    "value": "100%",
+    "label": "Of stock movements carry a reason"
+   },
+   {
+    "value": "2",
+    "label": "Audiences (retail and trade) on one catalogue"
+   }
+  ],
+  "source": "pulsedata",
+  "isFeatured": false,
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788158/portfolio/local/lalo-dash-overview.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788158/portfolio/local/lalo-dash-overview.webp",
+    "alt": "Lalo Bakery Solutions admin dashboard",
+    "caption": "Daily orders, revenue and average order value, with a reorder list that watches stock against each product low-stock level."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772440/portfolio/pulse/226e707f-7d0e-4f98-82fc-faff1fcc04fc.webp",
+    "caption": "The storefront: a supplier’s catalogue that has to read as a shop.",
+    "alt": "Lalo Bakery Solutions home page"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772439/portfolio/pulse/19a40c60-1944-4003-a5bd-c30fd720a423.webp",
+    "caption": "Products are sold in priced ranges: several pack sizes, each with its own price.",
+    "alt": "The product catalogue with categories"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772459/portfolio/pulse/60efc448-ed40-413c-a096-b8bdc68885c5.webp",
+    "caption": "Recipes link their ingredients to products the shop actually stocks.",
+    "alt": "The recipe library"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772452/portfolio/pulse/4a7df797-59b3-499e-ba98-43145677d77c.webp",
+    "caption": "The company story, editable from the dashboard like everything else.",
+    "alt": "The about page"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772443/portfolio/pulse/26180265-5464-491a-b493-e6d9fc61252c.webp",
+    "caption": "Enquiries land in a dashboard inbox rather than a mailbox nobody checks.",
+    "alt": "The contact page"
+   }
+  ],
+  "coverAlt": "Lalo Bakery Solutions admin dashboard",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788158/portfolio/local/lalo-dash-overview.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772440/portfolio/pulse/226e707f-7d0e-4f98-82fc-faff1fcc04fc.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772439/portfolio/pulse/19a40c60-1944-4003-a5bd-c30fd720a423.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772459/portfolio/pulse/60efc448-ed40-413c-a096-b8bdc68885c5.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772452/portfolio/pulse/4a7df797-59b3-499e-ba98-43145677d77c.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772443/portfolio/pulse/26180265-5464-491a-b493-e6d9fc61252c.webp"
+  ],
+  "sortOrder": 7
+ },
+ {
+  "id": "shimeles-abera-foundation",
+  "slug": "shimeles-abera-foundation",
+  "name": "Shimeles Abera Foundation",
+  "client": "Shimeles Abera Foundation",
+  "category": "Nonprofit & social programmes",
+  "year": "2025",
+  "description": "A nonprofit operations system where the public website is one view of the data and the dashboard is where the data lives, built so that nothing a programme manager might want to change next year requires a developer.",
+  "body": "<h2>The governing rule</h2>\n<p>One rule shaped every decision in this build:</p>\n<blockquote>\n<p>Nothing a non-technical Foundation staff member might reasonably want to change is hardcoded.</p>\n</blockquote>\n<p>Not the programme pillars and their colours. Not the page copy. Not the navigation, the footer, the phone numbers, the bank details or the social links. Not the workflow status labels or the order they appear in. Not the questions on a form, or their validation rules. Not the regions, the volunteer skills, the professions, the time slots, or the answers in the help panel. Not even the interface strings, which live in a translations table.</p>\n<p>The test applied to every screen: <em>if the programme manager wants to change this next year with no developer involved, can they?</em></p>\n<h2>What the Foundation actually does</h2>\n<p>It walks with families in Addis Ababa through medical crisis, old age, mental strain and the long work of getting a child through school. That means intake, assessment, casework and disbursement, and a public face that has to ask strangers for money and for time.</p>\n<h2>The system</h2>\n<p><strong>A dynamic form engine.</strong> Applications for assistance are not hand-written pages. A form is a row in <code>form_definitions</code> with its questions in <code>form_fields</code>, and one renderer draws it, validates it and files the submission. Adding a new intake form is configuration.</p>\n<p><strong>Beneficiary casework.</strong> Households, beneficiaries, assessed needs by category, case notes, documents and disbursements, with payment methods and accounts behind them.</p>\n<p><strong>Donations.</strong> Campaigns, donors, one-off gifts, recurring pledges, in-kind donations with itemised contents and photographs, and a reconciliation log against the external giving platforms.</p>\n<p><strong>Volunteering, with a safeguarding gate.</strong> This one is deliberately <em>not</em> form-builder driven. Volunteering ends in someone being placed with vulnerable people, so the questions the gate depends on are code rather than editable rows: a coordinator deleting the references section would be disabling a control, not editing copy. A volunteer cannot reach an approved stage while the safeguarding checklist is incomplete, and that check lives in the single transition function every path goes through, precisely so a direct POST cannot skip it.</p>\n<p><strong>Pillar-scoped access.</strong> A caseworker assigned to one programme pillar must not reach another pillar&#39;s case notes or documents: not through the interface, not by changing a URL, not by posting directly. The scope is folded into the query rather than hidden in the UI.</p>\n<p><strong>The rest.</strong> Blog, media library, testimonials, contact routing by subject and office, newsletter, an audit log over everything, and a cached impact-metrics layer for the public figures.</p>\n<h2>Why it matters</h2>\n<p>Most nonprofit websites are built once and then slowly become wrong, because every change costs a developer the organisation cannot afford. This one was built so the Foundation owns its own content, its own forms and its own workflow, and the developer is only needed when the <em>shape</em> of the work changes, not its wording.</p>\n",
+  "link": "https://shimelesaberafoundation.org",
+  "screenshotsMobile": [],
+  "services": [
+   "Dynamic form engine",
+   "Beneficiary casework & disbursement",
+   "Donations & recurring pledges",
+   "Volunteer safeguarding workflow",
+   "Pillar-scoped access control",
+   "Fully editable public site"
+  ],
+  "outcomes": [
+   {
+    "value": "62",
+    "label": "Tables behind one editable system"
+   },
+   {
+    "value": "0",
+    "label": "Hardcoded strings a manager might want to change"
+   },
+   {
+    "value": "2",
+    "label": "Server-side rules that cannot be bypassed"
+   }
+  ],
+  "isFeatured": true,
+  "sortOrder": 1,
+  "source": "pulsedata",
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "SQLite / libSQL",
+    "group": "Data",
+    "note": "Primary datastore, embedded and file-backed."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Tipex",
+    "group": "UI",
+    "note": "Rich-text editor for CMS content."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "Vitest",
+    "group": "Testing",
+    "note": "Unit tests over business logic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "sqlite",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788161/portfolio/local/shimeles-dash-overview.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788161/portfolio/local/shimeles-dash-overview.webp",
+    "alt": "Shimeles Abera Foundation staff dashboard overview",
+    "caption": "The overview opens with what needs a human today rather than vanity metrics: unopened volunteers, blocked checklists, transfers waiting on a donor match."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788160/portfolio/local/shimeles-dash-impact.webp",
+    "alt": "Impact dashboard with multi-currency giving charts",
+    "caption": "Impact is computed from the case and donation records, not typed in, and money is reported per currency because ETB, USD and EUR do not sum."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788159/portfolio/local/shimeles-dash-donations.webp",
+    "alt": "Donations and bank reconciliation screen",
+    "caption": "A pledge on the website is a promise, not money. It only counts toward the public total once it is matched against a bank statement here."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772486/portfolio/pulse/ecedf2ec-fbd2-4bf9-bda9-254d49a4728f.webp",
+    "caption": "Every word, image and colour on this page is a database row the Foundation edits itself.",
+    "alt": "Foundation home page with its mission statement and programme imagery"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772459/portfolio/pulse/628bbb1d-1f8e-4907-9abe-5f836c1ea4eb.webp",
+    "caption": "Drawn by the dynamic form engine: the questions and their validation rules are configuration, not code.",
+    "alt": "The assistance application form"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772473/portfolio/pulse/928ffd23-b316-475c-82b9-33be82a5c5f7.webp",
+    "caption": "The one form deliberately written in code, because a safeguarding gate depends on its questions.",
+    "alt": "The volunteer application with skills and availability"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772464/portfolio/pulse/72ae8345-7325-4f3b-9059-e37cbdba07ef.webp",
+    "caption": "Campaigns, one-off gifts, recurring pledges and in-kind donations, reconciled against external platforms.",
+    "alt": "The donation page with campaigns and giving options"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772481/portfolio/pulse/c8c31d52-afbf-4548-9ad9-63d58fbfa363.webp",
+    "caption": "Programme pillars (names, descriptions, icons and colours) are rows, so a new programme is not a deploy.",
+    "alt": "The about page describing the Foundation’s programme pillars"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772475/portfolio/pulse/9bd3cbec-2e52-4480-a4dd-84350950a456.webp",
+    "caption": "Stories and updates, written from the dashboard in both languages.",
+    "alt": "The Foundation’s blog index"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772465/portfolio/pulse/7af052d8-dc52-4e51-b8c6-3b66eaba0103.webp",
+    "caption": "Messages route by subject to the right office, and the subjects and offices are both editable.",
+    "alt": "The contact page with offices and subjects"
+   }
+  ],
+  "coverAlt": "Shimeles Abera Foundation staff dashboard overview",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788161/portfolio/local/shimeles-dash-overview.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788160/portfolio/local/shimeles-dash-impact.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788159/portfolio/local/shimeles-dash-donations.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772486/portfolio/pulse/ecedf2ec-fbd2-4bf9-bda9-254d49a4728f.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772459/portfolio/pulse/628bbb1d-1f8e-4907-9abe-5f836c1ea4eb.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772473/portfolio/pulse/928ffd23-b316-475c-82b9-33be82a5c5f7.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772464/portfolio/pulse/72ae8345-7325-4f3b-9059-e37cbdba07ef.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772481/portfolio/pulse/c8c31d52-afbf-4548-9ad9-63d58fbfa363.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772475/portfolio/pulse/9bd3cbec-2e52-4480-a4dd-84350950a456.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772465/portfolio/pulse/7af052d8-dc52-4e51-b8c6-3b66eaba0103.webp"
+  ]
+ },
+ {
+  "id": "spotless-enterprise-erp",
+  "slug": "spotless-enterprise-erp",
+  "name": "Spotless Enterprise ERP",
+  "client": "Spotless",
+  "category": "Facility management & contract workforce",
+  "year": "2025–present",
+  "description": "A complete operations system for a contract workforce and facility management business: staff records, Ethiopian-calendar payroll, client contracts, site billing, supply leasing and a maker-checker approval queue over all of it.",
+  "body": "<h2>The business, and why spreadsheets ran out</h2>\n<p>Spotless places cleaning and security staff on client sites across Addis Ababa and manages the supplies those sites consume. Both halves are people-heavy and site-heavy: dozens of contract staff, each tied to a site, a department, an employment status and a salary that moves with bonuses, overtime, deductions and pension.</p>\n<p>Every one of those facts used to live in a spreadsheet, and every one of them was also a <em>decision</em> somebody had to remember: which leave days had expired, which site had already been billed, whether the mop stock at Piassa was on hand or out on a site.</p>\n<h2>What the system does</h2>\n<p><strong>People.</strong> A full employee register: identity documents, guarantors, family, work history, education, position, department and site, with the whole lifecycle from hire to termination. Attendance is recorded per site and per period.</p>\n<p><strong>Leave that actually reconciles.</strong> Annual leave is <em>accrued</em>, not typed in. Each employee earns a grant on their employment anniversary, sized by a service-length bracket, and each grant carries its own expiry. Days are always spent oldest-grant-first, so the days closest to expiring are used before newer ones. The balance ledger settles every change as the difference between what a leave cost before and what it costs after, which is what stops an already-approved leave from being charged twice when somebody edits its dates.</p>\n<p><strong>Payroll on the Ethiopian calendar.</strong> Salary runs per month and per site, with overtime types, deduction types, pension classes, income tax bands and VAT/withholding rules all configurable rather than coded. Payslips, bank transfer lists and receipts come out the other end.</p>\n<p><strong>Money.</strong> A signed bank ledger: every movement is tied to the transaction that caused it, positive in and negative out, and the account&#39;s running balance moves by exactly that amount inside the same database transaction. The history of a transaction always sums to what the balance says.</p>\n<p><strong>Clients and sites.</strong> Customers, the sites they contract for, the contracts themselves, monthly payments, penalties, discounts, commission and renewals, with payment requests and a full payment history per contract.</p>\n<p><strong>Supplies as assets, not stock.</strong> The company owns its supplies whether they sit in the store or at a client site, so a lease is a location change, not a sale. The system tracks four figures (on hand, reserved, leased out and total owned) and moves a lease through pending → approved → issued → partially returned → returned → closed, writing the movement rows, the running total and the event log together in one transaction.</p>\n<p><strong>Approval on everything.</strong> A maker-checker queue covers every entity that carries approval fields, from a new employee to a payment request. One registry, one queue, one set of actions: the entity is data, and a single route serves all of them.</p>\n<p><strong>Permissions.</strong> Role-based, with per-user overrides. A super admin is not a flag but a derivation: someone holding every permission that exists. Add a new permission to the system and anyone who does not also receive it stops being a super admin automatically.</p>\n<h2>The point</h2>\n<p>Nothing here is novel on its own. What makes it work is that the same event is recorded once: a leave approval moves the ledger, a lease issue moves the stock, a payment moves the bank balance. Nobody reconciles anything at month end, because there is only one set of books to reconcile against.</p>\n",
+  "link": null,
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772435/portfolio/pulse/02aa6861-5eeb-409f-876e-69594e45748c.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772435/portfolio/pulse/02aa6861-5eeb-409f-876e-69594e45748c.webp",
+    "caption": "The staff register: filterable, sortable, exportable, and the entry point to each employee’s leave, salary and documents.",
+    "alt": "Employee register listing staff by department, site and employment status"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772477/portfolio/pulse/a341c2af-dbc6-4ec2-a417-44333ed7c930.webp",
+    "caption": "Every payment carries its bank, its method, its receipt and the person who recorded it. Dates are Ethiopian throughout.",
+    "alt": "Transaction list showing payments in Ethiopian-calendar dates"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772441/portfolio/pulse/2281e5a2-4585-4eff-983e-ad436a5f7651.webp",
+    "caption": "Supplies are tracked as owned assets: on hand, reserved, leased out and total owned are four different numbers.",
+    "alt": "Supplies inventory with stock levels"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772482/portfolio/pulse/cc7ac531-a181-4ee6-8d52-6adc51b0c009.webp",
+    "caption": "A lease moves pending → approved → issued → returned → closed, and each step writes stock movement and an event log together.",
+    "alt": "Supply lease records and their status"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772451/portfolio/pulse/496878ab-126e-47d5-b5aa-2836ab2ac8aa.webp",
+    "caption": "One approval queue serves every entity in the system, because the entity is data rather than a hand-written screen per table.",
+    "alt": "Pending requests queue awaiting approval"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772461/portfolio/pulse/703cd9b1-e112-4fae-bc4d-f70ace1a6c0c.webp",
+    "caption": "Clients, the sites they contract for, and the contracts underneath them.",
+    "alt": "Customer list with contract status"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772490/portfolio/pulse/fda169bc-1ebf-451e-a467-d5a9a4faa35a.webp",
+    "caption": "Each site links its staff, its contract, its monthly payments and the supplies leased to it.",
+    "alt": "Client site list"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772476/portfolio/pulse/9c193be1-6c00-4b1c-8600-d467d0c514c3.webp",
+    "caption": "Roles are built from a permission table, with per-user overrides. Super admin is derived, never a flag.",
+    "alt": "Role and permission configuration"
+   }
+  ],
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772435/portfolio/pulse/02aa6861-5eeb-409f-876e-69594e45748c.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772477/portfolio/pulse/a341c2af-dbc6-4ec2-a417-44333ed7c930.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772441/portfolio/pulse/2281e5a2-4585-4eff-983e-ad436a5f7651.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772482/portfolio/pulse/cc7ac531-a181-4ee6-8d52-6adc51b0c009.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772451/portfolio/pulse/496878ab-126e-47d5-b5aa-2836ab2ac8aa.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772461/portfolio/pulse/703cd9b1-e112-4fae-bc4d-f70ace1a6c0c.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772490/portfolio/pulse/fda169bc-1ebf-451e-a467-d5a9a4faa35a.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772476/portfolio/pulse/9c193be1-6c00-4b1c-8600-d467d0c514c3.webp"
+  ],
+  "screenshotsMobile": [],
+  "services": [
+   "HR & employee lifecycle",
+   "Leave accrual & expiry engine",
+   "Ethiopian-calendar payroll",
+   "Contracts & site billing",
+   "Supply leasing & stock",
+   "Bank ledger & expenses",
+   "Maker-checker approvals",
+   "Roles, permissions & audit log"
+  ],
+  "outcomes": [
+   {
+    "value": "1",
+    "label": "System of record, not four"
+   },
+   {
+    "value": "0",
+    "label": "Re-entry steps between payroll and the bank ledger"
+   },
+   {
+    "value": "50+",
+    "label": "Screens under one permission model"
+   }
+  ],
+  "isFeatured": true,
+  "sortOrder": 0,
+  "coverAlt": "The Spotless employee register, listing staff by department and site",
+  "source": "pulsedata",
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Argon2",
+    "group": "Auth",
+    "note": "Password hashing."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   },
+   {
+    "name": "Vitest",
+    "group": "Testing",
+    "note": "Unit tests over business logic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ]
+ },
+ {
+  "id": "spotless-general-trading",
+  "slug": "spotless-general-trading",
+  "name": "Spotless General Trading",
+  "client": "Spotless General Trading P.L.C.",
+  "category": "Facility services & general trading",
+  "year": "2025",
+  "description": "The public face of the same company whose operations we run: a corporate site that has to win contracts from corporations, NGOs and embassies, built alongside the ERP that delivers on them.",
+  "body": "<h2>Two systems for one company</h2>\n<p>Spotless is the client behind our largest ERP deployment. This is the other half of that engagement: the public site.</p>\n<p>They are deliberately different pieces of work. The ERP is where the company&#39;s staff, contracts, payroll and supplies live: nobody outside the business ever sees it. This site has one job, and it is a sales job: convince a procurement officer at a bank, an embassy or an NGO that a facility services contract is safe in this company&#39;s hands.</p>\n<h2>What a facility services buyer is actually checking</h2>\n<p>Not the design. They are checking whether the company is real, how long it has been doing this, how many people it can put on a site tomorrow, and whether anyone like them has used it before.</p>\n<p>So the site leads with the things that answer those questions:</p>\n<ul>\n<li><strong>The figures</strong>, animated into view rather than buried in prose: 62+ clients, 300+ current employees, 15+ years. For a contract that depends on staffing a site reliably, headcount <em>is</em> the pitch.</li>\n<li><strong>Four service lines</strong>, each given its own section rather than compressed into a paragraph: site cleaning, security personnel, training and consultancy, and property management with materials supply.</li>\n<li><strong>The client list by type</strong>: corporations, NGOs and embassies. In this market, who already trusts you is the strongest thing you can say.</li>\n<li><strong>Named leadership and team</strong>, with roles and responsibilities. A buyer signing a multi-site contract wants to know who is accountable.</li>\n</ul>\n<h2>The structure</h2>\n<p>Seven pages, each with a job: home, about, services, news, testimonials, FAQ and contact.</p>\n<p>The <strong>FAQ</strong> is the section most facility services sites skip and the one that does the most work here. It is grouped (general company questions, then service-related ones), and it answers the awkward, practical things a buyer would otherwise have to phone about: whether small and large contracts are both handled, whether packages can be tailored, how multi-site work is scaled and managed.</p>\n<p><strong>News</strong> and <strong>testimonials</strong> exist because a services company&#39;s credibility decays if its site looks abandoned. Both are content the company keeps current.</p>\n<h2>Why it looks the way it does</h2>\n<p>A corporate blue over photography of the Addis skyline, a serif wordmark, and a lot of air. That is a deliberate distance from the ERP&#39;s dense operational interface: the same client, two audiences, and no reason the software their staff use all day should look like the page a buyer sees once before signing.</p>\n",
+  "link": "https://spotlesset.com",
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772485/portfolio/pulse/e5173973-ebce-4861-8896-3376702a98b5.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772485/portfolio/pulse/e5173973-ebce-4861-8896-3376702a98b5.webp",
+    "caption": "Corporate blue over the city the company works in, with the client count in view immediately.",
+    "alt": "Spotless General Trading home page over an Addis Ababa skyline"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772445/portfolio/pulse/29980579-7cd8-4256-a30b-5836843486e0.webp",
+    "caption": "Cleaning, security, training and consultancy, and property management: four lines, four sections, no compression.",
+    "alt": "The services page listing the four service lines"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772442/portfolio/pulse/22cc658f-0ec6-4338-aad8-ac824fbf755a.webp",
+    "caption": "Figures, values, a leadership message and a named team: the four things a procurement officer checks.",
+    "alt": "The about page with company figures, values and named team members"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772488/portfolio/pulse/f2ae000c-94dd-48be-9a2b-7e84143b0760.webp",
+    "caption": "Grouped into company and service questions, answering the practical things a buyer would otherwise phone about.",
+    "alt": "The grouped FAQ page"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772462/portfolio/pulse/718c0755-066a-4fe7-8743-6c8dafd34441.webp",
+    "caption": "In a market where reputation travels by word of mouth, this page is the one that closes.",
+    "alt": "The testimonials page"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772454/portfolio/pulse/52902f76-ac19-4f61-b79b-b82e699d6510.webp",
+    "caption": "Kept current, because a services company’s credibility decays if its site looks abandoned.",
+    "alt": "The news page"
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772438/portfolio/pulse/144d8161-5a3c-4638-95d4-f0a09736efd2.webp",
+    "caption": "Arat Kilo, Addis Ababa, with the service area stated, which is itself a qualifying question.",
+    "alt": "The contact page with location details"
+   }
+  ],
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772485/portfolio/pulse/e5173973-ebce-4861-8896-3376702a98b5.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772445/portfolio/pulse/29980579-7cd8-4256-a30b-5836843486e0.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772442/portfolio/pulse/22cc658f-0ec6-4338-aad8-ac824fbf755a.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772488/portfolio/pulse/f2ae000c-94dd-48be-9a2b-7e84143b0760.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772462/portfolio/pulse/718c0755-066a-4fe7-8743-6c8dafd34441.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772454/portfolio/pulse/52902f76-ac19-4f61-b79b-b82e699d6510.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788772438/portfolio/pulse/144d8161-5a3c-4638-95d4-f0a09736efd2.webp"
+  ],
+  "screenshotsMobile": [],
+  "services": [
+   "Corporate marketing site",
+   "Service line presentation",
+   "Credibility & team pages",
+   "Grouped FAQ",
+   "News & testimonials",
+   "Enquiry routing"
+  ],
+  "outcomes": [
+   {
+    "value": "2",
+    "label": "Systems for one client: the site and the ERP behind it"
+   },
+   {
+    "value": "4",
+    "label": "Service lines, each given its own section"
+   },
+   {
+    "value": "3",
+    "label": "Buyer types addressed: corporate, NGO, embassy"
+   }
+  ],
+  "technology": [],
+  "coverAlt": "The Spotless General Trading home page over an Addis Ababa skyline",
+  "source": "pulsedata",
+  "sortOrder": 11,
+  "isFeatured": false
+ },
+ {
+  "id": "steward-of-life",
+  "slug": "steward-of-life",
+  "name": "Steward of Life",
+  "client": "Steward of Life",
+  "category": "Nonprofit & ministry",
+  "year": "2026",
+  "link": null,
+  "description": "A bilingual site for an Ethiopian non-profit developing servant leaders, empowering youth and strengthening Christian marriages: donations, events, books and resources, a blog and a gallery, over a 58-table content and membership schema.",
+  "body": "<h2>An organisation with more than one job</h2>\n<p>Steward of Life runs leadership development, youth work and marriage ministry, publishes books and resources, holds events and takes donations. Each of those is a different content type with a different audience, and lumping them into one \"pages\" table would have made the site unmaintainable within a year.</p>\n<h2>Bilingual as a data problem</h2>\n<p>The audience reads Amharic and English. Translation lives in the database next to the content it translates rather than in files that need a deploy, so the organisation can publish in both languages without a developer.</p>\n<h2>Giving is the point</h2>\n<p>Donation is not a footer link. It is a first-class flow with its own page, and the rest of the site exists to earn the click.</p>",
+  "services": [
+   "Donations",
+   "Events & registration",
+   "Books & resources library",
+   "Blog",
+   "Gallery",
+   "Member accounts",
+   "Bilingual content (EN/AM)",
+   "Admin dashboard"
+  ],
+  "outcomes": [
+   {
+    "value": "58",
+    "label": "Tables behind content, members and giving"
+   },
+   {
+    "value": "2",
+    "label": "Languages served from the database"
+   },
+   {
+    "value": "3",
+    "label": "Programmes under one platform"
+   }
+  ],
+  "isFeatured": false,
+  "source": "local",
+  "screenshotsMobile": [],
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Tipex",
+    "group": "UI",
+    "note": "Rich-text editor for CMS content."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   },
+   {
+    "name": "Chapa",
+    "group": "Payments",
+    "note": "Ethiopian payment gateway."
+   },
+   {
+    "name": "Google Gemini",
+    "group": "AI",
+    "note": "Shopping assistant answering against the live catalogue."
+   },
+   {
+    "name": "Paraglide i18n",
+    "group": "i18n",
+    "note": "Compiled translations, English and Amharic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788163/portfolio/local/sol-dash-map.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788163/portfolio/local/sol-dash-map.webp",
+    "alt": "Steward of Life dashboard map",
+    "caption": "Rather than a wall of links, the admin opens as a map: every section the organisation manages, laid out as one route."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788162/portfolio/local/sol-dash-donations.webp",
+    "alt": "Steward of Life donations table",
+    "caption": "Donations carry currency, bank, receiving account, cause and recurrence, with the next charge date computed for recurring gifts."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785410/portfolio/local/sol-home.webp",
+    "alt": "Steward of Life home page",
+    "caption": "The organisation runs three programmes; the home page has to introduce all of them without becoming a list."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785408/portfolio/local/sol-donate.webp",
+    "alt": "Steward of Life giving page",
+    "caption": "Giving is a first-class flow with its own page rather than a link in the footer."
+   }
+  ],
+  "coverAlt": "Steward of Life dashboard map",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788163/portfolio/local/sol-dash-map.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788788162/portfolio/local/sol-dash-donations.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785410/portfolio/local/sol-home.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788785408/portfolio/local/sol-donate.webp"
+  ],
+  "sortOrder": 6
+ },
+ {
+  "id": "tmax-electronics",
+  "slug": "tmax-electronics",
+  "name": "TMax Electronics",
+  "client": "TMax Electronics",
+  "category": "E-commerce & inventory",
+  "year": "2025",
+  "link": "https://tmaxelectronics.com",
+  "description": "A storefront and the inventory back office behind it: catalogue, discounts and token-based checkout on the front, suppliers, stock adjustments and fulfilment states on the back, with an AI shopping assistant on top.",
+  "body": "<h2>Two systems, one product</h2>\n<p>A shop is the easy half. The hard half is everything that keeps the shop honest: what is actually in stock, what it cost, which supplier it came from, what was damaged in transit, and where each order has got to. TMax is both halves in one SvelteKit application.</p>\n<h2>The storefront</h2>\n<p>Catalogue with categories, tags and per-variant package options, discounts, a token-based checkout that does not require an account up front, and customer accounts carrying order history. Prices and content are bilingual through Paraglide, because the audience is.</p>\n<h2>The back office</h2>\n<p>Suppliers and price ranges, stock adjustments, damaged goods, order fulfilment states and customer records, all under role-based admin. The blog and testimonials are managed from the same place, so marketing does not need a deploy.</p>\n<h2>The assistant</h2>\n<p>A shopping assistant built on Google Gemini answers questions against the live catalogue rather than a static FAQ, so it stays correct as stock changes.</p>",
+  "services": [
+   "Storefront & catalogue",
+   "Token-based checkout",
+   "Customer accounts & order history",
+   "Supplier & inventory management",
+   "Stock adjustments & damaged goods",
+   "Order fulfilment states",
+   "AI shopping assistant",
+   "Role-based admin",
+   "Blog & testimonials"
+  ],
+  "outcomes": [
+   {
+    "value": "51",
+    "label": "Products across 38 suppliers"
+   },
+   {
+    "value": "2",
+    "label": "Languages, content and catalogue"
+   },
+   {
+    "value": "1",
+    "label": "Codebase for shop and back office"
+   }
+  ],
+  "isFeatured": true,
+  "source": "local",
+  "screenshotsMobile": [],
+  "stack": [
+   {
+    "name": "SvelteKit",
+    "group": "Framework",
+    "note": "Server load functions, form actions and endpoints; SSR by default."
+   },
+   {
+    "name": "Svelte 5",
+    "group": "Framework",
+    "note": "Runes for reactivity ($state, $derived, $effect)."
+   },
+   {
+    "name": "TypeScript",
+    "group": "Language",
+    "note": "Strict mode across app and server code."
+   },
+   {
+    "name": "MySQL",
+    "group": "Data",
+    "note": "Primary datastore."
+   },
+   {
+    "name": "Drizzle Kit",
+    "group": "Data",
+    "note": "Committed SQL migrations rather than push-to-prod diffing."
+   },
+   {
+    "name": "Drizzle ORM",
+    "group": "Data",
+    "note": "Typed schema and queries, with migrations generated from the schema."
+   },
+   {
+    "name": "Better Auth",
+    "group": "Auth",
+    "note": "Session-based auth with server-side verification."
+   },
+   {
+    "name": "Superforms",
+    "group": "Forms",
+    "note": "Progressive-enhancement forms with server-side validation."
+   },
+   {
+    "name": "Zod",
+    "group": "Forms",
+    "note": "One schema validating both client and server."
+   },
+   {
+    "name": "Tipex",
+    "group": "UI",
+    "note": "Rich-text editor for CMS content."
+   },
+   {
+    "name": "Lucide",
+    "group": "UI",
+    "note": "Icon set."
+   },
+   {
+    "name": "TanStack Table",
+    "group": "UI",
+    "note": "Sorting, filtering and pagination for admin tables."
+   },
+   {
+    "name": "Bits UI",
+    "group": "UI",
+    "note": "Headless primitives behind the component library."
+   },
+   {
+    "name": "Chart.js",
+    "group": "UI",
+    "note": "Reporting charts."
+   },
+   {
+    "name": "Embla",
+    "group": "UI",
+    "note": "Carousels."
+   },
+   {
+    "name": "Dark mode",
+    "group": "UI",
+    "note": "System-aware theme switching."
+   },
+   {
+    "name": "Tailwind CSS",
+    "group": "UI",
+    "note": "Utility-first styling with a project design token layer."
+   },
+   {
+    "name": "jsPDF",
+    "group": "Reporting",
+    "note": "Server-side PDF generation for reports and receipts."
+   },
+   {
+    "name": "jsPDF AutoTable",
+    "group": "Reporting",
+    "note": "Tabular report export."
+   },
+   {
+    "name": "Chapa",
+    "group": "Payments",
+    "note": "Ethiopian payment gateway."
+   },
+   {
+    "name": "Google Gemini",
+    "group": "AI",
+    "note": "Shopping assistant answering against the live catalogue."
+   },
+   {
+    "name": "Paraglide i18n",
+    "group": "i18n",
+    "note": "Compiled translations, English and Amharic."
+   },
+   {
+    "name": "Client image compression",
+    "group": "Infrastructure",
+    "note": "Uploads compressed in the browser before hitting the server."
+   },
+   {
+    "name": "Nodemailer",
+    "group": "Infrastructure",
+    "note": "Transactional email over SMTP."
+   }
+  ],
+  "technology": [
+   "svelte",
+   "typescript",
+   "mysql",
+   "drizzle",
+   "tailwind"
+  ],
+  "featured": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792201/portfolio/local/tmax-dash-orders.webp",
+  "images": [
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792201/portfolio/local/tmax-dash-orders.webp",
+    "alt": "TMax Electronics admin orders queue",
+    "caption": "Orders carry their fulfilment state, so the back office is the same system that took the sale rather than a spreadsheet beside it."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779943/portfolio/local/tmax-home2.webp",
+    "alt": "TMax Electronics storefront home page",
+    "caption": "The storefront: a rotating hero over the live catalogue, with search, cart and language switch always in reach."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779944/portfolio/local/tmax-shop3.webp",
+    "alt": "TMax product catalogue with filters",
+    "caption": "The catalogue filters on price, brand, category and tag at once, and each card carries its own package options and price."
+   },
+   {
+    "url": "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779942/portfolio/local/tmax-about.webp",
+    "alt": "TMax Electronics about page",
+    "caption": "Marketing pages are content-managed from the same admin as the catalogue."
+   }
+  ],
+  "coverAlt": "TMax Electronics admin orders queue",
+  "screenshots": [
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788792201/portfolio/local/tmax-dash-orders.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779943/portfolio/local/tmax-home2.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779944/portfolio/local/tmax-shop3.webp",
+   "https://res.cloudinary.com/dzkwtwnsi/image/upload/v1788779942/portfolio/local/tmax-about.webp"
+  ],
+  "sortOrder": 3
+ }
+]

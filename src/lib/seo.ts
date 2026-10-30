@@ -63,6 +63,8 @@ const TECH_CASING: Record<string, string> = {
 	nodejs: 'Node.js',
 	node: 'Node.js',
 	docker: 'Docker',
+	go: 'Go',
+	golang: 'Go',
 	drizzle: 'Drizzle',
 	pocketbase: 'PocketBase',
 	elementor: 'Elementor',

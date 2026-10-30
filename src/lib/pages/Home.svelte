@@ -18,10 +18,10 @@
          place, and still runs on the hydrated page where an intro transition
          would not. -->
     <h1 in:typewriter={{ speed: 1 }} style="--enter-delay: 80ms" class="enter mb-3 font-head text-4xl font-bold leading-tight text-ink dark:text-white sm:text-5xl lg:text-7xl">
-      Design. Develop. Deploy.</h1>
+      I build the software businesses run on.</h1>
 
     <p class="enter max-w-xl font-body text-lg sm:text-xl lg:text-2xl" style="--enter-delay: 260ms">
-      I am Nahusenay, a SvelteKit developer and full-stack product engineer. I ship complete business systems on my own: schema design, authentication, payroll engines, admin dashboards, reporting, and the deployment onto the server afterwards. Over 20 applications in production across MySQL, PostgreSQL and SQLite, on Linux, cPanel and Vercel.</p>
+      I am Nahusenay, a SvelteKit developer and full-stack product engineer. I build ERPs with 70 to 90 table schemas, payroll on the Ethiopian calendar and multi-currency reconciliation end to end on my own, then deploy them onto Linux, cPanel or Vercel. Over 20 applications in production; most are private client systems, so the ones below are the ones I can show.</p>
 
     <!-- One primary action that keeps people on the site, one secondary, and
          the CV demoted to a quiet link. It used to be the only call to action,

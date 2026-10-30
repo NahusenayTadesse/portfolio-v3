@@ -29,9 +29,7 @@
    bg-surface border border-line shadow-sm dark:bg-white/5 dark:border-white/10"
     data-reveal="scale" use:reveal >
 
-     {#if success}
-     <h2 class="text-center text-head text-xl bg-green-400 p-4 rounded-lg">Thank you for your message</h2>
-     {/if}
+
 
 
     <h2 class="text-3xl font-head font-bold text-ink dark:text-white text-center mb-4" transition:typewriter={{ speed: 1 }}>
@@ -39,12 +37,19 @@
     </h2>
  
  
-    <input type="email" name="email" placeholder="Your Email" 
+    <!-- Honeypot: off screen and out of the tab order, so only bots fill it. -->
+    <div class="absolute -left-[9999px]" aria-hidden="true">
+        <label>Website <input type="text" name="website" tabindex="-1" autocomplete="off" /></label>
+    </div>
+
+    <label for="contact-email" class="sr-only">Your email</label>
+    <input id="contact-email" type="email" name="email" maxlength="254" placeholder="Your Email" 
     class="p-2 rounded-lg focus:outline-none focus:ring-2
   focus:ring-background-1 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-2 shadow-lg placeholder:text-muted dark:placeholder:text-white" required>
 
 
-  <textarea name="message" placeholder="Your Message" class="h-[150px] p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-2 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-1 shadow-lg placeholder:text-muted dark:placeholder:text-white" required></textarea>
+  <label for="contact-message" class="sr-only">Your message</label>
+  <textarea id="contact-message" name="message" maxlength="5000" placeholder="Your Message" class="h-[150px] p-2 rounded-lg focus:outline-none focus:ring-2 focus:ring-background-2 dark:bg-secondary-900 dark:text-white bg-transparent border-1 border-background-1 shadow-lg placeholder:text-muted dark:placeholder:text-white" required></textarea>
 
 
   <button type="submit" disabled={submitting} aria-busy={submitting}
@@ -75,7 +80,12 @@
 {#if status === 400}
     <Toast class={toast}>
     <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
-    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please fill all the fields.</h2>
+    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">There was an error sending your message, please check your email address and message.</h2>
+</Toast>
+{:else if status === 429}
+    <Toast class={toast}>
+    <ExclamationCircleSolid class="text-red-500 w-15 h-15" />
+    <h2 class="font-head text-2xl text-red-700 dark:text-red-400">You have sent several messages already. Please try again a little later.</h2>
 </Toast>
 {:else if status === 500}
 

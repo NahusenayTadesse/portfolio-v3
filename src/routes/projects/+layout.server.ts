@@ -1,5 +1,5 @@
 import { db } from '$lib/firebase-admin';
-import { featuredUrl } from '$lib/projects';
+import { featuredUrl, leadOutcome } from '$lib/projects';
 import type { LayoutServerLoad } from './$types';
 
 /**
@@ -18,7 +18,7 @@ export const config = {
 export const load: LayoutServerLoad = async () => {
   try {
     const snapshot = await db.collection("projects")
-  .select("name", "slug", "category", "featured", "description", "year", "client", "services", "sortOrder")
+  .select("name", "slug", "category", "featured", "description", "year", "client", "services", "sortOrder", "outcomes")
   .get();
 
     const projects = snapshot.docs.map(doc => ({
@@ -30,7 +30,8 @@ export const load: LayoutServerLoad = async () => {
       year: doc.data().year ?? null,
       client: doc.data().client ?? null,
       services: doc.data().services ?? [],
-      sortOrder: doc.data().sortOrder ?? 0
+      sortOrder: doc.data().sortOrder ?? 0,
+      outcome: leadOutcome(doc.data().outcomes)
     }));
 
 

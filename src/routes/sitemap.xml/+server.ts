@@ -1,5 +1,6 @@
 import { db } from '$lib/firebase-admin';
 import { SITE_URL } from '$lib/seo';
+import { articles } from '$lib/writing';
 
 /** XML text nodes must not contain raw &, < or >. */
 function xml(value: string): string {
@@ -36,6 +37,8 @@ export async function GET() {
 ${[
 	url('/', '1.0', 'weekly'),
 	url('/projects', '0.9', 'weekly'),
+	url('/writing', '0.9', 'weekly'),
+	...articles.map((a) => url(`/writing/${a.slug}`, '0.8', 'monthly')),
 	...slugs.map((slug) => url(`/projects/${encodeURIComponent(slug)}`, '0.8', 'monthly'))
 ].join('\n')}
 </urlset>

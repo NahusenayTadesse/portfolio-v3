@@ -10,6 +10,7 @@
       { name: 'Home', href: '/' },
       { name: 'About Me', href: '/#about' },
       { name: 'Projects', href: '/projects' },
+      { name: 'Writing', href: '/writing' },
       { name: 'Contact', href: '/#contact' }
    ];
 

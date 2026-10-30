@@ -114,7 +114,7 @@ const websiteSchema = jsonLd({
   {/if}
  </section>
 
- <div id="contact" role="region" aria-label="Projects Section" >
+ <div id="contact" role="region" aria-label="Contact Section" >
     <Contact success={form?.success} status={form?.status} />
 </div>
 

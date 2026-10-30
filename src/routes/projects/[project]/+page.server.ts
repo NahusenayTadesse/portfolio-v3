@@ -2,9 +2,9 @@ import { db } from '$lib/firebase-admin';
 import { featuredUrl } from '$lib/projects';
 import { error } from '@sveltejs/kit';
 import type { PageServerLoad } from './$types';
+import type { Outcome } from '$lib/projects';
 
 type ProjectImage = { url: string; caption: string | null; alt: string };
-type Outcome = { value: string; label: string };
 type StackItem = { name: string; group: string; note: string };
 
 export const load: PageServerLoad = async ({ params }) => {

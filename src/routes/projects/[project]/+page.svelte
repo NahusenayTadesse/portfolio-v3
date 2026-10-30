@@ -4,8 +4,13 @@
     import Seo from '$lib/Seo.svelte';
   import { reveal } from '$lib/reveal';
     import { jsonLd, SITE_URL, AUTHOR, absolute, techLabel } from '$lib/seo';
+    import { articles } from '$lib/writing';
 
     let { data } = $props();
+
+    const related = $derived(
+        articles.filter((a) => data.project && a.projects?.includes(data.project.slug))
+    );
 
     // Long-tail entry point: "<project name> svelte" / "<technology> case study".
     // Title carries the stack so the query and the result share vocabulary.
@@ -331,6 +336,19 @@ import { ArrowUpRightFromSquareOutline} from "flowbite-svelte-icons"
           </figure>
         {/each}
       </div>
+    </section>
+  {/if}
+
+  {#if related.length}
+    <section class="flex flex-col gap-3" data-reveal use:reveal>
+      <h2 class="font-head text-2xl font-bold text-ink dark:text-white">Written about this build</h2>
+      {#each related as article (article.slug)}
+        <a href="/writing/{article.slug}"
+          class="group rounded-xl border border-line bg-surface p-5 shadow-sm transition-shadow hover:shadow-md dark:border-white/10 dark:bg-white/5">
+          <p class="font-head text-lg font-bold text-ink group-hover:underline dark:text-white">{article.title}</p>
+          <p class="mt-1 text-sm text-muted dark:text-gray-300">{article.description}</p>
+        </a>
+      {/each}
     </section>
   {/if}
 

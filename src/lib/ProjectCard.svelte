@@ -1,10 +1,18 @@
 <script lang="ts">
+	import type { Outcome } from '$lib/projects';
+
 	let {
 		project,
 		/** The first row on a page should not lazy-load; it is the LCP candidate. */
 		eager = false
 	}: {
-		project: { name: string; slug: string; category?: string; featured?: string | null };
+		project: {
+			name: string;
+			slug: string;
+			category?: string;
+			featured?: string | null;
+			outcome?: Outcome | null;
+		};
 		eager?: boolean;
 	} = $props();
 </script>
@@ -38,6 +46,12 @@
 		<h3 class="font-head text-lg font-bold text-ink dark:text-white">{project.name}</h3>
 		{#if project.category}
 			<p class="text-sm text-muted dark:text-gray-300">{project.category}</p>
+		{/if}
+		{#if project.outcome}
+			<p class="mt-2 flex items-baseline gap-2 border-t border-line pt-3 dark:border-white/10">
+				<span class="shrink-0 whitespace-nowrap font-head text-2xl font-bold text-ink dark:text-white">{project.outcome.value}</span>
+				<span class="text-sm text-muted dark:text-gray-300">{project.outcome.label}</span>
+			</p>
 		{/if}
 		<span
 			class="mt-auto pt-3 text-sm font-semibold text-ink underline-offset-4 group-hover:underline dark:text-background-2"
